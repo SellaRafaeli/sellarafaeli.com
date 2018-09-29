@@ -1,0 +1,12 @@
+<% 
+  my_msgs  = $msgs.get_many(from: cuid) + $msgs.get_many(to: cuid)
+  user_ids = my_msgs.mapo('to').uniq.compact + my_msgs.mapo('from').uniq.compact - [cuid]
+  user_ids = user_ids.uniq
+%>
+
+<h2> Chats </h2>
+
+<% user_ids.each do |uid| %>
+  <% u = $users.get(uid) %>
+  <a href='/chats/<%=uid%>'><%= u[:nick] %> </a>
+<% end %>

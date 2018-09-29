@@ -1,0 +1,12 @@
+<h2> Find the best developers </h2>
+<form method='get' action='search' />
+  <div class='ig'>
+    <input name='q' type=text autofocus placeholder='frontend, python, qa' value="<%=pr[:q]%>">
+    <span class='hint' > What are you looking for? </span>
+  </div>
+  <button class='btn blue red'> Search </button>
+</form>
+
+<% if pr[:q] %>
+  <%= erb :search_results %>
+<% end %>

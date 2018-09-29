@@ -1,0 +1,58 @@
+<form method='post' action='/profile'>
+<div class='zig'>
+  <h2> You </h2>
+</div>
+
+<div class='ig'>
+  <label>Nickname:</label>
+  <input type=text autofocus name=nick value="<%= cu[:nick] %>" >
+  <span class='hint'> This is how others will see you. </span>
+</div>
+
+<div class='ig'>
+  <label> Describe yourself briefly </label>
+  <textarea name=desc ><%= cu[:desc] %></textarea>
+  <span class='hint'> Briefly describe yourself in one or two sentences. </span>
+</div>
+
+
+  <div class='ig'>
+    <label> What are you looking for? </label>
+    <textarea name=interest ><%= cu[:interest] %></textarea>    
+    <span class='hint'> 
+      <% if is_org %> 
+      Specify position, experience necessary, compensation, or anything else that is important to mention.
+      <% else %>
+      Specify position, industry, technologies, location, compensation, or anything else that is important to you. 
+      <% end %>
+      </span>
+  </div>
+
+<!-- <div class='hidden'>
+  <div class='ig'>
+    <label> What is your relevant experience? </label>
+    <textarea name=experience ><%= cu[:experience] %></textarea>
+    <span class='hint'> </span>
+  </div>
+</div>
+ -->
+<div class='ig'>
+  <div> Links </div>
+  <span class='hint'> Share what you want 
+  <% if is_org %> 
+  candidates
+  <% else %>
+  companies
+  <% end %>
+
+  to see about you. Links make it easier for people to see if you'd be a good fit. </span>    
+  <!-- <hr/> -->
+  <small> LinkedIn: <input type=text name=linkedin value="<%=cu[:linkedin]%>"> </small>
+  <small> Facebook: <input type=text name=facebook value="<%=cu[:facebook]%>"> </small>
+  <small> Github:   <input type=text name=github   value="<%=cu[:github]%>"  > </small>
+  <small> Homepage: <input type=text name=homepage value="<%=cu[:homepage]%>"> </small>
+  <small> Other:    <input type=text name=other    value="<%=cu[:other]%>"   > </small>
+</div>
+
+<button href="#" class="btn zsmall green">Submit</button>
+</form>

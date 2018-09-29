@@ -1,0 +1,14 @@
+<% u = user = $users.get(pr[:id]) %>
+
+<h2> <%= u[:nick] %> </h2>
+
+<h3> Description </h3>
+<%= u[:desc] %>
+
+<h3> Looking for </h3>
+<%= u[:interest] %>
+
+<hr/>
+<div>
+  <a class='btn green small' href='/chats/<%=u[:_id]%>'>Message <%= u[:nick]%></a>
+</div>

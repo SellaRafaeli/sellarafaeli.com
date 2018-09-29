@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AnonyJob</title>
+  <link rel="stylesheet" href="/css/vital.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->  
+  <%= erb :"layout/style" %>        
+
+</head>
+<body >  
+  <div class='menu'>    
+    <%= erb :"layout/flash" %>        
+    <div class=''>
+      <a href='/'> <%= $app_name %> </a>
+      <% if cu %> 
+
+        <a href='/profile'> profile (<%= cu[:email] %>) </a> 
+        <a href='/chats'> chats </a> 
+        <a href='/logout'> log out </a> 
+      <% else %>
+        <a href='/'> sign up </a> 
+        <a href='/login'> log in </a> 
+      <% end %>
+    </div>
+  </div>  
+  <div class='container'>
+    <%= yield %> 
+  </div>
+    <%#= erb :"footer" %>           
+  
+
+<script src='/js/lib/jquery-2.2.1.min.js'></script>
+<script src='/js/lib/turbolinks.js'></script>
+</body>
+</html>

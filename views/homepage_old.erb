@@ -1,0 +1,19 @@
+<div class='ct'>
+<h1> Top Jobs </h1>
+
+<h2> Find Top Jobs </h2>
+
+<input onkeyup=getOrgs(this.value) />
+
+<div id='search_results'></div>
+
+</div>
+
+<script>
+function getOrgs(v) {
+  $.get('/search',{k: v}).then(res => $("#search_results").html(res))
+}
+
+getOrgs('go')
+
+</script>
