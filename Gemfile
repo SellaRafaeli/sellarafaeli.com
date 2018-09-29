@@ -25,6 +25,7 @@ gem 'ripl-color_result'    #used to color console output?
 gem 'colorize' 
 gem 'literate_randomizer'
 gem 'faker'
+gem 'kramdown'
 # gem 'bcrypt'
 # gem 'paypal-sdk-adaptivepayments'
 # gem 'twilio-ruby'

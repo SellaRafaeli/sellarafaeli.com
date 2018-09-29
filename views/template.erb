@@ -1,0 +1,58 @@
+<html>
+<head> 
+    <meta charset='utf-8'>
+    <title><%= basename %></title>
+    <meta name="viewport" content="width=device-width">
+    <!-- <link rel="shortcut icon" href="/favicon_thumb.ico"/> -->
+    <link rel="shortcut icon" href="/img/whatsapp_profile.jpeg"/>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+    <link href="/css/main.css" rel="stylesheet"></link>
+
+    <!--     <link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
+    <link href="/css/github_markdown.css" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Aua5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+    <!-- <link href="/css/mobile.css" rel="stylesheet" media="handheld">
+    <link href="/css/swiss.css" rel="stylesheet"></link>
+    <link href="/css/markdown.css" rel="stylesheet"></link> -->
+</head>
+
+<body>
+    <div class=top>
+        <a href=/>sellarafaeli.com</a>
+    </div>  
+
+    <article class=markdown-body>                      
+        <%= content %>
+    </article>
+    
+    <!-- <footer style='font-size:80%'>
+        <div style='border-top:2px solid lightgrey; margin: 15px'></div>
+        Feel free to <a href='/contact'>drop me a line</a>. I <a href='/blog'>write extensively</a> about advanced web development and am available for <a href='/consulting.html'>consulting</a> anywhere in the world. 
+        <div>© <a href='/'>sellarafaeli.com</a>, <%=Time.now.year%></div>
+    </footer> -->
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-100769576-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <script type="text/javascript">
+    var clicky_site_ids = clicky_site_ids || [];
+    clicky_site_ids.push(100778787);
+    (function() {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = '//static.getclicky.com/js';
+      ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+    })();
+    </script>
+</body>
+</html>

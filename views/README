@@ -1,0 +1,5 @@
+sellarafaeli.com's README.  Contact me at sella.rafaeli@gmail.com. 
+
+#$ filewatcher '**/*.md' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILENAME; date'
+$ filewatcher '**/*.md' 'ruby build.rb; echo "ran build on"-$FILENAME; date'
+- use Chrome's LivePage to reload the page all the time 

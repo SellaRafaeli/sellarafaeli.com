@@ -9,7 +9,7 @@ puts "requiring gems..."
 Bundler.require
 Dotenv.load
 
-$app_name   = 'topjobs'
+$app_name   = 'sellarafaeli.com'
 
 require './setup'
 require './my_lib'
@@ -22,21 +22,38 @@ require_all './mw'
 
 include Helpers #makes helpers globally available 
 
-def reset_data
-  $users.delete_many
-  $users.add(_id: 'fiverr', nick: 'fiverr', email: 'hr@fiverr.com', is_org: true, login_token: 'fiverr')
-  $users.add(_id: 'sella', email: 'sella.rafaeli@gmail.com', login_token: 'sella', desc: "frontend I love React", interest: 'I want a cool company', nick: 'js-ninja')
-  $users.add(_id: 'other', email: 'other.user@gmail.com', login_token: 'other')
-
-  $msgs.delete_many
-  $msgs.add(from: 'fiverr', to: 'sella', text: 'hello sella')
-  $msgs.add(from: 'fiverr', to: 'other', text: 'hello other')
-end
-
 get '/ping' do
   {msg: "pong from #{$app_name}", val: 'CarWaiting (is the new TrainSpotting)'}
 end
 
 get '/' do
-  is_org ? (redirect '/search') : (erb :homepage, layout: :layout2)
+  md(:index)
 end
+
+get '/about' do
+  md(:about)
+end
+
+get '/contact' do
+  md(:contact)
+end
+
+get '/consulting' do
+  md(:consulting)
+end
+
+get '/blog' do
+  md(:'blog/index')
+end
+
+get '/blog/:id' do
+  md(:"blog/#{pr[:id]}")
+end
+
+def md(file)  
+  text = File.read 'views/'+file.to_s+'.md'
+  html = Kramdown::Document.new(text, input: 'GFM', coderay_line_numbers: nil).to_html
+  
+  erb :template, locals: {content: html, basename: file}
+end
+
