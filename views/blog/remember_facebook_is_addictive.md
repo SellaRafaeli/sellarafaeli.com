@@ -2,7 +2,7 @@
 
 How much control do you really have over how much you use Facebook?
 
-(Disclaimer: I have friends who work at Facebook. I myself interviewed for Facebook at least once. I was not accepted at that time.)
+(Disclaimer: I have friends who work at Facebook. I myself interviewed for Facebook at least once.)
 
 **The Facebook Company employees thousands of brilliant engineers whose full-time job is to make the Facebook Product highly addictive. The more addictive their product is, the more people will use it, and the more money The Facebook Company (and its employees) will make.**
 
