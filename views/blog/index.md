@@ -3,6 +3,7 @@
 
 (now that's what I'm talking about)
 
+* [Remember Facebook Is Addictive](/blog/remember_facebook_is_addictive) <span class='date'>30/9/18</span>
 * [JS const/let/var - misleading && bikeshedding](/blog/const_let_var_misleading) <span class='date'>28/9/18</span>
 * <img src='/img/star.png' class='star'> [Dependency Madness](/blog/dependency_madness) <span class='date'> 27/7/18 </span>
 <!-- * <img src='/img/star.png' class='star'> [My Software Background One-Pager](/software)  -->
