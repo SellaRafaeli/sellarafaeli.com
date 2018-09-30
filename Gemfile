@@ -14,7 +14,7 @@ gem 'bson_ext'
 gem 'json', '2.0.2'
 gem 'pry-byebug',           '2.0.0' # binding.pry for breakpoints
 gem 'tux'
-gem 'activesupport',        '4.0.0' # utility functions like hash.slice
+gem 'activesupport',        '5.0.0' # utility functions like hash.slice
 gem 'rack-parser',          '0.6.0' # rack middleware
 gem 'require_all'
 gem 'httpclient',           '2.5.2'
@@ -38,6 +38,6 @@ group :development, :test do
   gem 'puma'
   # gem 'shotgun'
   gem 'sinatra-reloader'
-  gem 'faker' 
+  # gem 'faker' 
   # gem 'nokogiri'
 end
