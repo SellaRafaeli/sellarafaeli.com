@@ -18,15 +18,17 @@ Don't be addicted to Facebook. Browsing Facebook will not necessarily make you h
 
 This cannot be stressed enough: *using Facebook will not make you happy, because Facebook is not designed to make you happy*. Facebook is designed to make you addicted to it, so they can sell you ads. 
 
-You may know that some drugs like meth and heroin are very addictive. You should not use meth or heroin even once, because they are extremely addictive substances. Using them even once can get you addicted and literally ruin your life. You should not let your child or loved ones use meth or heroin. Not even once. We don't know if Facebook is as addictive as meth. But we do know Facebook is literally designed by thousands of brilliant people working together, to make it as addictive as possible. 
+You may know that some drugs like meth and heroin are very addictive. You should not use meth or heroin even once, because they are extremely addictive substances. Using them even once can get you addicted and literally ruin your life. You should not let your child or loved ones use meth or heroin. Not even once. We don't know if Facebook is as addictive as meth. But we do know Facebook is literally designed by thousands of brilliant people working together, to use your personal information to make it as addictive as possible. The more of your information you give them, the easier their job becomes and the more addicted you will become. Every click, every word you write, every post you read - is recorded, **for this purpose**. 
 
 When you use Facebook, you are pitting your own willpower and brainpower against a joint effort of thousands of brilliant engineers who have worked for years to design a product that is meant to be addictive. A product that is presumably already being used by most people you know. Are you stronger-willed and smarter than the joint effort of all of Facebook's brilliant employees? Will you be able to resist their strategies? If you've ever known someone who was addicted - you know how hard it is to quit. 
 
-Just how much do you trust your own willpower? Can you easily stick to working out? Could you easily quit smoking? Most people think their willpower is stronger than average. Do you think you are stronger and smarter than Facebook's team? 
+Just how much do you trust your own willpower? Can you easily stick to working out? Could you easily quit smoking? Most people think their willpower is stronger than average. Do you think you are stronger and smarter than Facebook's team? How about your child?
+
+Have you ever been talked into doing something you thought was a bad idea? Do you think you are able to resist Facebook's 25,000 genius scientists working together to get you addicted?
 
 **Using Facebook will not make you happy, because Facebook is not designed to make you happy. Facebook is designed to make you addicted to it, so they can sell ads.**
 
-We used to think cigarettes were good for us. The cigarette industry was huge. Smoking was cool. We don't think so any more. 
+We used to think cigarettes were good for us. They were cool. The cigarette industry was huge. Smoking was cool. We don't think so any more. Will we look back and be happy about the years spent addicted to Facebook? Will we regret letting them get us addicted? 
 
 Be strong and take care of yourself. Is Facebook good for us? Can we really quit at any time? 
 
