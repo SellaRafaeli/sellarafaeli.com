@@ -11,7 +11,7 @@ gem 'bson_ext'
 #gem 'activerecord'
 #gem 'sinatra-activerecord'
 #gem 'rake'
-gem 'json', '1.8.3'
+gem 'json', '2.0.2'
 gem 'pry-byebug',           '2.0.0' # binding.pry for breakpoints
 gem 'tux'
 gem 'activesupport',        '4.0.0' # utility functions like hash.slice
