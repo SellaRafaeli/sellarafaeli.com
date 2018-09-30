@@ -4,6 +4,8 @@ How much control do you really have over how much you use Facebook?
 
 (Disclaimer: I have friends who work at Facebook. I myself interviewed for Facebook at least once.)
 
+If a group of a thousand brilliant scientists designed a product that was famously highly addictive - would you feel comfortable using it every day? Would you want your child to use it?
+
 **The Facebook Company employees thousands of brilliant engineers whose full-time job is to make the Facebook Product highly addictive. The more addictive their product is, the more people will use it, and the more money The Facebook Company (and its employees) will make.**
 
 It is designed by thousands of brilliant people to be addictive. And the more you and your friends and family use it, the more The Facebook Company knows about you, and thus the more addictive it becomes - for you. This is by design, because Facebook uses this knowledge to make it more addictive for you personally. Facebook engineers record every click you make and every word you write and use advanced algorithms and genius scientists to figure out how to make you come back for more. 
@@ -21,8 +23,6 @@ You may know that some drugs like meth and heroin are very addictive. You should
 When you use Facebook, you are pitting your own willpower and brainpower against a joint effort of thousands of brilliant engineers who have worked for years to design a product that is meant to be addictive. A product that is presumably already being used by most people you know. Are you stronger-willed and smarter than the joint effort of all of Facebook's brilliant employees? Will you be able to resist their strategies? If you've ever known someone who was addicted - you know how hard it is to quit. 
 
 Just how much do you trust your own willpower? Can you easily stick to working out? Could you easily quit smoking? Most people think their willpower is stronger than average. Do you think you are stronger and smarter than Facebook's team? 
-
-If a group of a thousand brilliant biochemists designed a product that was famously highly addictive - would you feel comfortable using it every day? Would you want your child to use it? 
 
 **Using Facebook will not make you happy, because Facebook is not designed to make you happy. Facebook is designed to make you addicted to it, so they can sell ads.**
 
