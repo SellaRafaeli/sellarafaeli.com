@@ -2,8 +2,6 @@
 
 How much control do you really have over how much you use Facebook?
 
-(Disclaimer: I have friends who work at Facebook. I myself interviewed for Facebook at least once.)
-
 If a group of a thousand brilliant scientists designed a product that was famously highly addictive - would you feel comfortable using it every day? Would you want your child to use it?
 
 **The Facebook Company employees thousands of brilliant engineers whose full-time job is to make the Facebook Product highly addictive. The more addictive their product is, the more people will use it, and the more money The Facebook Company (and its employees) will make.**
