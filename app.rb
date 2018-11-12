@@ -39,8 +39,13 @@ end
 get '/shouldnt_timeout' do
   stream do |out|
     out.puts "a"
-    sleep 35
+    sleep 20
     out.puts "b"
+    sleep 20
+    out.puts "c"
+    sleep 20
+    out.puts "d"
+    sleep 20
     out.puts 'should be OK'
   end
 end
