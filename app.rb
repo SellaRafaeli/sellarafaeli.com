@@ -13,6 +13,7 @@ $app_name   = 'sellarafaeli.com'
 
 require './setup'
 require './my_lib'
+
 require_all './db'
 require_all './admin'
 require_all './bl'
@@ -20,11 +21,31 @@ require_all './comm'
 require_all './logging'
 require_all './mw'
 
+require "sinatra/streaming"
+
 include Helpers #makes helpers globally available 
 
 get '/ping' do
   {msg: "pong from #{$app_name}", val: 'CarWaiting (is the new TrainSpotting)'}
 end
+
+get '/timeout' do
+  stream do |out|
+    sleep 35
+    out.puts "should never reach"
+  end
+end
+
+get '/shouldnt_timeout' do
+  stream do |out|
+    out.puts " "
+    sleep 35
+    out.puts 'should be OK'
+  end
+end
+
+
+
 
 get '/' do
   md(:index)
