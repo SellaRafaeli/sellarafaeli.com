@@ -39,7 +39,7 @@ end
 get '/shouldnt_timeout' do
   stream do |out|
     out.puts "a"
-    sleep 10
+    sleep 35
     out.puts "b"
     out.puts 'should be OK'
   end
