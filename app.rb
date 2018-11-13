@@ -39,14 +39,19 @@ end
 get '/shouldnt_timeout' do
   stream do |out|
     out.puts "a"
+    out.flush
     sleep 20
     out.puts "b"
+    out.flush
     sleep 20
     out.puts "c"
+    out.flush
     sleep 20
     out.puts "d"
+    out.flush
     sleep 20
     out.puts 'should be OK'
+    out.flush
   end
 end
 
