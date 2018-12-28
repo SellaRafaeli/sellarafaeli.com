@@ -4,17 +4,17 @@
 
 **`const` only enforces constantness on a superficial level, at the base variable assignment.**
 
-```
+~~~ js
 const x = {};
 x = 'foo' //boom
-```
+~~~
 
 It famously does not prevent modifying internal fields of an object or array.
 
-```
+~~~ js
 const x = {msg: 'hi'}
 x.msg = 'bye' //works. uh-oh
-```
+~~~
 
 `const` simply doesn't guarantee complete `const`-ness. To clarify: *a variable declared as `const` can still change its value.* This is clearly misleading; the whole point of a `const` statement is to signify the value will not change. The net result is even worse than not using `const` to begin with - you have now indicated a misleading aspect about the data, which the interpreter/transpiler will not enforce. 
 

@@ -27,6 +27,8 @@ error do
 end
 
 not_found do
+  redirect '/'
+  return;
   return {err: 'No such route'}
   if request_expects_json?
     content_type 'application/json'
