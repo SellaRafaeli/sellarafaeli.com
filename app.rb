@@ -55,9 +55,10 @@ get '/shouldnt_timeout' do
   end
 end
 
-
-
-
+get '/load/:x' do
+  {hits: $redis.incr('load')}
+end
+  
 get '/' do
   md(:index)
 end
