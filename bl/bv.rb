@@ -2,7 +2,7 @@ def scrape_crunchbase(name = 'airbnb')
 	url  = "https://www.crunchbase.com/organization/#{name}"
 	doc  = HTTParty.get(url)
 	html = Nokogiri.HTML(doc)
-	
+	# wip
 end
 
 def crunchbase_data(name = 'foo')
