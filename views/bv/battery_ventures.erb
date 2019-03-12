@@ -5,29 +5,36 @@
 canvas{
 	display: block;
   width: 75% !important;
+  margin: auto;
+}
+.ct {
+	text-align: center;
 }
 </style>
 
+<div class='content ct'>
+	<b> Search an org: </b>
+	<form method='get' action='/bv' style='display: inline'>
+		<input name=org autofocus />
+		<button> Go! </button>
+	</form>	
 
-<b> Search an org: </b>
-<form method='get' action='/bv' style='display: inline'>
-	<input name=org autofocus />
-</form>	
-<button> Go! </button>
-<% if org %>
-	<script>
-		var org = {name:"<%= org %>"};
-		console.log(org);
-	</script>
-	<h2> Org: <%= pr[:org] %> </h2>
+	<% if org %>
+		<script>
+			var org = {name:"<%= org %>"};
+			console.log(org);
+		</script>
+		<h2> Showing Results for: <%= pr[:org] %> </h2>
 
-	<div id='data'>
-	</div>
+		<div id='data'>
+		</div>
 
-	<div>	
-		<canvas id="myChart"></canvas>
-	</div>
-<% end %>
+		<div class='ct'>	
+			<canvas id="myChart"></canvas>
+		</div>
+	<% end %>
+</div>
+
 
 <script src='/js/lib/charts.min.js'></script>
 <script src='/js/lib/jquery-2.2.1.min.js'></script>
@@ -57,12 +64,15 @@ function loadChart(barChartData) {
 };
 
 function getOrgData() {
+	if (!window.org) return;
 	$.get('/bv/org?name='+org.name).then(res=>{
 		console.log(res.crunchbase);
 		loadChart(res.crunchbase);
-		$('#data').text(JSON.stringify(res));
+		//$('#data').text(JSON.stringify(res));
 	})
 }
 
 getOrgData();
 </script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
