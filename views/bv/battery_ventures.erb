@@ -1,0 +1,72 @@
+<%
+	org = pr[:org]
+%>
+<style>
+canvas{
+	display: block;
+  width: 75% !important;
+}
+</style>
+
+
+<b> Search an org: </b>
+<form method='get' action='/bv' style='display: inline'>
+	<input name=org autofocus />
+</form>	
+<button> Go! </button>
+<% if org %>
+	<script>
+		var org = {name:"<%= org %>"};
+		console.log(org);
+	</script>
+	<h2> Org: <%= pr[:org] %> </h2>
+
+	<div id='data'>
+	</div>
+
+	<div>	
+		<canvas id="myChart"></canvas>
+	</div>
+<% end %>
+
+<script src='/js/lib/charts.min.js'></script>
+<script src='/js/lib/jquery-2.2.1.min.js'></script>
+<script>
+function loadChart(barChartData) {
+	var ctx = document.getElementById('myChart').getContext('2d');
+	window.myBar = new Chart(ctx, {
+		type: 'bar',
+		data: barChartData,
+		options: {
+			responsive:true,
+			title: {
+				display: true,
+				text: 'Money raised (M$)'
+			},
+			tooltips: {
+				mode: 'index',
+				intersect: false
+			},
+			responsive: true,
+			scales: {
+				xAxes: [{
+					stacked: true,
+				}],
+				yAxes: [{
+					stacked: true
+				}]
+			}
+		}
+	});
+};
+
+function getOrgData() {
+	$.get('/bv/org?name='+org.name).then(res=>{
+		console.log(res.crunchbase);
+		loadChart(res.crunchbase);
+		$('#data').text(JSON.stringify(res));
+	})
+}
+
+getOrgData();
+</script>
