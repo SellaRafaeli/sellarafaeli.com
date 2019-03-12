@@ -1,3 +1,10 @@
+def scrape_crunchbase(name = 'airbnb')
+	url  = "https://www.crunchbase.com/organization/#{name}"
+	doc  = HTTParty.get(url)
+	html = Nokogiri.HTML(doc)
+	
+end
+
 def crunchbase_data(name = 'foo')
 	{
 	labels: ['January 2019', 'February 2019', 'March 2019'],

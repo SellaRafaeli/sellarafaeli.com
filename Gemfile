@@ -18,7 +18,7 @@ gem 'activesupport',        '5.0.0' # utility functions like hash.slice
 gem 'rack-parser',          '0.6.0' # rack middleware
 gem 'require_all'
 gem 'httpclient',           '2.5.2'
-gem 'rest-client', '1.8.0'
+gem 'rest-client'#, '1.8.0'
 gem 'dotenv'
 gem 'babosa',                '1.0.2' #creating slugs. (.to_slug)
 gem 'ripl-color_result'    #used to color console output?
@@ -33,11 +33,13 @@ gem 'postmark'
 gem "sinatra-cross_origin", "~> 0.3.1"
 # gem 'mysql2'
 #gem 'base62' #allows compression of mongo ids
+gem 'nokogiri'
+gem 'httparty'
 
 group :development, :test do
   gem 'puma'
   # gem 'shotgun'
   gem 'sinatra-reloader'
   # gem 'faker' 
-  # gem 'nokogiri'
+  # 
 end
