@@ -36,6 +36,7 @@ body {
 		<button> Go! </button>
 	</form>	
 	<div>(try e.g.: <a href='/bv?org=cleanly'> Cleanly </a> or <a href='/bv?org=toka'> Toka </a> or  <a href='/bv?org=cynet'> Cynet </a>)</div>
+	
 	<% if org %>
 		<script>
 			var org = {name:"<%= org %>"};
@@ -43,6 +44,7 @@ body {
 		</script>
 		<h5> Showing Results for: <%= pr[:org] %> </h5>
 
+		<div> See also <a target=_blank href='https://crunchbase.com/organization/<%=pr[:org]%>'> <%= pr[:org] %> (Crunchbase page) </a></div>
 		<div class='loading' style='display: none;'> Loading... </div>
 		<div style=''>		
 			<div class='box'>
