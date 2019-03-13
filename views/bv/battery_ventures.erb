@@ -12,9 +12,14 @@ canvas{
 }
 .box {
 	border: 1px solid whitesmoke;
-	border-radius: 10px;
-	font-size: 20px;
-	margin:10px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin: 10px;
+  display: inline-block;
+  width: 200px;
+  padding: 10px;
+  vertical-align: top;
+  box-shadow: 5px 10px #888888;
 }
 .box label {
 	font-weight: bold;
@@ -68,6 +73,11 @@ body {
 			</div>
 
 			<div class='box'>
+				<label> BV Last interaction date </label>
+				<div class='bvlastinteractiondate'></div>
+			</div>
+
+			<div class='box'>
 				<label> Last Money Raised </label>
 				<div class='latestmoneyraise'></div>
 			</div>
@@ -116,6 +126,14 @@ function loadChart(barChartData) {
 	});
 };
 
+function colorDates() {
+	if (new Date($('.bvlastinteractiondate').text()) > new Date($('.mostrecentfinancingdate').text())) {
+		$('.bvlastinteractiondate, .mostrecentfinancingdate').css('color','blue');
+	} else {
+		$('.bvlastinteractiondate, .mostrecentfinancingdate').css('color','red');
+	}
+}
+
 function getOrgData() {
 	if (!window.org) return;
 	$('.loading').show();
@@ -124,6 +142,7 @@ function getOrgData() {
 		Object.keys(res).forEach(k => {
 			$('.'+k).text(res[k])
 		})
+		colorDates();
 		//loadChart(res.crunchbase);
 		//$('#data').text(JSON.stringify(res));
 	})
