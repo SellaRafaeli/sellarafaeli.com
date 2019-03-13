@@ -10,21 +10,71 @@ canvas{
 .ct {
 	text-align: center;
 }
+.box {
+	border: 1px solid whitesmoke;
+	border-radius: 10px;
+	font-size: 20px;
+	margin:10px;
+}
+.box label {
+	font-weight: bold;
+	margin-bottom: 10px;
+	display: inline-block;
+	font-style: oblique;
+	color: gray;
+}
+body {
+	font-family: Domine;
+}
 </style>
 
+<link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
 <div class='content ct'>
 	<b> Search an org: </b>
-	<form method='get' action='/bv' style='display: inline'>
-		<input name=org autofocus />
+	<form method='get' action='/bv' style='display: inline-block; margin:10px'>
+		<input name=org autofocus value="<%=pr[:org]%>" />
 		<button> Go! </button>
 	</form>	
-
+	<div>(try e.g.: <a href='/bv?org=cleanly'> Cleanly </a> or <a href='/bv?org=toka'> Toka </a> or  <a href='/bv?org=cynet'> Cynet </a>)</div>
 	<% if org %>
 		<script>
 			var org = {name:"<%= org %>"};
 			console.log(org);
 		</script>
-		<h2> Showing Results for: <%= pr[:org] %> </h2>
+		<h5> Showing Results for: <%= pr[:org] %> </h5>
+
+		<div class='loading' style='display: none;'> Loading... </div>
+		<div style=''>		
+			<div class='box'>
+				<label> Name </label>
+				<div class='companyname'></div>
+			</div>
+
+			<div class='box'>
+				<label> Address </label>
+				<div class='address'></div>
+			</div>
+
+			<div class='box'>
+				<label> Industry </label>
+				<div class='industry'></div>
+			</div>
+
+			<div class='box'>
+				<label> Most Recent Financing Update </label>
+				<div class='mostrecentfinancingdate'></div>
+			</div>
+
+			<div class='box'>
+				<label> Last Money Raised </label>
+				<div class='latestmoneyraise'></div>
+			</div>
+
+			<div class='box'>
+				<label> Total Funding </label>
+				<div class='totalfunding'></div>
+			</div>
+		</div>
 
 		<div id='data'>
 		</div>
@@ -39,6 +89,7 @@ canvas{
 <script src='/js/lib/charts.min.js'></script>
 <script src='/js/lib/jquery-2.2.1.min.js'></script>
 <script>
+	$('.odometer').text(11234)
 function loadChart(barChartData) {
 	var ctx = document.getElementById('myChart').getContext('2d');
 	window.myBar = new Chart(ctx, {
@@ -65,9 +116,13 @@ function loadChart(barChartData) {
 
 function getOrgData() {
 	if (!window.org) return;
+	$('.loading').show();
 	$.get('/bv/org?name='+org.name).then(res=>{
-		console.log(res.crunchbase);
-		loadChart(res.crunchbase);
+		$('.loading').hide();
+		Object.keys(res).forEach(k => {
+			$('.'+k).text(res[k])
+		})
+		//loadChart(res.crunchbase);
 		//$('#data').text(JSON.stringify(res));
 	})
 }
@@ -75,4 +130,4 @@ function getOrgData() {
 getOrgData();
 </script>
 
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+

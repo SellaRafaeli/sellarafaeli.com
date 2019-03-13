@@ -1,11 +1,30 @@
-def scrape_crunchbase(name = 'airbnb')
-	url  = "https://www.crunchbase.com/organization/#{name}"
-	doc  = HTTParty.get(url)
-	html = Nokogiri.HTML(doc)
-	# wip
+CRUNCHBASE_MOCK_DATA_URL = "https://spreadsheets.google.com/feeds/list/1DPp6ZRs7h46CqbF7g3QS9E60jyM2PTdqpmYWtl6IydE/1/public/values?alt=json"
+
+SFDC_MOCK_DATA_URL = "https://spreadsheets.google.com/feeds/list/1DPp6ZRs7h46CqbF7g3QS9E60jyM2PTdqpmYWtl6IydE/2/public/values?alt=json"
+
+def spreadsheet_to_arr(url)
+	rows = JSON.parse(open(url).read)['feed']['entry'].map {|row| kvs = row.select {|k,v| k.start_with?('gsx$') } }.map {|row| row = row.map {|k,v| [k.sub('gsx$',''),v['$t'] ]; }.to_h };
 end
 
-def crunchbase_data(name = 'foo')
+def crunchbase_mock_data
+	spreadsheet_to_arr(CRUNCHBASE_MOCK_DATA_URL)
+end
+
+def sfdc_mock_data
+	spreadsheet_to_arr(SFDC_MOCK_DATA_URL)
+end
+
+def org_data(name)
+	cb_rows = crunchbase_mock_data
+	cb_data = cb_rows.select {|r| r.hwia[:companyname].to_s.downcase == name.to_s.downcase }[0] || {}
+
+	sfdc_rows = sfdc_mock_data
+	sfdc_data = sfdc_rows.select! {|r| r.hwia[:companyname].to_s.downcase == name.to_s.downcase }[0] || {}
+
+	sfdc_data.merge(cb_data)
+end
+
+def crunchbase_data_old(name = 'foo')
 	{
 	labels: ['January 2019', 'February 2019', 'March 2019'],
 	datasets: [{
@@ -43,6 +62,7 @@ get '/bv' do
 end
 
 get '/bv/org' do
-	{crunchbase: crunchbase_data, sfdc: sfdc}
+	#{crunchbase: crunchbase_data, sfdc: sfdc}
+	org_data(pr[:name])
 end
 
