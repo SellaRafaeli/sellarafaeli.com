@@ -6,7 +6,9 @@ I usually work with JavaScript (including Vanilla, jQuery, Vue, React, Angular1-
 
 My previous experience includes 8200 (5 years), CS @ Hebrew University (*magna cum laude*), Fiverr (2 years), and CTO of a social network, [yes.no](https://medium.com/@sellarafaeli/yes-no-architecture-of-a-social-network-startup-in-2016-d6d2989ca1b3) (10 employees). <!-- For the last couple of years I have been the web architect at [Hysolate](https://www.hysolate.com/). -->
 
-You can read more [about me](/about), my [blog](/blog), my [résumé](https://docs.google.com/document/d/1BjCh9nQDAibvDXBWxOYrAsRDsT6JfKbpW_nW2Ezl4Hc/export?format=pdf), or [contact me](/contact).
+You can read more [about me](/about), my [blog](/blog), my [résumé](https://docs.google.com/document/d/1BjCh9nQDAibvDXBWxOYrAsRDsT6JfKbpW_nW2Ezl4Hc/export?format=pdf), or [contact me](/contact). 
+
+As of May 2019, I am especially interested in discussing epistemology and the nature of our understanding of reality. My latest paper on the matter, "Like Hamlet Discussing Shakespeare", is available [here](/hamlet_discussing_shakespeare_may_2019.pdf). 
 
 <!-- I am also into [software](/software.html), [hiking](/hiking.html), [psychology](/psychology.html), [spirituality](/spirituality.html), and [languages](/languages.html). 
 
