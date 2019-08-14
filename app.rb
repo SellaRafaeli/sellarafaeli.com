@@ -87,6 +87,10 @@ get '/blog/:id' do
   md(:"blog/#{pr[:id]}")
 end
 
+get '/okta_callback' do 
+  pr
+end
+
 def md(file)  
   text = File.read 'views/'+file.to_s+'.md'
   html = Kramdown::Document.new(text, input: 'GFM', coderay_line_numbers: nil).to_html
