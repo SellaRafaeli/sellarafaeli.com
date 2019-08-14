@@ -35,6 +35,8 @@ GEM
       concurrent-ruby (~> 1.0)
     json (2.0.2)
     kramdown (2.1.0)
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     literate_randomizer (0.4.0)
     method_source (0.9.2)
     mime-types (3.2.2)
@@ -131,6 +133,7 @@ DEPENDENCIES
   httpclient (= 2.5.2)
   json (= 2.0.2)
   kramdown
+  kramdown-parser-gfm
   literate_randomizer
   mongo (~> 2.1.0)
   nokogiri
