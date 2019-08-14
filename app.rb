@@ -71,6 +71,10 @@ get '/contact' do
   md(:contact)
 end
 
+get '/philosopher' do
+  md(:philosopher)
+end
+
 get '/consulting' do
   md(:consulting)
 end
