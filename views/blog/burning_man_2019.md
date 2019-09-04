@@ -52,7 +52,7 @@ The reasons for the SF area being exceptionally forward are an interesting acade
 
 The reasons being what they may, the results are obvious and undeniable: the best people in the world are drawn to the Bay Area. I am Israeli, and it is obvious that the Israelis one finds in SF & around are 'the best' Israelis, in the sense that they are accepting, kind, humble, and less ego-driven. 
 
-(This is a group attribute, and some variance and anomalies still exist. Clearly douchebags can be found everywhere, and certainly in tech/entrepreneurship circles. Obvserving the mean or mode or the entire distribution, however, will clearly show a noticeable positive edge for [group] in SF vs [same group] in other places.)
+(This is a group attribute, and some variance and anomalies still exist. Clearly douchebags can be found everywhere, and certainly in tech/entrepreneurship circles. Observing the mean or mode or the entire distribution, however, will clearly show a noticeable positive edge for [group] in SF vs [same group] in other places.)
 
 Upon observing this trend, it turns out to be the case for other groups as well; not just Israelis. The 'Russians' (ex-USSR) folks you meet in SF are the best 'Russians'. The White Americans you meet in SF are the best White Americans. (These are the socio-ethnic groups I am personally intimately familiar with; it seems to me that other groups follow the same pattern, and I'd love to hear others' impressions on this). 
 
