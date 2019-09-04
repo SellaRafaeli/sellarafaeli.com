@@ -1,3 +1,5 @@
+## Burning Man 2019: Reflections
+
 So, alright. I just came back from Burning Man 2019, which if you have somehow not heard about is currently about the coolest thing in the hipster/tech/liberal community. It is also woefully explained, and so I will do my best to explain my personal thoughts about it. There are surely better texts about Burning Man, but this one is mine. 
 
 As a very brief intro, Burning Man is a festival held completely by its own visitors, in the Black Rock desert of northwestern Nevada. In a dusty, hot arid splotch of nowhere, once a year 70,000 hippies gather together to build a city that exists for a week and throw a wild-ass party of acceptance and self-fulfillment, self-expression, crazy art, and partying. Since the desert supplies nothing, all the participants bring their own stuff from home - water, shade, food, tents, clothes, night lights, games, bikes, the party itself, etc. The temporary erected 'Black Rock City' is a shanty-town of well-organized sand streets, and a transient makeshift community of people who just want to be nice to each other suddenly comes to life for that one week in the desert. The weather is harsh: the days are very hot, and the nights are very cold. Such are deserts. There is also dust, dust everywhere, all the time. Dust that will never leave you or your stuff, in more ways than one. 
@@ -16,13 +18,13 @@ So yeah. It takes a few days to figure out all of the above (depends on how much
 
 Ok, great. I'm super happy I managed to write out all of the above. It is of course not comprehensive, but I'm proud of what I did manage to write. Now that the introduction is done, some of the finer points I wanted to make, in no particular order:
 
-* Acceptance 
+### Acceptance 
 
 One underrated (and perhaps unspoken) theme of Burning Man is Acceptance. Generally, participants are extremely accepting. One of the principles touted is 'radical inclusion', which means anyone can join Burning Man, but it goes further than that: you will be accepted. Your skin color, your sexual preference, your gender, your nakedness, your style, your dirtiness (showers in the desert are, uh, sparse), your clothes. Dress however you want. Be whatever you want. It's fine. We love you just the way you are. You can hang out with us. This acceptance is powerful. People *really* have a need to be accepted. An awesome therapist, over a long period of professional care-giving, can (hopefully) give someone this feeling, and this is what you get at Burning Man. You are accepted, and you are great just the way you are, and people accept you. Hopefully, mixed with realizing who you really are (see above), you can also *accept yourself*, which is a powerful, powerful sensation. You are probably not perfect, and that's fine. You're not perfect physically, and you're not perfect mentally, or socially. In certain ways, you probably kind of suck. And that's ok, we all do. And we accept you. And you can accept yourself. In fact, we expect you to participate and actively accept everybody else. You are the party, yo. 
 
 So a group of nice people decided to go to the desert and have a good time and accept each other and do some art and games and party. This is what you get. It's pretty cool. 
 
-* Drugs
+### Drugs
 
 Drugs are super important and interesting (which is itself the topic of a post or a book or a whole life devoted to exploring consciousness). If any law enforcement is reading, then I would of course never encourage anyone to take any illegal drugs, but with some drugs there is no 'maybe' about it: You take this shit, and you *know*. 
 
@@ -34,7 +36,7 @@ But the thing is... it gets boring. I want the adventure; I want the excitement.
 
 (This ^ is the type of shit that certain drugs will get you. I could say much more about the life-altering and mind-expanding virtues of certain mixtures of chemical/natural compounds, mental exercises and set & settings, and I do. If you'd like to further discuss this, especially if you are in the Bay Area, please contact me: sella.rafaeli@gmail.com.)
 
-* San Francisco is a magical city 
+### San Francisco is a magical city 
 
 I was born in a 'suburb' of San Francisco called Palo Alto, which was and is home to Stanford University, and is today famous for being part of Silicon Valley and the ridiculous amount of innovation (especially technological innovation) that is spearheaded in the area. San Francisco and Silicon Valley have been, for many years, a paragon of progression. 
 
@@ -48,9 +50,9 @@ Upon observing this trend, it turns out to be the case for other groups as well;
 
 All of this is to say that SF is a magical place, with magical results. The revolutions of free love, female sexuality, gay acceptance, transgender acceptance, hippies, weed acceptance, psychedelic acceptance, anti-war, pro-choice, pro-helping the poor: all of this has been led/co-led from San Francisco. Burning Man, too, started in San Francisco. All of these things coming from the same place is not a coincidence. San Francisco is a magical city. In Burning Man, you meet A LOT of people from San Francisco and the Bay Area, to the point where it's a cliche. People joke about it, but as my wife Lily says: in every joke there is a little bit of joke. San Francisco is truly a magical place, where you can meet magical people, who will accept your shit and encourage you to be your true self and will go party with you in the desert to contemplate and celebrate this acceptance. And yeah Mister or Ms. Reader dude/tte, you should come too, we've been waiting for you. 
 
-(Recommended reading: https://en.wikipedia.org/wiki/Summer_of_Love, https://en.wikipedia.org/wiki/San_Francisco_values)
+(Recommended reading: [Summer of Love](https://en.wikipedia.org/wiki/Summer_of_Love), [San Francisco Values](https://en.wikipedia.org/wiki/San_Francisco_values))
 
-* Hippies
+### Hippies
 
 Words mean what people think they mean, and this word is a loaded one, so I will do my best to explain what *I* mean when using it, and why I use it. I believe it is an accurate portrayal to say that I am a hippie. My wife Lily is probably one as well, but she can say so for herself. 
 
@@ -64,7 +66,7 @@ So yeah - I think I'm kind of a hippie. Not the type you'd expect, because I sup
 
 And Burning Man is exactly a festival of hippies. 
 
-* Survival
+### Survival
 
 Burning Man is not a place/event that is hard to survive. Or rather, it wasn't for me. As I noted above, I have had my particular set of life circumstances. I'm not the world's toughest guy, but I've spent sufficient time traveling, camping, and being in the desert that BM is really a walk in the park. 
 
@@ -84,18 +86,19 @@ Anyway. The point of all this is not to convey how badass I am (I'm not), but ju
 
 So anyway: in Burning Man you will likely be sleeping in a sleeping bag, in a tent, in the desert, being dirty all the time and having to figure out where you get your water and food for a week. For some people that is extreme camping (and I respect that, we each have our difficulties), but for some of us it's just camping in the desert and that's not particularly difficult. And that's ok.
 
-* Topics that didn't make it
+#### Topics that didn't make it
 
-Here are some points I wanted to make but got tired before I reachem them:
-- The difference between being 'white'/'the default group' and being an immigrant ('outsider'): I have experienced both modes; in the US I am effectively an immigrant, and an outsider. And I know this because I know what it's like to be an _insider_: in Israel I was/am an insider. I know everyone and I know the rules and I know the institutions and I know how shit works and how to get anything done. In the US I know nothing of this, and I have a very small 'network' and I'm still figuring shit out and LIFE IS DIFFERENT when you're living with a suitcase and you're terrified of getting life wrong. And it is HARD for immigrants to connect with in-group members, and vice versa. I am/have been on both sides of this line, and I have seen it is hard from both sides. So it makes sense that white people (who are more stand-offish to begin with) connect less with Israeli/Russian/Hispanic immigrants and vice versa. To all my immigrant (or "ex-pat", the more PC word, since 'immigrant' sounds poor and less presitigious) - we gotta stick together. We got each other's back. It's gonna be ok. 
+Here are some points I wanted to make but got tired before I reached them:
 
-- Magic: Burning Man has made me believe in magic again. Which sounds trite, but requires us to define what do we mean by 'magic'. My meaning is: things I don't understand, and I don't think science understands. Things that are odd and interesting, but do not [yet] have a "scientific"-style explanation. If you have taken psychedelics and thought about this, you KNOW such things exist. 
+* *In-group/Out-group*: The difference between being 'white'/'the default group' and being an immigrant ('outsider'): I have experienced both modes; in the US I am effectively an immigrant, and an outsider. And I know this because I know what it's like to be an _insider_: in Israel I was/am an insider. I know everyone and I know the rules and I know the institutions and I know how shit works and how to get anything done. In the US I know nothing of this, and I have a very small 'network' and I'm still figuring shit out and LIFE IS DIFFERENT when you're living with a suitcase and you're terrified of getting life wrong. And it is HARD for immigrants to connect with in-group members, and vice versa. I am/have been on both sides of this line, and I have seen it is hard from both sides. So it makes sense that white people (who are more stand-offish to begin with) connect less with Israeli/Russian/Hispanic immigrants and vice versa. To all my immigrant (or "ex-pat", the more PC word, since 'immigrant' sounds poor and less presitigious) - we gotta stick together. We got each other's back. It's gonna be ok. 
 
-- First time: a common topic at Burning Man is to discuss 'how many times have you been to Burning Man before', and especially noteworthy is if it's your first time. This _was_ my first time, but I felt as ready as ever. Be a hippie, camp outdoors, dress however you want, do whatever you want, embrace minimalism, self-expression and radical inclusion? I've been living this life for as long as I can remember. As the greeters say at the gate to Burning Man, right after you've passed the traffic and the cops and 8-hour drive from San Francisco, and right before you become one with the dust: Welcome Home. 
+* *Magic*: Burning Man has made me believe in magic again. Which sounds trite, but requires us to define what do we mean by 'magic'. My meaning is: things I don't understand, and I don't think science understands. Things that are odd and interesting, but do not [yet] have a "scientific"-style explanation. If you have taken psychedelics and thought about this, you KNOW such things exist. 
+
+* *First time*: a common topic at Burning Man is to discuss 'how many times have you been to Burning Man before', and especially noteworthy is if it's your first time. This _was_ my first time, but I felt as ready as ever. Be a hippie, camp outdoors, dress however you want, do whatever you want, embrace minimalism, self-expression and radical inclusion? I've been living this life for as long as I can remember. As the greeters say at the gate to Burning Man, right after you've passed the traffic and the cops and 8-hour drive from San Francisco, and right before you become one with the dust: Welcome Home. 
 
 * * * * 
 
-ὁ δὲ ἀνεξέταστος βίος οὐ βιωτὸς ἀνθρώπῳ
+_ὁ δὲ ἀνεξέταστος βίος οὐ βιωτὸς ἀνθρώπῳ_
 
 Thank you for reading this. I hope it has benefitted you in some way and that you have enjoyed it. If you disagree with something I wrote or think I missed something important: well, you can write your own post about it, and I encourage you to indeed go ahead and do so. All I can say, standing upon the shoulders of giants, is that _the unexamined life is not worth living_. 
 
