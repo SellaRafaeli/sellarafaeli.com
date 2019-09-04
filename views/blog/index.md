@@ -3,6 +3,7 @@
 
 (now that's what I'm talking about)
 
+* [Burning Man 2019](/blog/burning_man_2019) <span class='date'>4/9/19</span>
 * [Remember Facebook Is Addictive](/blog/remember_facebook_is_addictive) <span class='date'>30/9/18</span>
 * [JS const/let/var - misleading && bikeshedding](/blog/const_let_var_misleading) <span class='date'>28/9/18</span>
 * <img src='/img/star.png' class='star'> [Dependency Madness](/blog/dependency_madness) <span class='date'> 27/7/18 </span>
