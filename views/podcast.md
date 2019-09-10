@@ -5,7 +5,9 @@
 
 ### 2019 
 
-* Nihilism and the Meaning of Life (with Jordan Valansi, 22/08/19) <audio controls><source src="audio/mannys.mp3" type="audio/mp3"></audio>
+* Pre-Burning Man (with Dvir Adler, 23/08/19) <audio controls><source src="audio/pre_burning_man_dvir.m4a" type="audio/mp3"></audio>
+
+* Nihilism and the Meaning of Life (with Jordan Valansi, 22/08/19) <audio controls><source src="audio/mannys_jordan.mp3" type="audio/mp3"></audio>
 
 ### 2016: TLV StartUp Ecosystem (with Bubba Raskin)
 
