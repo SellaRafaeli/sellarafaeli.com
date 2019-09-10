@@ -29,32 +29,6 @@ get '/ping' do
   {msg: "pong from #{$app_name}", val: 'CarWaiting (is the new TrainSpotting)'}
 end
 
-get '/timeout' do
-  stream do |out|
-    sleep 35
-    out.puts "should never reach"
-  end
-end
-
-get '/shouldnt_timeout' do
-  stream do |out|
-    out << "a"
-    out.flush
-    sleep 20
-    out << "b"
-    out.flush
-    sleep 20
-    out << "c"
-    out.flush
-    sleep 20
-    out << "d"
-    out.flush
-    sleep 20
-    out << 'should be OK'
-    out.flush
-  end
-end
-
 get '/load/:x' do
   {hits: $redis.incr('load')}
 end
@@ -77,6 +51,10 @@ end
 
 get '/consulting' do
   md(:consulting)
+end
+
+get '/podcast' do
+  md(:podcast)
 end
 
 get '/blog' do
