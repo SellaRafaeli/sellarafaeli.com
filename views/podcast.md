@@ -1,5 +1,5 @@
 <style>
-	audio { width: 500px; }
+	audio { width: 400px; max-width: 100%}
 </style>
 # Podcast 
 
