@@ -1,13 +1,20 @@
+<!-- https://zencastr.com/ -->
 <style>
-	audio { width: 400px; max-width: 100%}
+	audio { width: 100%; }
 </style>
 # Podcast 
 
 ### 2019 
 
-* Pre-Burning Man (with Dvir Adler, 23/08/19) <audio controls><source src="audio/pre_burning_man_dvir.mp3" type="audio/mp3"></audio>
 
-* Nihilism and the Meaning of Life (with Jordan Valansi, 22/08/19) <audio controls><source src="audio/mannys_jordan.mp3" type="audio/mp3"></audio>
+
+* Burning Man 2019 Reflections - David Lewis, 11/09/19 <audio controls><source src="audio/burning_man_reflections_david_lewis.mp3" type="audio/mp3"></audio>
+
+* Being an Engineering Manager at Google - David Lewis, 11/09/19 <audio controls><source src="audio/engineer_manager_at_google_david_lewis.mp3" type="audio/mp3"></audio>
+
+* Pre-Burning Man with Dvir Adler, 23/08/19 <audio controls><source src="audio/burning_man_reflections_david_lewis.mp3" type="audio/mp3"></audio>
+
+* Nihilism and the Meaning of Life with Jordan Valansi, 22/08/19 <audio controls><source src="audio/mannys_jordan.mp3" type="audio/mp3"></audio>
 
 ### 2016: TLV StartUp Ecosystem (with Bubba Raskin)
 
