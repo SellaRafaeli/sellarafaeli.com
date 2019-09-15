@@ -6,7 +6,9 @@
 
 ### 2019 
 
-* [Hebrew] Israeli Elections, Happiness and Controlling Our Own Thoughts, 12/09/19 <audio controls><source src="audio/ofek1_12_9_19.mp3" type="audio/mp3"></audio>
+
+
+* [Hebrew] Israeli Elections, Happiness and Controlling Our Own Thoughts - Ofek Rafaeli, 12/09/19 <audio controls><source src="audio/ofek1_12_9_19.mp3" type="audio/mp3"></audio>
 
 * [English] Burning Man 2019 Reflections - David Lewis, 11/09/19 <audio controls><source src="audio/burning_man_reflections_david_lewis.mp3" type="audio/mp3"></audio>
 
@@ -15,6 +17,8 @@
 * [Hebrew] Pre-Burning Man with Dvir Adler, 23/08/19 <audio controls><source src="audio/burning_man_reflections_david_lewis.mp3" type="audio/mp3"></audio>
 
 * [Hebrew] Nihilism and the Meaning of Life with Jordan Valansi, 22/08/19 <audio controls><source src="audio/mannys_jordan.mp3" type="audio/mp3"></audio>
+
+* [English] Episode #1 and the Meaning of Life - (14/09/19) <audio controls><source src="audio/20190914_meaning_of_life.mp3" type="audio/mp3"></audio>
 
 ### 2016: TLV StartUp Ecosystem (with Bubba Raskin)
 
