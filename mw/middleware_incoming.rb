@@ -2,6 +2,10 @@ use Rack::Parser, :content_types => {
   'application/json'  => Proc.new { |body| ::MultiJson.decode body }
 }
 
+if $prod 
+  use Rack::SslEnforcer
+end
+
 helpers do
   def protected!
     return if authorized? || !$prod

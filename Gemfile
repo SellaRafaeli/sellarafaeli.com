@@ -25,6 +25,7 @@ gem 'ripl-color_result'    #used to color console output?
 gem 'colorize' 
 gem 'literate_randomizer'
 gem 'faker'
+gem 'rack-ssl-enforcer'
 gem 'kramdown'
 gem 'kramdown-parser-gfm'
 # gem 'bcrypt'
