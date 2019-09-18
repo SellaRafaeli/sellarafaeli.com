@@ -69,6 +69,7 @@ GEM
       rack
     rack-protection (2.0.5)
       rack
+    rack-ssl-enforcer (0.2.9)
     rack-test (0.6.3)
       rack (>= 1.0)
     redis (4.1.2)
@@ -141,6 +142,7 @@ DEPENDENCIES
   pry-byebug (= 2.0.0)
   puma
   rack-parser (= 0.6.0)
+  rack-ssl-enforcer
   redis
   require_all
   rest-client
