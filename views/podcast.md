@@ -6,6 +6,7 @@
 
 ### 2019 
 <ol>
+<li> [English] Meditation on The Merits of Weed, 18/09/19 <audio controls><source src="audio/meditation on the merits of weed.mp3" type="audio/mp3"></audio>
 <li> [English] The Hungry Mind, 18/09/19 <audio controls><source src="audio/the hungry mind.mp3" type="audio/mp3"></audio>
 </li>
 <li> [English] Bad Mood 3: Being Wrong, 18/09/19 <audio controls><source src="audio/bad mood 3 - on being wrong.mp3" type="audio/mp3"></audio>
