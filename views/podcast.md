@@ -4,9 +4,9 @@
 </style>
 # Podcast 
 
-### 2019 
-<ol>
-<li> [English] Meditation on The Merits of Weed, 18/09/19 <audio controls><source src="audio/meditation on the merits of weed.mp3" type="audio/mp3"></audio>
+
+<ol reversed>
+<li> [English] Meditation on The Merits of Weed, 18/09/19 <audio controls><source src="audio/meditation on the merits of weed.mp3" type="audio/mp3"></audio></li>
 <li> [English] The Hungry Mind, 18/09/19 <audio controls><source src="audio/the hungry mind.mp3" type="audio/mp3"></audio>
 </li>
 <li> [English] Bad Mood 3: Being Wrong, 18/09/19 <audio controls><source src="audio/bad mood 3 - on being wrong.mp3" type="audio/mp3"></audio>
@@ -28,6 +28,7 @@
 <li> [English] Episode #1 and the Meaning of Life - (14/09/19) <audio controls><source src="audio/20190914_meaning_of_life.mp3" type="audio/mp3"></audio>
 </li>
 </ol>
+
 ### 2016: TLV StartUp Ecosystem (with Bubba Raskin)
 
 <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/190833437&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
