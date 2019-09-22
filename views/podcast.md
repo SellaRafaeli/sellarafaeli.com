@@ -6,14 +6,21 @@
 
 
 <ol reversed>
+
+<li> [English] Names and Morality, with Yotam Yosef Avital, 21/09/19 <audio controls><source src="audio/2019_09_21_names_and_morality_with_yotam_yosef_avital.mp3" type="audio/mp3"></audio></li>
+
+<li> [English] Five Minute Meditation, 21/09/19 <audio controls><source src="audio/2019_09_20_5_minutes_meditation.mp3" type="audio/mp3"></audio></li>
+
+<li> [Hebrew] About this Podcast, with Dvir Adler, 19/09/19 <audio controls><source src="audio/2019_09_19_about_this_podcast_with_dvir_adler.mp3" type="audio/mp3"></audio></li>
+
 <li> [English] Meditation on The Merits of Weed, 18/09/19 <audio controls><source src="audio/meditation on the merits of weed.mp3" type="audio/mp3"></audio></li>
-<li> [English] The Hungry Mind, 18/09/19 <audio controls><source src="audio/the hungry mind.mp3" type="audio/mp3"></audio>
+<li> [English] Meditation on The Hungry Mind, 18/09/19 <audio controls><source src="audio/2019_09_18_food_meditation_and_dieting.mp3" type="audio/mp3"></audio>
 </li>
-<li> [English] Bad Mood 3: Being Wrong, 18/09/19 <audio controls><source src="audio/bad mood 3 - on being wrong.mp3" type="audio/mp3"></audio>
+<li> [English] Bad Mood 3: Meditation on Being Wrong, 18/09/19 <audio controls><source src="audio/2019_09_18_bad_mood_meditation3.mp3" type="audio/mp3"></audio>
 </li>
-<li> [English] Bad Mood 2: On Meditation, 18/09/19 <audio controls><source src="audio/bad mood 2 - on meditation.mp3" type="audio/mp3"></audio>
+<li> [English] Bad Mood 2: Meditation On The Merits of Meditation, 18/09/19 <audio controls><source src="audio/2019_09_18_bad_mood_meditation-2_on_meditation.mp3" type="audio/mp3"></audio>
 </li>
-<li> [English] Bad Mood 1: Your Thoughts in A Black Bowl, 18/09/19 <audio controls><source src="audio/bad mood 1 - your thoughts in a black_bowl.mp3" type="audio/mp3"></audio>
+<li> [English] Bad Mood 1: Meditation on Your Thoughts in A Black Bowl, 18/09/19 <audio controls><source src="audio/2019_09_18_bad_mood_meditation-1.mp3" type="audio/mp3"></audio>
 </li>
 <li> [Hebrew] Israeli Elections, Happiness and Controlling Our Own Thoughts - Ofek Rafaeli, 12/09/19 <audio controls><source src="audio/ofek1_12_9_19.mp3" type="audio/mp3"></audio>
 </li>
@@ -25,7 +32,7 @@
 </li>
 <li> [Hebrew] Nihilism and the Meaning of Life with Jordan Valansi, 22/08/19 <audio controls><source src="audio/mannys_jordan.mp3" type="audio/mp3"></audio>
 </li>
-<li> [English] Episode #1 and the Meaning of Life - (14/09/19) <audio controls><source src="audio/20190914_meaning_of_life.mp3" type="audio/mp3"></audio>
+<li> [English] Episode #1: Meditation on the Meaning of Life - (14/09/19) <audio controls><source src="audio/20190914_meaning_of_life.mp3" type="audio/mp3"></audio>
 </li>
 </ol>
 
