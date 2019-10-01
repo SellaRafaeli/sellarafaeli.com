@@ -7,7 +7,11 @@
 
 <ol reversed>
 
-<li> [English] Names and Morality, with Yotam Yosef Avital, 21/09/19 <audio controls><source src="audio/2019_09_21_names_and_morality_with_yotam_yosef_avital.mp3" type="audio/mp3"></audio></li>
+<li> [English] October Dietary Discipline Kickoff, 01/10/19 <audio controls><source src="audio/2019_10_01_october_diet.mp3" type="audio/mp3"></audio></li>
+
+<li> [English] Should You Hear This Podcast?, 26/09/19 <audio controls><source src="audio/2019_09_26_should_i_hear_this_podcast.mp3" type="audio/mp3"></audio></li>
+
+<li> [Hebrew] Names and Morality, with Yotam Yosef Avital, 21/09/19 <audio controls><source src="audio/2019_09_21_names_and_morality_with_yotam_yosef_avital.mp3" type="audio/mp3"></audio></li>
 
 <li> [English] Five Minute Meditation, 21/09/19 <audio controls><source src="audio/2019_09_20_5_minutes_meditation.mp3" type="audio/mp3"></audio></li>
 
