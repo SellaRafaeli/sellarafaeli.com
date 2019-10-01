@@ -10,13 +10,13 @@ Core Beliefs:
 
 * The human brain is limited. As far as we can tell, we cannot ever truly understand the beautiful mystery of life and existence. However, we can appreciate it and be grateful for it. We can even worship it. The beautiful mystery of life and existence is amazing. 
 
-* We shall name the beautiful mystery of life and existence as *"God"*. This word, God, will henceforth refer to life, the Universe, and everything. To this crazy weirdness of "being"; to consciousness, to physics, to reality, to all there is. This thing, that we do not completely understand. Newtonian or Quantum or String Theory, a Big Bang or a series of Turtles or a Computer Simulation. Consciousness and feelings and thoughts and experiences and meaning; joy and pain and love and life. Whatever "_it_" is, we don't quite understand what's going on, but this beautiful mystery of life and existence, all we can experience and all there is to be grateful for - we shall name it *God*. 
+* We shall name the beautiful mystery of life and existence as ***God***. This word, _God_, will henceforth refer to life, the Universe, and everything. To this crazy weirdness of "being"; to consciousness, to physics, to reality, to all there is. This thing, that we do not completely understand. Newtonian or Quantum or String Theory, a Big Bang or a series of Turtles or a Computer Simulation. Consciousness and feelings and thoughts and experiences and meaning; joy and pain and love and life. Whatever "_it_" is, we don't quite understand what's going on, but this beautiful mystery of life and existence, all we can experience and all there is to be grateful for - we shall name it *God*. 
 
-* God is not humanoid. God does not have a beard. S/he does not sit in the sky. S/he certainly does not have an opinion on sex, gay people, masturbation, war, and so on. God does not experience humanoid emotions, except for the sense in which one might describe an 'angry' sea: poetically, not literally. For God is not a human; God is the beautiful mystery of existence. _That's what the word 'God' means_. That is what it always was meant to mean. People who do treat God as a human-like creature are missing the point like a sailor attributing real emotions to the sea.)
+* God is not humanoid. God does not have a beard. S/he does not sit in the sky. S/he certainly does not have an opinion on sex, gay people, masturbation, war, and so on. God does not experience humanoid emotions, except for the sense in which one might describe an 'angry' sea: poetically, not literally. For God is not a human; God is the beautiful mystery of existence. _That's what the word 'God' means_. That is what it always was meant to mean. People who do treat God as a human-like creature are missing the point like a sailor attributing real emotions to the sea.
 
 * Since we do not (and can not) know the meaning of life, it is difficult for us to know how to live. What should we do? 
 
-* The short answer is that you should live a good life. 
+* The short answer is that **you should live a good life**. 
 
 * "Living a good life" is meant not as a theoretical concept. This is practical advice to be applied to your real life, in a real way. 
 	
