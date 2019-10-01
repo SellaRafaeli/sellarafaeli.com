@@ -40,7 +40,7 @@ Core Beliefs:
 
 * And so we see that Judaism is not 'the point'; the point is to live a good life. Judaism is a tool to research how to do this, together with your community, which itself leads to a good life. Together we are better than separately. 
 
-* Judaism requires no suspension of disbelief. No belief in the supernatural beyond admitting an awe and ignorance of the mystery of existence. There is no conflict between true Judaism and science, as Judaism is the craft and practice of researching how to live a good life with your community and fellow Jews. 
+* West Coast Judaism requires no suspension of disbelief and no special leaps of "faith". It requieres no belief in the supernatural beyond admitting an awe and ignorance of the mystery of existence. There is no conflict between true Judaism and science, as Judaism is the craft and practice of researching how to live a good life with your community and fellow Jews. If you meet your fellow Jew for dinner and discuss the details of what consitutes a life well lived, you are practicing Judaism. Remember, the point is not to blindly copy the traditions of our ancestors; the traditions are there to help us remember the craft of being mindful and grateful for life and existence, and to focus on being in the present moment together. 
 
 * Judaism is not an abstract concept, reserved for the land of theory. It is a practical aspect of your life. If you, the reader, are interested in thinking about how to live a good life, and would like to learn more, you should both meditate on this yourself, and discuss this with your fellow Jews. This would be practicing Judaism together, and the act itself would already contribute both to Judaism, and to your own better life. 
 
