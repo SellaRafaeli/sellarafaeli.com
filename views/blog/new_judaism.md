@@ -2,7 +2,7 @@
 
 <small> October 1st, Rosh HaShana, 2019 </small>
 
-Modern Judaism is beautiful. It draws upon the wisdom of our ancestors as well as upon the understanding of history and the modern world. Let us discuss. 
+_Modern_ Judaism is beautiful. We merge traditional and contemporary wisdom to create a life of meaning, and a meaning of life. Let us discuss. 
 
 Core Beliefs:
 
@@ -10,9 +10,9 @@ Core Beliefs:
 
 * The human brain is limited. As far as we can tell, we cannot ever truly understand the beautiful mystery of life and existence. However, we can appreciate it and be grateful for it. We can even worship it. The beautiful mystery of life and existence is amazing. 
 
-* We shall name the beautiful mystery of life and existence as *"God"*. This word, God, will henceforth refer to life, the Universe, and everything. To this crazy weirdness of "being"; to consciousness, to physics, to reality, to all there is. This thing, that we do not completely understand. Whether Newtonian or Quantum or String Theory, whether a Big Bang or a series of Turtles or a Computer Simulation. Consciousness and feelings and thoughts and experiences and meaning; joy and pain and love and life. Whatever it is, we don't quite understand what's going on, but this beautiful mystery of life and existence, all we can experience and all there is to be grateful for - we shall name it God. 
+* We shall name the beautiful mystery of life and existence as *"God"*. This word, God, will henceforth refer to life, the Universe, and everything. To this crazy weirdness of "being"; to consciousness, to physics, to reality, to all there is. This thing, that we do not completely understand. Newtonian or Quantum or String Theory, a Big Bang or a series of Turtles or a Computer Simulation. Consciousness and feelings and thoughts and experiences and meaning; joy and pain and love and life. Whatever "_it_" is, we don't quite understand what's going on, but this beautiful mystery of life and existence, all we can experience and all there is to be grateful for - we shall name it *God*. 
 
-* God is not humanoid. God does not have a beard. S/he does not sit in the sky. S/he certainly does not have an opinion on sex, gay people, masturbation, war, and so on. God does not experience humanoid emotions, except for the sense in which one might describe an 'angry' sea. For God is not a human; God is the beautiful mystery of existence. That's what the word God means. That is what it always was meant to mean. 
+* God is not humanoid. God does not have a beard. S/he does not sit in the sky. S/he certainly does not have an opinion on sex, gay people, masturbation, war, and so on. God does not experience humanoid emotions, except for the sense in which one might describe an 'angry' sea: poetically, not literally. For God is not a human; God is the beautiful mystery of existence. _That's what the word 'God' means_. That is what it always was meant to mean. People who do treat God as a human-like creature are missing the point like a sailor attributing real emotions to the sea.)
 
 * Since we do not (and can not) know the meaning of life, it is difficult for us to know how to live. What should we do? 
 
@@ -40,12 +40,14 @@ Core Beliefs:
 
 * And so we see that Judaism is not 'the point'; the point is to live a good life. Judaism is a tool to research how to do this, together with your community, which itself leads to a good life. Together we are better than separately. 
 
+* Judaism requires no suspension of disbelief. No belief in the supernatural beyond admitting an awe and ignorance of the mystery of existence. There is no conflict between true Judaism and science, as Judaism is the craft and practice of researching how to live a good life with your community and fellow Jews. 
+
 * Judaism is not an abstract concept, reserved for the land of theory. It is a practical aspect of your life. If you, the reader, are interested in thinking about how to live a good life, and would like to learn more, you should both meditate on this yourself, and discuss this with your fellow Jews. This would be practicing Judaism together, and the act itself would already contribute both to Judaism, and to your own better life. 
 
-Having read this, if the above resonates with you, you might be inclined to look for meaning and community with your fellow spiritual Jews. If you don't know where to start, you can write me directly at sella.rafaeli@gmail.com. If you are in the San Francisco Bay Area, you can come learn with me. If you are not, you can follow my work, and I will try to point you to local resources near you. 
+Having read this, if the above resonates with you, you might be inclined to look for meaning and community with your fellow spiritual Jews. If you don't know where to start, you can write me directly at <a href="mailto:sella@rafaeli.net" target="_top">sella@rafaeli.net</a>. If you are in the San Francisco Bay Area, you can come learn with me. If you are not, you can follow my work, and I will try to point you to local resources near you. 
 
 Good luck. Only you can live your life; make it a good one. 
 
-שנה טובה!
+_!שנה טובה_
 
 - Sella Rafaeli, Rosh HaShana, October 1st, 2019, San Francisco
