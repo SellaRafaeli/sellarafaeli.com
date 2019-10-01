@@ -57,6 +57,10 @@ get '/podcast' do
   md(:podcast)
 end
 
+get '/west_coast_judaism' do
+  md(:west_coast_judaism)
+end
+
 get '/blog' do
   md(:'blog/index')
 end
