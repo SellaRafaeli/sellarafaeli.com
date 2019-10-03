@@ -61,6 +61,10 @@ get '/west_coast_judaism' do
   md(:west_coast_judaism)
 end
 
+get '/believe_in_now' do
+  md(:believe_in_now)
+end
+
 get '/blog' do
   md(:'blog/index')
 end
