@@ -7,6 +7,8 @@
 
 <ol reversed>
 
+<li> [Hebrew] Life, Work, Happiness, Religion, Meditation, with Tzach Bar 03/10/19 <audio controls><source src="audio/2019_10_03_life_work_happiness_religion_with_tzach_bar.mp3" type="audio/mp3"></audio></li>
+
 <li> [English] October Dietary Discipline Kickoff, 01/10/19 <audio controls><source src="audio/2019_10_01_october_diet.mp3" type="audio/mp3"></audio></li>
 
 <li> [English] Should You Hear This Podcast?, 26/09/19 <audio controls><source src="audio/2019_09_26_should_i_hear_this_podcast.mp3" type="audio/mp3"></audio></li>
