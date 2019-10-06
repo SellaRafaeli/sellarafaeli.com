@@ -8,7 +8,7 @@ My previous experience includes 8200 (5 years), CS @ Hebrew University (*magna c
 
 You can read more [about me](/about), my [blog](/blog), my [résumé](https://docs.google.com/document/d/1BjCh9nQDAibvDXBWxOYrAsRDsT6JfKbpW_nW2Ezl4Hc/export?format=pdf), or [contact me](/contact). 
 
-You can hear my [podcast](/podcast); or read my [West Coast Judaism](/west_coast_judaism) and [philosophy](/philosopher). My latest paper, "Like Hamlet Discussing Shakespeare", is available for free [here](/hamlet_discussing_shakespeare_may_2019.pdf). 
+I research and teach [spirituality](/spirituality), run a [podcast](/podcast), and practice [West Coast Judaism](/west_coast_judaism) as well as [philosophy](/philosopher). My latest paper, "Like Hamlet Discussing Shakespeare", is available for free [here](/hamlet_discussing_shakespeare_may_2019.pdf). 
 
 <!-- I am also into [software](/software.html), [hiking](/hiking.html), [psychology](/psychology.html), [spirituality](/spirituality.html), and [languages](/languages.html). 
 

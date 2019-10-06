@@ -78,8 +78,7 @@ ol {
 <img class='background' src='/img/mic.png' />
 	
 
-<% if pr[:path] && (ep = from_path(episodes, pr[:path])) %>
-	<meta content="<%=ep[:title]%>" property="og:title" />
+<% if pr[:path] && (ep = from_path(episodes, pr[:path])) %>	
 	<% url = ep[:url].sub('/open?id=','/uc?export=download&id=') %>
 	<h3><i><%= ep[:title] %><small> (<%=ep[:date]%><%= lang_sign(ep) %>)</small></i> </h3>	
 	<audio controls><source src="<%=url%>" type="audio/mp3"></audio>

@@ -1,0 +1,89 @@
+<%
+
+alan_watts = [
+	'https://www.youtube.com/watch?v=n6obTapAjXc',
+	'https://www.youtube.com/watch?v=LXVrNRo1Zj8',
+	'https://www.youtube.com/watch?v=_h-FswIACKE',
+	'https://www.youtube.com/watch?v=9Fv2lJZYf-s',
+	'https://www.youtube.com/watch?v=YFzeCv_WFnY',
+	'https://www.youtube.com/watch?v=7SfZZlpfaN0',
+	'https://www.youtube.com/watch?v=1qUYywBWAuo',
+	'https://www.youtube.com/watch?v=GOoxOwjwHiE',
+	'https://www.youtube.com/watch?v=-RnafTtXMYI',
+	'https://www.youtube.com/watch?v=h4wa0tSBdOU',
+	'https://www.youtube.com/watch?v=dmd1sGIbO9s',
+	'https://www.youtube.com/watch?v=jldHW2xKBao',
+	'https://www.youtube.com/watch?v=y_I3Iqx8GY0',
+	'https://www.youtube.com/watch?v=3vv0363gLr8',
+	'https://www.youtube.com/watch?v=XipB1DAUxoc',
+	'https://www.youtube.com/watch?v=DY3KyJrt52E',
+	'https://www.youtube.com/watch?v=8pcLuwxhhkk',
+	'https://www.youtube.com/watch?v=b-Zel_pAPJg',
+	'https://www.youtube.com/watch?v=0CXqgLIPjwg',
+	'https://www.youtube.com/watch?v=LlAQaakSEzE',
+	'https://www.youtube.com/watch?v=x3UjQit5Jlo'
+]
+
+sam_harris = [
+	'https://www.youtube.com/watch?v=T3JzcCviNDk',
+	'https://www.youtube.com/watch?v=ITTxTCz4Ums',
+	'https://www.youtube.com/watch?v=pTrrRoBZSpg',
+	'https://www.youtube.com/watch?v=wUqavVTma8Q',
+	'https://www.youtube.com/watch?v=7t_Uyi9bNS4',
+	'https://www.youtube.com/watch?v=fajfkO_X0l0'
+]
+
+terrence_mckenna = [
+	'https://www.youtube.com/watch?v=kV1RC2zlymQ',
+	'https://www.youtube.com/watch?v=yaPUZ40og_c'
+]
+
+robert_frost = [
+	'https://www.youtube.com/watch?v=ie2Mspukx14'
+]
+
+nvc = [
+	'https://www.youtube.com/watch?v=4srHE9R7H9w',
+	'https://www.youtube.com/watch?v=7u_2hiW5KBY',
+	'https://www.youtube.com/watch?v=M2liNlFdNYo',
+	'https://www.youtube.com/watch?v=9RZ_YmLmCew'
+]
+
+philosophy = [
+	'https://www.youtube.com/watch?v=QT-iK2OjZSk'
+]
+links = [alan_watts + sam_harris + terrence_mckenna + robert_frost + nvc + philosophy].flatten.uniq.sort.map {|l| {url: l} }
+
+start = Date.new(Time.now.year,1,1)
+
+def show_link(link)
+	url  = link[:url]
+	if url.to_s.include?('youtube.com')
+		embed_url = url.gsub('watch?v=','embed/')
+		return "<iframe width='560' height='315' src='#{embed_url}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+	else 
+		return "<a href='#{url}'> #{link[:title] || url}</a>"
+	end
+end
+
+%>
+
+<h1> Spirituality </h1>
+
+<p> Over the last few years - since roughly 2012 - I have had the good fortune of stumbling down a spiritual journey which has affected me significantly.</p>
+
+<p> For those who would wish to join this journey - or set off on their own - I would recommend dedicating the time and effort to at least view each of these videos. I have arranged them by date, to make the task of choosing what to see that much easier. I would recommend the discipline of viewing at least one such video every day, and spending an hour or so discussing and thinking about it. Education takes time, and the sooner you start, the bettter.</p>
+
+<p> If you are so interested, I would encourage you to reach out to me at <a href='/contact'>sella.rafaeli@gmail.com</a>. Good luck, and may your journey be a pleasant one.</p>
+<% links.each_with_index do |link, idx| %>
+	<% 
+		date = start+ ((365/links.size)*idx).day 	
+	%>
+	<% if true || pr[:day] == idx || pr[:day] == 'all' %>
+	<div> <%= date %>: </div> 
+	<%= show_link(link) %>
+	<br/>
+	<br/>
+	<% end %>
+	
+<% end %>

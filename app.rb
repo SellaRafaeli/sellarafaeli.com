@@ -53,6 +53,10 @@ get '/consulting' do
   md(:consulting)
 end
 
+get '/spirituality/?:day?' do
+  layout(:spirituality)
+end
+
 get '/podcast/?:path?' do
   # return {msg: 'ok'}
   html = erb :podcast
@@ -77,6 +81,11 @@ end
 
 get '/okta_callback' do 
   pr
+end
+
+def layout(view, title = nil)
+  html = erb view
+  erb :template, locals: {content: html, basename: title || view}
 end
 
 def md(file)  
