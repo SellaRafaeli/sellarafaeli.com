@@ -57,24 +57,43 @@ def lang_sign(ep)
 end
 
 %>
+<style>
 
-<ol reversed>
+ol {
+	/*opacity: 1;*/
+	font-weight: bold;
+	color: black;
+}
+.background {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.15;
+  width: 50%;
+  right: 0;
+  top: 200px;
+}
+</style>
+
+<img class='background' src='/img/mic.png' />
+	
 
 <% if pr[:path] && (ep = from_path(episodes, pr[:path])) %>
 	<% url = ep[:url].sub('/open?id=','/uc?export=download&id=') %>
 	<h3><i><%= ep[:title] %><small> (<%=ep[:date]%><%= lang_sign(ep) %>)</small></i> </h3>	
 	<audio controls><source src="<%=url%>" type="audio/mp3"></audio>
-		
+
 <br/>
 <br/>
+<% else %>
+<p> Welcome to the show! </p>
 <% end %>
 
-
+<ol reversed>
 <% episodes.each_with_index do |ep, num| %>
 	<li> 				 
 		<i><a href='/podcast/<%=to_path(ep[:title])%>'><%=ep[:title]%></a> </i>
 		<%= lang_sign(ep) %>
 	</li>
 <% end %>
-
 </ol>
