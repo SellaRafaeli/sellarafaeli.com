@@ -79,6 +79,10 @@ get '/blog/:id' do
   md(:"blog/#{pr[:id]}")
 end
 
+get '/mindy_app_freelancer' do
+  md(:'random/mindy_app_freelancer')
+end
+
 get '/okta_callback' do 
   pr
 end
