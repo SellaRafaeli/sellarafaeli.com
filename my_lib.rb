@@ -68,7 +68,7 @@ end
 
 def nice_id
     #return rand(Time.now.to_i*100).to_s(36)
-    SecureRandom.urlsafe_base64(7,false)
+  SecureRandom.urlsafe_base64(7,false)
     #small_id(10)
 end
 

@@ -1,0 +1,80 @@
+<!-- https://zencastr.com/ -->
+<style>
+	audio { width: 100%; }
+</style>
+
+<%
+episodes = [
+	{title: 'The Meaning of Life', date: '2019/09/14', url: 'https://drive.google.com/open?id=12IY9Gz_EVDGQDjlh87FD5xhFget3fFsu'},
+
+	{lang: 'he', title: 'Nihilism and the meaning of life, with Jordan Valansi', date: '2019/08/22', url: 'https://drive.google.com/open?id=1EP8aoP0ZX203AWNZV9jeRNAe9sJeRDTk'},
+
+	{lang: 'he', title: 'Pre-Burning Man Reflections, with Dvir Adler', date: '2019/08/23', url: 'https://drive.google.com/open?id=1vrp9k6y3KM0Fgw3MgWiQs-S4M_iE6NkA'},
+
+	{title: 'Post-Burning Man Reflections, with David Lewis', date: '2019/09/11', url: 'https://drive.google.com/open?id=16Ndj1fkTToL62_sJ_8dscsK7NpMtje_o'},
+
+	{title: 'Being an Engineering Manager at Google, with David Lewis', date: '2019/09/11', url: 'https://drive.google.com/open?id=13UUsR-2Lh0VXUbp4Zw0cgyzKnNwyWel4'},
+
+	{lang: 'he', title: 'Israeli Elections and the Meaning of Happiness, with Ofek Rafaeli', date: '2019/09/11', url: 'https://drive.google.com/open?id=1Pc-yyRGKarkU4HwS7kVLyhdH5VtfZJrD'},
+
+	{title: 'Bad Mood 1: Meditation on Your Thoughts in A Black Bowl', date: '2019/09/18', url: 'https://drive.google.com/open?id=1E0zIuKXo43-HiW0_iEnxqVps7-6hxvfW'},
+
+	{title: 'Bad Mood 2: Meditation On The Merits of Meditation', date: '2019/09/18', url: 'https://drive.google.com/open?id=1lVUT_RaE0QJ85NvINC4qmyV3AUIlg1iu'},
+
+	{title: 'Bad Mood 3: Meditation On The Merits of Meditation', date: '2019/09/18', url: 'https://drive.google.com/open?id=1otHkjRFcffAU0Mbgmas-I4owVx5g3PGW'},
+
+	{title: 'Food Meditation and Dieting', date: '2019/09/18', url: 'https://drive.google.com/open?id=1WmzECXGKSckGTZ20BlzpdoqotL46-ny5'},
+
+	{title: 'Meditation on the Merits of Weed', date: '2019/09/18', url: 'https://drive.google.com/open?id=1-UdSmo4Que0wUXrHsYi_2NxtmRo8lXyo'},
+
+	{lang: 'he', title: 'About This Podcast, with Dvir Adler', date: '2019/09/19', url: 'https://drive.google.com/open?id=1IVtLO5qrF19Ad3viQGtnfRUll0R8AQon'},
+
+	{title: '5 Minutes Meditation', date: '2019/09/20', url: 'https://drive.google.com/open?id=1rP0tipvof3-nrzX9vgepubDZVx7XweQu'},
+
+	{lang: 'he', title: 'On Names and Morality, with Yotam Yosef Avital', date: '2019/09/21', url: 'https://drive.google.com/open?id=1J7KsKnKTB8Ft0GzHoDgwfrD6qaBDUMjF'},
+
+	{title: 'Should I hear this Podcast?', date: '2019/09/26', url: 'https://drive.google.com/open?id=1BFg-Ki9L8gZLsLXF4kjlD1_VWSEL2Z8F'},
+
+	{title: 'October Diet', date: '2019/10/01', url: 'https://drive.google.com/open?id=1fLZcIxjZZ6OXCDhx4fbgU1jN1fGES0FZ'},
+
+	{lang: 'he', title: 'Life, Work, Happiness, Religion - with Tzach Bar', date: '2019/10/03', url: 'https://drive.google.com/open?id=1QR5gHodY_5TuMmtRZtG9-6d2D17QWlVG'},
+
+	{title: 'What it Means to Be a Jew (part 1)', date: '2019/10/05', url: 'https://drive.google.com/open?id=1TdRcxv5hQWk5G9maAldELX3luHmqG3L8'},
+
+	{title: 'What it Means to Be a Jew (part 2)', date: '2019/10/05', url: 'https://drive.google.com/open?id=1GJE7WzS9ZPIoxQXrzVMQjFCrE3xIfMtQ'},
+].reverse
+
+def to_path(str)
+	CGI.escape str.to_s.downcase.gsub(' ','-')
+end
+
+def from_path(episodes, url)
+	episodes.find {|ep| to_path(ep[:title]) == to_path(url) }
+end
+
+def lang_sign(ep)
+	"<span title='Hebrew episode' style='margin-left:10px'>🇮🇱</span>" if ep[:lang].to_s == 'he'
+end
+
+%>
+
+<ol reversed>
+
+<% if pr[:path] && (ep = from_path(episodes, pr[:path])) %>
+	<% url = ep[:url].sub('/open?id=','/uc?export=download&id=') %>
+	<h3><i><%= ep[:title] %><small> (<%=ep[:date]%><%= lang_sign(ep) %>)</small></i> </h3>	
+	<audio controls><source src="<%=url%>" type="audio/mp3"></audio>
+		
+<br/>
+<br/>
+<% end %>
+
+
+<% episodes.each_with_index do |ep, num| %>
+	<li> 				 
+		<i><a href='/podcast/<%=to_path(ep[:title])%>'><%=ep[:title]%></a> </i>
+		<%= lang_sign(ep) %>
+	</li>
+<% end %>
+
+</ol>

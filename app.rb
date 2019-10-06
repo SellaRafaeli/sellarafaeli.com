@@ -53,8 +53,10 @@ get '/consulting' do
   md(:consulting)
 end
 
-get '/podcast' do
-  md(:podcast)
+get '/podcast/?:path?' do
+  # return {msg: 'ok'}
+  html = erb :podcast
+  erb :template, locals: {content: html, basename: 'podcasst'}
 end
 
 get '/west_coast_judaism' do
