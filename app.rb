@@ -56,7 +56,7 @@ end
 get '/podcast/?:path?' do
   # return {msg: 'ok'}
   html = erb :podcast
-  erb :template, locals: {content: html, basename: 'podcasst'}
+  erb :template, locals: {content: html, basename: 'podcast'}
 end
 
 get '/west_coast_judaism' do
