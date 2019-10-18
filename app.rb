@@ -21,6 +21,7 @@ require_all './comm'
 require_all './logging'
 require_all './mw'
 
+a = b
 require "sinatra/streaming"
 
 include Helpers #makes helpers globally available 
