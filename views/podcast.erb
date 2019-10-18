@@ -51,7 +51,7 @@ episodes = [
 
 	{title: 'Wondering Around', date: '2019/10/15', url: 'https://drive.google.com/open?id=1OxMhDwNuKTawkASrfiqGOV5X4wsYkWXL'},
 
-	{title: 'Shrooms', date: '2019/10/17', url: 'https://drive.google.com/open?id=1HKMnkiX5LbdWYy1ImKdv5sPiG-ZHRnLp'},
+	{title: 'Shrooms', date: '2019/10/17', external_link: 'https://soundcloud.com/sella-rafaeli/shrooms/s-9UHFO', text: 'This is an intense, personal episode; the last few hours (and coming down from) of a serious trip I had. If you want to know what [the end of] a serious Shrooms trip is like... well, this is one of them. <br/><br/>Listener beware. Requires 3 hours of attentive, concentrated listening. Best consumed, as many things are, with marijuana. If you cannot spare the necessary 3 hours for this, I would suggest not listening. <br/><br/> Safe travels!'},
 ].reverse
 
 def to_path(str)
@@ -87,12 +87,17 @@ ol {
 
 <img class='background' src='/img/mic.png' />
 	
-
 <% if pr[:path] && (ep = from_path(episodes, pr[:path])) %>	
-	<% url = ep[:url].sub('/open?id=','/uc?export=download&id=') %>
+	<% url = ep[:url].to_s.sub('/open?id=','/uc?export=download&id=')+'&confirm=ENbG' %>
 	<h3><i><%= ep[:title] %><small> (<%=ep[:date]%><%= lang_sign(ep) %>)</small></i> </h3>	
-	<audio controls><source src="<%=url%>" type="audio/mp3"></audio>
-
+	<% if ep[:external_link] %>
+		<%= ep[:text] %>
+		<br/>
+		<a href='<%=ep[:external_link]%>'><%= ep[:external_link]%></a>
+	<% elsif ep[:url] %>
+		<audio controls><source src="<%=url%>" type="audio/mp3"></audio>
+	<% end %>
+	
 <br/>
 <br/>
 <% else %>
