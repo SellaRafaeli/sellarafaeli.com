@@ -52,6 +52,12 @@ episodes = [
 	{title: 'Wondering Around', date: '2019/10/15', url: 'https://drive.google.com/open?id=1OxMhDwNuKTawkASrfiqGOV5X4wsYkWXL'},
 
 	{title: 'Shrooms', date: '2019/10/17', external_link: 'https://soundcloud.com/sella-rafaeli/shrooms/s-9UHFO', text: 'This is an intense, personal episode; the last few hours (and coming down from) of a serious trip I had. If you want to know what [the end of] a serious Shrooms trip is like... well, this is one of them. <br/><br/>Listener beware. Requires 3 hours of attentive, concentrated listening. Best consumed, as many things are, with marijuana. If you cannot spare the necessary 3 hours for this, I would suggest not listening. <br/><br/> Safe travels!'},
+
+  {title: 'Evolution of the Mind', date: '2019/10/19', url: 'https://drive.google.com/open?id=1hISdDDgAmetTMGsJ8jzgrFj8XyvlcpvS'},
+
+  {title: 'Memnun Giving Energy - Only Do What You Want For Your Partner and They\'ll Love You More For It', date: '2019/10/19', url: 'https://drive.google.com/open?id=1-cWB4V-SH-Bf6avljnuNZi0yJB0Pbg2P', url2: 'https://drive.google.com/open?id=1HxcidjP6n2_7r29iIA77WvF73A3EEiCu'},
+
+  {title: 'Mindfulness Can Help You Not Be Angry At Yourself', date: '2019/10/19', url: 'https://drive.google.com/open?id=1C2VH6b43fxXT9WjUIGRgzNdtQ6lpH0eE},
 ].reverse
 
 def to_path(str)
@@ -89,6 +95,7 @@ ol {
 	
 <% if pr[:path] && (ep = from_path(episodes, pr[:path])) %>	
 	<% url = ep[:url].to_s.sub('/open?id=','/uc?export=download&id=')+'&confirm=ENbG' %>
+  <% url2 = ep[:url2].to_s.sub('/open?id=','/uc?export=download&id=')+'&confirm=ENbG' if ep[:url2] %>
 	<h3><i><%= ep[:title] %><small> (<%=ep[:date]%><%= lang_sign(ep) %>)</small></i> </h3>	
 	<% if ep[:external_link] %>
 		<%= ep[:text] %>
@@ -96,6 +103,11 @@ ol {
 		<a href='<%=ep[:external_link]%>'><%= ep[:external_link]%></a>
 	<% elsif ep[:url] %>
 		<audio controls><source src="<%=url%>" type="audio/mp3"></audio>
+    <% if ep[:url2] %>
+    <br/>
+    Part 2
+    <audio controls><source src="<%=url2%>" type="audio/mp3"></audio>
+    <% end %>
 	<% end %>
 	
 <br/>
