@@ -6,7 +6,7 @@ In this post I would like to try to formalize and condense one cornerstone of a 
 
 I believe these concepts are meaningless, inconsistent, at best relative to a specific culture, and ultimately unhelpful in any important sense. 
 
-In this post I will not try to convince you of this belief. (For a thorough analysis of my theoretical justifications I the refer reader to my paper ["Like Hamlet Discussing Shakespeare" (2019)](https://sellarafaeli.com/hamlet_discussing_shakespeare_may_2019.pdf). 
+In this post I will not try to convince you of this belief. For a thorough analysis of my theoretical justifications I the refer reader to my paper ["Like Hamlet Discussing Shakespeare" (2019)](https://sellarafaeli.com/hamlet_discussing_shakespeare_may_2019.pdf). 
 
 In this current text I am merely attempting to summarize a single tenet of my belief in order to quickly explain a root difference from which wholly divergent worldviews emerge. 
 
