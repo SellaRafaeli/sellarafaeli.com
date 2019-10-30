@@ -31,3 +31,5 @@ We used to think cigarettes were good for us. They were cool. The cigarette indu
 Be strong and take care of yourself. Is Facebook good for us? Can we really quit at any time? 
 
 Can you?
+
+- sella.rafaeli@gmail.com, 30/9/18
