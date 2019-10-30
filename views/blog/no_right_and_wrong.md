@@ -32,6 +32,6 @@ I do and will try to accept that other people have different worldview from my o
 
 Remembering this basic core difference in beliefs will hopefully help clarify value-based conversations and facilitate productive dialogue. 
 
-Thanks for reading! Drop me a line if you enjoyed this.
+Thanks for reading! If you found this interesting, please tell me so. 
 
 - sella.rafaeli@gmail.com, 30/10/2019
