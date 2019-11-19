@@ -29,6 +29,12 @@ get '/ping' do
   {msg: "pong from #{$app_name}", val: 'CarWaiting (is the new TrainSpotting)'}
 end
 
+get '/books/my_judaism' do
+  bp
+  log_analytics(cookies[:reader_email], pr.just(:chapter)) if cookies[:reader_email]
+  File.read(File.join('public', 'books/my_judaism.html'))
+end
+
 get '/load/:x' do
   {hits: $redis.incr('load')}
 end
@@ -92,10 +98,16 @@ def layout(view, title = nil)
   erb :template, locals: {content: html, basename: title || view}
 end
 
-def md(file)  
+def md(file, opts = {})  
   text = File.read 'views/'+file.to_s+'.md'
   html = Kramdown::Document.new(text, input: 'GFM', coderay_line_numbers: nil).to_html
   
-  erb :template, locals: {content: html, basename: file}
+  erb :template, locals: {content: html, basename: file}.merge(opts)
 end
 
+def md_book(file, opts = {})
+  text = File.read 'views/'+file.to_s+'.md'
+  html = Kramdown::Document.new(text, input: 'GFM', coderay_line_numbers: nil).to_html
+  
+  erb :book_template, locals: {content: html, basename: file}.merge(opts)
+end

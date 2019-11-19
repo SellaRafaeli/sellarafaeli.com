@@ -1,6 +1,6 @@
 Mongo::Logger.logger.level = Logger::WARN 
 
-mongodb_db_name = $app_name 
+mongodb_db_name = $app_name.to_s.gsub('.','_')
 #mongodb_db_name = 'yesno_prod_backup'
 DB_URI = ENV["MONGODB_URI"] || "mongodb://localhost:27017/#{mongodb_db_name}"
 

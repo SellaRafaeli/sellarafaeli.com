@@ -17,9 +17,11 @@
 </head>
 
 <body>
+    <% unless locals[:no_top] %>
     <div class=top>
         <a href=/>sellarafaeli.com</a>
     </div>  
+    <% end %>
 
     <article class=markdown-body>                      
         <%= content %>
