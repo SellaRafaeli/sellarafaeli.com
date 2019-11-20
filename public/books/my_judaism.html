@@ -1,7 +1,7 @@
 
 <style>
 body {
-	background-color: whitesmoke;
+	background-color: lightgrey;
 	margin-top: 20px;
 	font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
 	  line-height: 32px;
@@ -13,7 +13,12 @@ body {
 	  max-width: 40em;
 	  margin: 0 auto;
 	  margin: 0 auto;
-	  background: #fefefe;
+}
+.full-page {
+	background-color: white;
+	padding: 30px;
+	min-height: 100%;
+	padding-bottom: 70px;
 }
 .book-title {
 	text-align: center;
@@ -49,7 +54,8 @@ h3 {
 }
 .progress-content {
 	background-color: grey;
-  font-size: 14px;
+  font-size: 0px;
+  height: 10px;
   text-align: center;
 }
 .smaller {
@@ -59,12 +65,8 @@ h3 {
 	clear: both;
 }
 </style>
-<div class='book-title'>
-<h2><a href='/books/my_judaism'>My Judaism: A Practical Spiritual Introduction</a></h2>
-<p>Sella Rafaeli, sella.rafaeli@gmail.com, November 2019</p>
-<p>(c) Rafaeli Press, San Francisco, 2019</p>
-</div>
 
+<div class='full-page'>
 
 <div class='progress'>
 	<div class="progress-content" style="width:0%"></div>
@@ -77,6 +79,14 @@ h3 {
 <div class='cb'>
 </div>
 
+
+<div class='chapter'>
+<div class='book-title'>
+<h2><a href='/books/my_judaism'>My Judaism: A Practical Spiritual Introduction</a></h2>
+<p>Sella Rafaeli, sella.rafaeli@gmail.com, November 2019</p>
+<p>(c) Rafaeli Press, San Francisco, 2019</p>
+</div>
+</div>
 
 <div class='chapter'>
 <h3> Introduction </h3>
@@ -362,6 +372,7 @@ To quote one great Jewish thinker, 'Hillel the Elder', the entirety of the Torah
 <button class='prev-btn' onclick=next(-1)>Previous </button>
 <button class='next-btn' onclick=next()>Next </button>
 
+</div>
 <script>
 function getQP(name) {
     var url = window.location.href;

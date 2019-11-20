@@ -30,7 +30,6 @@ get '/ping' do
 end
 
 get '/books/my_judaism' do
-  bp
   log_analytics(cookies[:reader_email], pr.just(:chapter)) if cookies[:reader_email]
   File.read(File.join('public', 'books/my_judaism.html'))
 end
