@@ -1,4 +1,43 @@
+<style>
+/* Diagonal stacked paper effect */
+.paper {
+  background-color: #fff;
+  /* Need position to allow stacking of pseudo-elements */
+  position: relative;
+  /* Padding for demo purposes */
+  padding: 30px;
+}
 
+.paper,
+.paper::before,
+.paper::after {
+  /* Add shadow to distinguish sheets from one another */
+  box-shadow: 2px 1px 1px rgba(0,0,0,0.15);
+}
+
+.paper::before,
+.paper::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+}
+
+/* Second sheet of paper */
+.paper::before {
+  left: 7px;
+  top: 5px;
+  z-index: -1;
+}
+
+/* Third sheet of paper */
+.paper::after {
+  left: 12px;
+  top: 10px;
+  z-index: -2;
+}
+</style>
 <style>
 body {
 	background-color: lightgrey;
@@ -19,7 +58,10 @@ body {
 	padding: 30px;
 	min-height: 100%;
 	padding-bottom: 70px;
+	padding-top:0;
+	position: relative;
 }
+
 .book-title {
 	text-align: center;
 	margin: 15px;
@@ -64,16 +106,35 @@ h3 {
 .cb {
 	clear: both;
 }
+.top_name {
+	font-size: 12px;
+	display: inherit;
+	text-align: right;
+}
+
+/*.bottom_next {
+	position: absolute;
+  right: 10px;
+}
+
+.bottom_prev {
+	position: absolute;
+  right: 10px;	
+}*/
+
 </style>
 
-<div class='full-page'>
+<div class='full-page paper'>
 
 <div class='progress'>
 	<div class="progress-content" style="width:0%"></div>
 </div>
 
-
+<div>
+	<a class='top_name' href='/books/my_judaism'> Sella Rafaeli - My Judaism</a>	
+</div>
 <button class='prev-btn smaller' onclick=next(-1)>Previous </button>
+
 <button class='next-btn smaller' onclick=next()>Next </button>
 
 <div class='cb'>
@@ -165,6 +226,8 @@ For those readers who would like further pointers on the controversial topic of 
 One core teaching of Judaism is the importance of being present in the moment. We cannot know the meaning of life, and all we can do is live a good life: the prime directive of living a good life is being present in the moment. (We will explore this concept further later on.) This concept has also been discovered by other faiths, notably Zen Buddhism. In the original Judaism, this was embodied by the name given to God. Yawheh, יהוה, comes from the Semitic root ה.ו/י.ה., which is the root for “being”, conjugated to mean “it will be the present”. The future will feel like right now, since life always feels like “right now”, and all we can ever do is at most be present in moment. We can see how the wisdom of Zen is the also the (original) wisdom of Judaism, since mystics from different faiths discover the same universal truths. This is an illustration of why we should learn inspiration from all wisdoms, not just Judaism. Being conversant in spirituality helps us understand and improve our own.
 
 And so our ancestors have tried to tell us, by a meme of the name of holiest of all holies: The future will be just like now. Enjoy the moment. Jehovah; Yawheh; יהוה.
+
+When invoking the common Jewish phrases "With the help of the Name" (בעזרת השם) or "If so the Name will want" (אם ירצה השם), this can be interpreted as if saying, "while we discuss the future, we remember cognizant that life is an eternal now. We hope that while continuing to observe the sacredness of the present moment, and not enslaving ourselves to a mental theoretical illusion of a future, the desired outcome will still Arise. And as it arises, we hope that in that future, we will continue to observe living in the present moment, and not yet still be looking further onwards, even more into a never-coming illusory 'future'." But this is quite cumbersome, is it not? So we will just say that "the name" means "always be in the moment", and take "with the name" to mean "while remembering to live in the moment". Some concepts are too complicated to explain every time at length, and so we have shortcuts for them. Such is the meaning of "with the name". Be'ezrat haShem! 
 
 </div>
 <div class='chapter'>
@@ -352,7 +415,7 @@ As mentioned, the Jewish tradition is heavy on introspection and research of how
 </div>
 
 <div class='chapter'>
-<h3> Summary  </h3>
+<h3> Summary </h3>
 
 In this book, we have covered some basic wisdom of the Jewish faith, and how it might help you live a better life. We hope you adopt what you find works for you and live the best life that you can. This book does not begin to be exhaustive nor authoritative; it is best viewed as a taste, a perspective and invitation to learn more. 
 
@@ -369,8 +432,9 @@ To quote one great Jewish thinker, 'Hillel the Elder', the entirety of the Torah
 
 
 
-<button class='prev-btn' onclick=next(-1)>Previous </button>
-<button class='next-btn' onclick=next()>Next </button>
+
+<button class='bottom_prev prev-btn' onclick=next(-1)>Previous </button>
+<button class='bottom_next next-btn' onclick=next()>Next </button>
 
 </div>
 <script>
@@ -390,23 +454,66 @@ function getChapter() {
 
 function next(delta) {
 	var delta = delta || 1;
-	var chap = getChapter();
+	var chap = getChapter() || 0;
+	
 	if (chap || chap === 0) {
+		if (!getChapter() && getChapter()!==0) {
+			return window.location = window.location.href+'?chapter=1';		
+		}
+		
 		window.location = window.location.href.replace('chapter='+getChapter(),'chapter='+(delta+getChapter()));
 	} else {
 		window.location = window.location.href+'?chapter=1'
 	}	
 
-	setProgress();
+	//setProgress();
 }
 
 function setProgress() {
-	var chap = getChapter() || 0;
+	var chapter = getChapter() || 0;
 	var numChapters = allChapters().length;
-	var progressPct = chap/numChapters*100 +'%';
+
+	console.log('chapter',chapter,allChapters().length);
+	
+	var progressContainer = document.querySelector('.progress');
 	var progressContent = document.querySelector('.progress-content');
-	progressContent.style.width = progressPct;
-	progressContent.innerText = `${chap}/${numChapters}`;
+	if (chapter > 0) { 
+		show(progressContainer);
+		var progressPct = chapter/numChapters*100 +'%';		
+		progressContent.style.width = progressPct;
+		progressContent.innerText = `${chapter}/${numChapters}`;	
+	} else {
+		hide(progressContainer);
+	}
+	
+	if (chapter>=1) {
+		document.querySelectorAll("h3")[chapter-1].innerText = chapter+'. '+document.querySelectorAll("h3")[chapter-1].innerText;	
+	}
+	
+
+	var nextChapterText = (chapter+1)+'. '+(document.querySelectorAll("h3")[chapter] || {}).innerText;
+	var prevChapterText = (chapter-1)+'. '+((document.querySelectorAll("h3")[chapter-2] || {}).innerText || 'Cover');
+
+	document.querySelectorAll(".prev-btn").forEach(p => {
+		p.innerText = 'Previous: '+prevChapterText+''
+		console.log('chapter!',chapter)
+		if (chapter == 0) p.style.display = 'none';
+	});
+
+	document.querySelectorAll(".next-btn").forEach(p => {
+		p.innerText = 'Next: '+nextChapterText;
+		
+		if (chapter >= allChapters().length-1) p.style.display = 'none';
+	});
+
+}
+
+function hide(elem) {
+	elem.style.display = 'none';	
+}
+
+function show(elem) {
+	elem.style.display = 'block';		
 }
 
 function allChapters() {
@@ -415,24 +522,6 @@ function allChapters() {
 
 allChapters().forEach(p => p.style.display = 'none')
 var chapter = getChapter() || 0;
-
-
-var nextChapterText = (chapter+1)+'.'+(document.querySelectorAll("h3")[chapter+1] || {}).innerText;
-var prevChapterText = (chapter-1)+'.'+(document.querySelectorAll("h3")[chapter-1] || {}).innerText;
-
-
-document.querySelectorAll(".prev-btn").forEach(p => {
-	p.innerText = 'Previous: '+prevChapterText+''
-	if (chapter == 0) p.style.display = 'none';
-});
-
-document.querySelectorAll(".next-btn").forEach(p => {
-	p.innerText = 'Next: '+nextChapterText;
-	if (chapter >= allChapters().length-1) p.style.display = 'none';
-});
-
-
-document.querySelectorAll("h3")[chapter].innerText = chapter+'. '+document.querySelectorAll("h3")[chapter].innerText
 
 allChapters()[chapter].style.display = 'block';
 
