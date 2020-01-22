@@ -34,6 +34,10 @@ get '/books/my_judaism' do
   File.read(File.join('public', 'books/my_judaism.html'))
 end
 
+get '/books' do
+  md(:books)
+end
+
 get '/load/:x' do
   {hits: $redis.incr('load')}
 end
