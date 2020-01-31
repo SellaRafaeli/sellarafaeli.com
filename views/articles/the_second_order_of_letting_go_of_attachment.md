@@ -1,0 +1,33 @@
+<style>
+.first_letter {
+  font-weight: bold;
+    margin-right: 10px;
+    font-size: 65px;
+    line-height: 65px;
+    width: 125px;
+    height: 125px;
+    background: #363f48;
+    color: #fff;
+    border-bottom: none;
+    padding: 2px;
+}
+
+</style>
+
+### The Second Order of Letting Go of Attachment 
+
+<span class='first_letter'>If</span> you've learned a thing or two about Buddhism or about spirituality, you might be familiar with the idea behind shedding your attachment or avoiding your desires. Basically the idea is that suffering comes from wanting something we don't have, and that it is more feasible to stop wanting than to continuously acquire more and more. Getting what you want will only lead you to want more; wanting what you get solves the problem at its root. 
+
+Anyway, this is an advanced lesson - the above is the basics which hopefully you have already heard of and internalized. So, you might have heard of monks, advanced in their Buddhist ways, who sleep on a bed of nails and live in a monastery in the mountains in the Himalaya and eat only rice and do nothing. You may have heard and may think that this is the 'true' way to practice Buddhism and to lose attachment. That is: to stop your cravings, it might seem one must adopt a life of no satisfaction, no craving, no desire. Rise and chanting in a monastery in the mountains. 
+
+Well, you might ask yourself, if one's goal is indeed to lose attachment, perhaps this picture is a little too specific. Perhaps there is some irony in the idea that in order to avoid attachment, one is attached to such a specific method. Said differently, if one strongly wants, or feels they NEED to be in a monastery and only eat rice and chant, then one is wanting a specific lifestyle. If one believes that this lifestyle is the only one that can help avoid suffering, well then we are right back where we started, where we believe there is something to be 'obtained' or 'achieved', and we have a desire and a craving and we are chasing the carrot. As discussed, this is unfortunately a failure on the first step. Wanting stuff does not help. 
+
+And so a more nuanced version of Buddhism arises: avoiding attachment, without attachment to a "Buddhist lifestyle" of avoiding attachment. Ignoring the desire, without desiring to ignore the desire. What does that entail? What must one do, then, in order to truly "succeed" at Buddhism? Well, nothing. For if there was something that you must do, then you have attachment in the first place. So there is nothing you must do. You may, in fact, do anything. Just don't get too worked up about it. 
+
+And so those who have studied Buddhism long enough to have realized this nuance see that there is nothing special you need to do. You do not need to go to a monastery, although going there might help you see this, in the same way that a Vipassana meditation can help you see your own thoughts, but it is not the goal itself. The goal is to realize that there is no goal. You can do this while continuing your own life. Keep doing whatever it is that you were doing, or do whatever it is that you feel like doing instead. Or don't. Either way, you'd benefit from not getting too excited about it - but don't try too hard, eh? 
+
+So that is the next step in understanding the idea behind dropping attachment: it's not quite that "there is no specific action you NEED to take"; rather it would be more correct to emphasize - "there is NO specific action you need to take". 
+
+This is also a perspective on why in Buddhism it is said that actually "everyone is enlightened" or that "everyone has the Buddha nature". Because it is not something you obtain, but merely the result of dropping the illusory fantasy thoughts that we use to define ourselves and our pains. 
+
+You've just been distracted, busy chasing thoughts. Nothing is worth getting upset about, and everything is OK, you're already there, and there is exactly nothing more that you need to do.

@@ -1,0 +1,31 @@
+<style>
+.first_letter {
+  font-weight: bold;
+    margin-right: 10px;
+    font-size: 65px;
+    line-height: 65px;
+    width: 125px;
+    height: 125px;
+    background: #363f48;
+    color: #fff;
+    border-bottom: none;
+    padding: 2px;
+}
+
+</style>
+
+### Creating Love
+
+<span class='first_letter'>I</span> like'd to talk today about creating love. I am actually doing it right now, but I'd like to clarify that I am not talking about sex. No, what we call sex is a specific way of making love. It is one single way, which generally involves our genitals. But you can and we all often do make, which is to say create love without using our genitals. We express love, we create it, we act it into existence: we make it. Now, sexual pleasure is so taboo and so powerful that we have made euphemisms for sex: we have started to call it "making love", as it is indeed both the strongest and the most secretive and private form of making love. But the point remains that there are many other, non-sexual ways of making love: of creating more affection and caring and giving. Of taking action that results in more pleasure and joy. In pleasing others, and being pleased by them. The things that give us pleasure us are nuanced, although many methods involve helping stimulate us in specific patterns and rhythms; a gentle strength; a cadence and tempo and style that match our own. 
+
+Which is to say, some of us like a specific combination of speed, tones, instruments and rhythms, and thus that kind of music, when played, makes us love it, turns us into love itself, it makes love with us. So playing music is exactly making love, in the literal sense. So is dancing with someone, or dancing in a way that pleases someone watching. Moving your body in a controlled fashion, in an rhythm that is both familiar yet just creative enough, seeing someone else's body move in response to yours, perhaps while you hold each other. So is singing, either in front of a crowd or together with a crowd. 
+
+So is being vulnerable, in a support group or with a therapist or crying on your best friend's shoulder, at either their wedding or their parent's funeral. When we are vulnerable, we are needing love and support and warmth and reassurance. Depending on the conditions, we decide to show our weakness, and we hope that those with us will show us this love. To the extent that they do, they are giving us love, they are making love to us. Again, this type is not sexual, this is about the spectrum of ways in which we can make and give love to and with one another. 
+
+Sharing a good meal with someone is another way of sharing love. Of giving pleasure to another in a way only rich pasta or dark chocolate or any other taste and flavor that stimulate your lips and tongue; and similarly it is different to create love via a meal for someone, or to receive this love from someone - and indeed most humans, from their first day of existence, come to know this world through the love they receive from their mother, from her milk as a baby to the food they grow up with. Taking care of a one's culinary satisfation is a classic form of making love; feeding someone is giving them love, is making love for them. Sharing a meal together prepared by a third party - is not the same as doing it with your hands. The joy in cooking for someone, in being cooked for, or in cooking together are each different forms of love. 
+
+Smoking together - both marijuana and nicotine - is often yet another activity - or rather, shared lack of activity - where intimacy is a dominant theme, where the only reason to do it at all is pleasure, and doing with others means you are taking pleasure in their presence, and presumably they are taking pleasure in yours. When smoking, when "hanging out", people are signaling to each other that there is nothing else they would rather be doing right now except be with each other. They are not looking for stimulation nor more safety: they are good right where they are, with each other, they are together by choice, they want each other. It is love. 
+
+There are many forms of love-making, and they are all marvelous. You can make love with your husband or wife - indeed, with your loved one - or you can make love to a crowd by playing for them (or otherwise performing), you can make love to your patient or friends by supporting them, you can make love to your family by cooking for them, and you can make love with anyone by sharing marijuana with them. (You can do all of these at the same time, by the way, at Burning Man.)
+
+But the important take-away from all of this is how much love is in all of our lives, and how many different ways we have to give, receive, share and experience this love. Letting love into our hearts and lives, and seeing how much it already exists, how every action comes from giving love or asking for it, and how we are all in love with each other all of the time. ❤️

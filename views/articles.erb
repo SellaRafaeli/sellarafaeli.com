@@ -1,0 +1,12 @@
+<%
+  files = Dir[Dir.pwd+"/views/articles/*"]
+  names = files.map {|f| f.split('/views/articles/')[1].split('.md')[0]}.sort
+%>
+
+<h2> Articles </h2>
+
+<ul>
+<% names.each do |name| %>
+  <li><a href='/articles/<%=name%>'><%= name.titleize %></a></li>
+<% end %>
+</ul>

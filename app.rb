@@ -88,6 +88,14 @@ get '/blog/:id' do
   md(:"blog/#{pr[:id]}")
 end
 
+get '/articles' do
+  layout(:articles)
+end
+
+get '/articles/:id' do
+  md(:"articles/#{pr[:id]}")
+end
+
 get '/mindy_app_freelancer' do
   md(:'random/mindy_app_freelancer')
 end
