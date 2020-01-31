@@ -4,7 +4,7 @@
 (now that's what I'm talking about)
 
 * [No Right and Wrong](/blog/no_right_and_wrong)
-* [Believe in Now](/writings/believe_in_now)
+* [Believe in Now](/blog/believe_in_now)
 * [Burning Man 2019](/blog/burning_man_2019) <span class='date'>4/9/19</span>
 * [Remember Facebook Is Addictive](/blog/remember_facebook_is_addictive) <span class='date'>30/9/18</span>
 * [JS const/let/var - misleading && bikeshedding](/blog/const_let_var_misleading) <span class='date'>28/9/18</span>
