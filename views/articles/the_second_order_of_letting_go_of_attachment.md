@@ -1,22 +1,6 @@
-<style>
-.first_letter {
-  font-weight: bold;
-    margin-right: 10px;
-    font-size: 65px;
-    line-height: 65px;
-    width: 125px;
-    height: 125px;
-    background: #363f48;
-    color: #fff;
-    border-bottom: none;
-    padding: 2px;
-}
-
-</style>
-
 ### The Second Order of Letting Go of Attachment 
 
-<span class='first_letter'>If</span> you've learned a thing or two about Buddhism or about spirituality, you might be familiar with the idea behind shedding your attachment or avoiding your desires. Basically the idea is that suffering comes from wanting something we don't have, and that it is more feasible to stop wanting than to continuously acquire more and more. Getting what you want will only lead you to want more; wanting what you get solves the problem at its root. 
+<span class='start'>If</span> you've learned a thing or two about Buddhism or about spirituality, you might be familiar with the idea behind shedding your attachment or avoiding your desires. Basically the idea is that suffering comes from wanting something we don't have, and that it is more feasible to stop wanting than to continuously acquire more and more. Getting what you want will only lead you to want more; wanting what you get solves the problem at its root. 
 
 Anyway, this is an advanced lesson - the above is the basics which hopefully you have already heard of and internalized. So, you might have heard of monks, advanced in their Buddhist ways, who sleep on a bed of nails and live in a monastery in the mountains in the Himalaya and eat only rice and do nothing. You may have heard and may think that this is the 'true' way to practice Buddhism and to lose attachment. That is: to stop your cravings, it might seem one must adopt a life of no satisfaction, no craving, no desire. Rise and chanting in a monastery in the mountains. 
 

@@ -1,22 +1,6 @@
-<style>
-.first_letter {
-  font-weight: bold;
-    margin-right: 10px;
-    font-size: 65px;
-    line-height: 65px;
-    width: 125px;
-    height: 125px;
-    background: #363f48;
-    color: #fff;
-    border-bottom: none;
-    padding: 2px;
-}
-
-</style>
-
 ### Believe the "Messiahs" Around You
 
-<span class='first_letter'>What</span> all mystics and shamans have in common is that they have made the journey and they have seen that they are one with the cosmos, they have felt the communion with God and the divine, they have dissolved their ego, they have realized they are one with the world. This unity is prophetic in nature. The great men of history, Jesus, Buddha, Lao Tzu, I would claim even Abraham. They all got this. And they came, they came back to tell us all about it. This is why Jesus is Christ, why he is the messiah. Because he was trying to tell us it's ok, that everything is ok. And if you listen to him, you'll get it to. And you'll be "saved". Do you see it? Because you ARE saved. There is nothing to lose. You will, to quote the way Christians say it, "stay in the kingdom of God forever". 
+<span class='start'>What</span> all mystics and shamans have in common is that they have made the journey and they have seen that they are one with the cosmos, they have felt the communion with God and the divine, they have dissolved their ego, they have realized they are one with the world. This unity is prophetic in nature. The great men of history, Jesus, Buddha, Lao Tzu, I would claim even Abraham. They all got this. And they came, they came back to tell us all about it. This is why Jesus is Christ, why he is the messiah. Because he was trying to tell us it's ok, that everything is ok. And if you listen to him, you'll get it to. And you'll be "saved". Do you see it? Because you ARE saved. There is nothing to lose. You will, to quote the way Christians say it, "stay in the kingdom of God forever". 
 
 This got a bit hocus and dreamy so let's try to bring back to ground and talk about it in normal-speak. There are ways, for example through meditation, psychodelic drugs, or a near-death experience, there are ways of coming to terms with your own existence. Of losing the stories of "who you are" as told within the plot of the humans around you, without labeling you as a human, without labeling you at all or anything else for that matter, just pure being. 
 

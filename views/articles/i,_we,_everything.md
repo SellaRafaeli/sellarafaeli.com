@@ -1,22 +1,6 @@
 ### I / We / Everything - What Different Cultures Care About
 
-<style>
-.first_letter {
-  font-weight: bold;
-    margin-right: 10px;
-    font-size: 65px;
-    line-height: 65px;
-    width: 125px;
-    height: 125px;
-    background: #363f48;
-    color: #fff;
-    border-bottom: none;
-    padding: 2px;
-}
-
-</style>
-
-<span class='first_letter'>Different</span> cultures, religions and world-views see the world very differently. This is not, as many seculars like to ridicule, a distinction of arbitrary false non-existent deities, but a fundamental difference in what The Topic is. Which is to say: what are we talking about? What is our concern? What is the subject matter, what are we trying to achieve, why does anything matter, how do we make our decisions and judgements? What do we _care_ about? All of this is reflected in the language, both in the words themselves, both more importantly in the sentences we choose to form, in the notions we choose to discuss, in the things about which we disagree, but that we have an opinion about in the first place.
+<span class='start'>Different</span> cultures, religions and world-views see the world very differently. This is not, as many seculars like to ridicule, a distinction of arbitrary false non-existent deities, but a fundamental difference in what The Topic is. Which is to say: what are we talking about? What is our concern? What is the subject matter, what are we trying to achieve, why does anything matter, how do we make our decisions and judgements? What do we _care_ about? All of this is reflected in the language, both in the words themselves, both more importantly in the sentences we choose to form, in the notions we choose to discuss, in the things about which we disagree, but that we have an opinion about in the first place.
 
 Concretely, let us elaborate: In the Christian world there is a great focus on I, on the individual. The main religious discussion I might have is on whether I should repent before Christ in order for me to be saved, or whether I am an individual who can live my own life to the fullest without needing Jesus in whatever manner pleases me. In either case, the language is the language of "I". 
 

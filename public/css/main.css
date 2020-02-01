@@ -24,7 +24,7 @@ font-family: Helvetica Neue, Lato,Georgia, Palatino, 'Palatino Linotype', Times,
 font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
 line-height:32px;
 padding:1em;
-font-size: 22px;
+font-size: 18px;
 /*font-weight: 300;*/
 /*color: #666;*/
 margin:auto;
@@ -60,4 +60,17 @@ li {
 .star {
   height: 10px;
   margin-right: 5px;
+}
+
+.start {
+  font-weight: bold;
+    margin-right: 10px;
+    font-size: 35px;
+    line-height: 65px;
+    width: 125px;
+    height: 125px;
+    background: #363f48;
+    color: #fff;
+    border-bottom: none;
+    padding: 2px;
 }

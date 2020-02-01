@@ -1,22 +1,6 @@
-<style>
-.first_letter {
-  font-weight: bold;
-    margin-right: 10px;
-    font-size: 65px;
-    line-height: 65px;
-    width: 125px;
-    height: 125px;
-    background: #363f48;
-    color: #fff;
-    border-bottom: none;
-    padding: 2px;
-}
-
-</style>
-
 ### Creating Love
 
-<span class='first_letter'>I</span> like'd to talk today about creating love. I am actually doing it right now, but I'd like to clarify that I am not talking about sex. No, what we call sex is a specific way of making love. It is one single way, which generally involves our genitals. But you can and we all often do make, which is to say create love without using our genitals. We express love, we create it, we act it into existence: we make it. Now, sexual pleasure is so taboo and so powerful that we have made euphemisms for sex: we have started to call it "making love", as it is indeed both the strongest and the most secretive and private form of making love. But the point remains that there are many other, non-sexual ways of making love: of creating more affection and caring and giving. Of taking action that results in more pleasure and joy. In pleasing others, and being pleased by them. The things that give us pleasure us are nuanced, although many methods involve helping stimulate us in specific patterns and rhythms; a gentle strength; a cadence and tempo and style that match our own. 
+<span class='start'>I</span> like'd to talk today about creating love. I am actually doing it right now, but I'd like to clarify that I am not talking about sex. No, what we call sex is a specific way of making love. It is one single way, which generally involves our genitals. But you can and we all often do make, which is to say create love without using our genitals. We express love, we create it, we act it into existence: we make it. Now, sexual pleasure is so taboo and so powerful that we have made euphemisms for sex: we have started to call it "making love", as it is indeed both the strongest and the most secretive and private form of making love. But the point remains that there are many other, non-sexual ways of making love: of creating more affection and caring and giving. Of taking action that results in more pleasure and joy. In pleasing others, and being pleased by them. The things that give us pleasure us are nuanced, although many methods involve helping stimulate us in specific patterns and rhythms; a gentle strength; a cadence and tempo and style that match our own. 
 
 Which is to say, some of us like a specific combination of speed, tones, instruments and rhythms, and thus that kind of music, when played, makes us love it, turns us into love itself, it makes love with us. So playing music is exactly making love, in the literal sense. So is dancing with someone, or dancing in a way that pleases someone watching. Moving your body in a controlled fashion, in an rhythm that is both familiar yet just creative enough, seeing someone else's body move in response to yours, perhaps while you hold each other. So is singing, either in front of a crowd or together with a crowd. 
 
