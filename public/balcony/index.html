@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+
+<div class='header'>
+  <h3 class='title'></h3>
+  <h4 class='subtitle'></h4>
+  <div class='first_mode'>
+		<button onclick=contentFirst()>Content First</button>
+		<button onclick=mapFirst()>Map First</button>
+	</div>
+</div>
+
+<div style="overflow:auto">
+  <div class="items">
+  	<div id='show_all' onclick=showAll() style='display: none;'>x</div>
+    <img class='single_item hidden' >
+  </div>
+
+  <div class="map">
+  	<div class=grey_box id=map style='padding:10px'></div>
+  </div>
+
+  <div class="right">
+    <h2>Stats</h2>
+  </div>
+</div>
+
+<div class='timeline grey_box'>timeline</div>
+<div class='download_links grey_box'>download links</div>
+
+<script src='jquery.slim.min.js'></script>
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC9MVVsH4ZrQE6Np6NNLIfut9onAZBqvY0'></script>
+<script src='main.js'></script>
+
+</body>
+</html>

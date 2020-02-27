@@ -54,7 +54,7 @@ GEM
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     paint (2.1.0)
-    postmark (1.16.0)
+    postmark (1.19.1)
       json
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -153,5 +153,8 @@ DEPENDENCIES
   sinatra-reloader
   tux
 
+RUBY VERSION
+   ruby 2.6.5p114
+
 BUNDLED WITH
-   1.17.2
+   1.17.3
