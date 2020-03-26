@@ -108,6 +108,10 @@ get '/balcony' do
   erb :'balcony'
 end
 
+get '/yoni2020' do 
+  erb :'yoni2020'
+end
+
 def layout(view, title = nil)
   html = erb view
   erb :template, locals: {content: html, basename: title || view}
