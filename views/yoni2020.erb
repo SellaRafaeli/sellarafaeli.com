@@ -1,0 +1,23 @@
+<%
+  srcs = [
+    'https://images.unsplash.com/photo-1585144570630-65b30922ff03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80',
+    'https://images.unsplash.com/photo-1527690578719-095da0f6091d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=480&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=480'
+  ]
+%>
+
+<style>
+.imgs {
+
+}
+.img {
+  width: 100px;
+  height: 100px;
+}
+</style>
+<h1> Yoni 2020 </h1>
+
+<div class='imgs'>
+  <% srcs.each do |src| %>
+    <img class='img' src="<%=src%>" />
+  <% end %>
+</div>
