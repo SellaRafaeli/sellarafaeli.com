@@ -58,6 +58,11 @@ get '/philosopher' do
   md(:philosopher)
 end
 
+get '/nda' do 
+  erb :'nda'
+end
+
+
 get '/consulting' do
   md(:consulting)
 end
