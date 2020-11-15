@@ -9,7 +9,7 @@ GEM
     babosa (1.0.2)
     backports (3.15.0)
     bond (0.5.1)
-    bson (3.2.7)
+    bson (4.11.1)
     bson_ext (1.5.1)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -44,8 +44,8 @@ GEM
     mime-types-data (3.2019.0331)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    mongo (2.1.2)
-      bson (~> 3.0)
+    mongo (2.5.3)
+      bson (>= 4.3.0, < 5.0.0)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     mustermann (1.0.3)
@@ -136,7 +136,7 @@ DEPENDENCIES
   kramdown
   kramdown-parser-gfm
   literate_randomizer
-  mongo (~> 2.1.0)
+  mongo (~> 2.5.0)
   nokogiri
   postmark
   pry-byebug (= 2.0.0)
