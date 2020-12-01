@@ -39,7 +39,15 @@ def is_open_route
   return false
 end
 
+
+options "*" do
+  response.headers["Access-Control-Allow-Methods"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
+  response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+  200
+end
+
 before do
+  response.headers['Access-Control-Allow-Origin'] = '*' 
   #require_user unless is_open_route     
   @time_started_request = Time.now    
 end
