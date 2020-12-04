@@ -14,7 +14,7 @@ function buildResults(playbooks) {
 				<div class="pb_title">${pb.title || "My Title"}</div>
 			</div>
 			<div class="single_pb_bottom">
-				<img class='pb_creator_img' src='${pb.creator_img}' />
+				<img class='pb_creator_img' src='${server+'/'+pb.creator_img}' />
 				<div class='pb_bottom_row_one'>
 					<span class="creator_name">${pb.creator_name || "Jane Simmons"}</span>
 					<span class="time_ago">${pb.time_ago || "3 days ago"}</span>
@@ -31,6 +31,7 @@ function buildResults(playbooks) {
 function showVideo(url) {
 	$("#video_player").css('display','block');
 	$("#youtube_iframe").attr('src',url);
+	$("#results").html('');
 }
 
 function stopVideo() {
@@ -62,7 +63,7 @@ function runGuidde() {
 		div.innerHTML = res;
 		document.body.appendChild(div);
 
-		search('test');
+		//search('test');
 	});
 
 
