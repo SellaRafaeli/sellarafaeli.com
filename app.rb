@@ -62,6 +62,13 @@ get '/nda' do
   erb :'nda'
 end
 
+get '/add' do 
+  return params[:a].to_i * params[:b].to_i
+end
+
+post '/multiply' do 
+  return params[:a].to_i + params[:b].to_i
+end
 
 get '/consulting' do
   md(:consulting)
