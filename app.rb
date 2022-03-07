@@ -63,11 +63,13 @@ get '/nda' do
 end
 
 get '/add' do 
-  return params[:a].to_i * params[:b].to_i
+  res = params[:a].to_i * params[:b].to_i
+  {res: res}
 end
 
 post '/multiply' do 
-  return params[:a].to_i + params[:b].to_i
+  res = params[:a].to_i + params[:b].to_i
+  {res: res}
 end
 
 get '/consulting' do
