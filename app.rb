@@ -64,7 +64,7 @@ end
 
 get '/add' do 
   res = params[:a].to_i * params[:b].to_i
-  {res: res}
+  return {res: res}
 end
 
 post '/multiply' do 

@@ -16,6 +16,32 @@ You can read more [about me](/about), my [articles](/articles), my [blog](/blog)
 
 * [Contact](/contact.html)
  -->
+
+
+<style>
+.ct { text-align: center }
+.trusted_by_img { width: 100px; }
+@media screen and (zmin-width: 1000px) { .trusted_by_img { width: 150px; } }
+</style>
+
+
+<div class=ct>
+	<h4 style='margin-bottom: 20px'> trusted by </h4>
+  <div class='ct' style='max-width: 850px; margin: auto'>
+    
+      <img class='trusted_by_img' src='https://i.imgur.com/rtvfBlu.png' />
+      <img class='trusted_by_img' src='https://i.imgur.com/4lYKeZP.png' />
+      <img class='trusted_by_img' src='https://i.imgur.com/aMidOTM.png' />
+      <img class='trusted_by_img' src='https://i.imgur.com/8hrFhro.png' />
+      <img class='trusted_by_img' src='https://i.imgur.com/JdUZO97.png' />
+      <img class='trusted_by_img' src='https://i.imgur.com/G5OB8Q4.png' />
+      <img class='trusted_by_img' src='https://i.imgur.com/I8z9yxN.png' />
+      <img class='trusted_by_img' src='https://i.imgur.com/dB5tWJY.png' />
+  </div>
+</div>
+
+
+
 <div class='center'>
   <img src="https://imgur.com/NJoZJIs.jpg"  style='border-radius: 5px'>
 </div>
