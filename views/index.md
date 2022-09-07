@@ -26,7 +26,7 @@ You can read more [about me](/about), my [articles](/articles), my [blog](/blog)
 
 
 <div class=ct>
-	<h4 style='margin-bottom: 20px'> trusted by </h4>
+	<!-- <h4 style='margin-bottom: 20px'> trusted by </h4> -->
   <div class='ct' style='max-width: 850px; margin: auto'>
     
       <img class='trusted_by_img' src='https://i.imgur.com/rtvfBlu.png' />
