@@ -1,8 +1,18 @@
-Hi, I'm Sella, a technical entrepreneur.
+Hey, I'm Sella, an American-Israeli tech entrepreneur. 
 
-I have 17 years of experience in software development and management as a backend/frontend developer, team lead, CTO, CEO, founder and [consultant](/consulting). 
+I've been **programming since '00**. Mostly **web dev**. 
 
-My previous experience includes 8200 (5 years), CS @ Hebrew University (*magna cum laude*), Fiverr (2 years), CTO of a social network, [yes.no](https://medium.com/@sellarafaeli/yes-no-architecture-of-a-social-network-startup-in-2016-d6d2989ca1b3) (10 employees), and CEO of an international software services company (4 years, still active). <!-- For the last couple of years I have been the web architect at [Hysolate](https://www.hysolate.com/). -->
+Today I run [indydevs](https://indydevs.com), a network of **very senior developers**.
+
+My background includes
+* 5 years as an **Intelligence Officer** in Israel's SIGINT unit, 8200. 
+* 1 year **Backpacking** through South America. 
+* **BSc Computer Science & Psychology**, Hebrew University, *magna cum laude*.
+* **Many dev roles**, in many orgs of many sizes, in San Francisco, CA and Tel Aviv, IL. 
+I am especially fond of vanilla JS, Ruby (Sinatra), and MongoDB. Building complex web apps single-handedly has been the focus of my career.
+* **CTO co-founder of a [Q&A social media startup](https://medium.com/@sellarafaeli/yes-no-architecture-of-a-social-network-startup-in-2016-d6d2989ca1b3)**.
+* **Dev Shop founder** ('16). Built complex apps for ~70 orgs. 
+* Founder of **[indydevs](https://indydevs.com)** ('22), a network of senior developers.
 
 You can read more [about me](/about), my [articles](/articles), my [blog](/blog) or [books](/books), my [résumé](https://docs.google.com/document/d/1BjCh9nQDAibvDXBWxOYrAsRDsT6JfKbpW_nW2Ezl4Hc/export?format=pdf), or [contact me](/contact). 
 
@@ -16,14 +26,15 @@ You can read more [about me](/about), my [articles](/articles), my [blog](/blog)
 
 * [Contact](/contact.html)
  -->
-
+<div class='center'>
+  <img src="https://imgur.com/NJoZJIs.jpg"  style='border-radius: 5px'>
+</div>
 
 <style>
 .ct { text-align: center }
 .trusted_by_img { width: 100px; }
 @media screen and (zmin-width: 1000px) { .trusted_by_img { width: 150px; } }
 </style>
-
 
 <div class=ct>
 	<!-- <h4 style='margin-bottom: 20px'> trusted by </h4> -->
@@ -38,12 +49,6 @@ You can read more [about me](/about), my [articles](/articles), my [blog](/blog)
       <img class='trusted_by_img' src='https://i.imgur.com/I8z9yxN.png' />
       <img class='trusted_by_img' src='https://i.imgur.com/dB5tWJY.png' />
   </div>
-</div>
-
-
-
-<div class='center'>
-  <img src="https://imgur.com/NJoZJIs.jpg"  style='border-radius: 5px'>
 </div>
 
 <!-- * [Creative](/creative.html) -->
