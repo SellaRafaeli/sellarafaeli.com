@@ -2,8 +2,13 @@ $prod       = settings.production? #RACK_ENV==production?
 $prod_url   = 'http://app.herokuapp.com'
 $root_url   = $prod ? $prod_url : 'http://localhost:9090'
 
-enable :sessions
-set :session_secret, '&a*n31994@'
+
+ONE_YEAR_IN_SECONDS = 31556952
+SESSION_SECRET = ENV['SESSION_SECRET'] || '&a!*^n31994@'
+use Rack::Session::Cookie, :key => "rack.session",  :expire_after => ONE_YEAR_IN_SECONDS, :secret => SESSION_SECRET
+
+#enable :sessions
+#set :session_secret, '&a*n31994@'
 set :raise_errors,          false
 set :show_exceptions,       false
 set :erb, :layout =>    false

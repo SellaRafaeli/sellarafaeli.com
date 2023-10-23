@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
-ruby '2.6.5'
+#ruby '2.6.5'
+ruby '2.7.1'
 
 gem 'redis'
 gem 'sinatra'
@@ -12,7 +13,7 @@ gem 'bson_ext'
 #gem 'sinatra-activerecord'
 #gem 'rake'
 gem 'json', '2.0.2'
-gem 'pry-byebug',           '2.0.0' # binding.pry for breakpoints
+gem 'pry-byebug' #,           '2.0.0' # binding.pry for breakpoints
 gem 'tux'
 gem 'activesupport',        '5.0.0' # utility functions like hash.slice
 gem 'rack-parser',          '0.6.0' # rack middleware
