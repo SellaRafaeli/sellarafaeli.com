@@ -27,7 +27,8 @@ You can read more [about me](/about), my [articles](/articles), my [blog](/blog)
 * [Contact](/contact.html)
  -->
 <div class='center'>
-  <img src="https://imgur.com/NJoZJIs.jpg"  style='border-radius: 5px'>
+  <!-- <img src="https://imgur.com/NJoZJIs.jpg"  style='border-radius: 5px'> -->
+  <img src="https://i.imgur.com/ykWrBjS.png"  style='border-radius: 5px'>
 </div>
 
 <style>
