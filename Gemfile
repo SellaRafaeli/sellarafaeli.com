@@ -56,7 +56,7 @@ gem 'premailer'
 gem 'pdf-reader', '~> 2.10'
 
 group :development, :test do
-  gem 'puma'
+  # gem 'puma'
   gem 'sinatra-reloader'
   gem 'nokogiri'
 end
