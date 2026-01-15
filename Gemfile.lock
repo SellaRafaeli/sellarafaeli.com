@@ -36,8 +36,8 @@ GEM
     et-orbi (1.2.11)
       tzinfo
     event_stream_parser (1.0.0)
-    faker (2.2.1)
-      i18n (>= 0.8)
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.12.0)
       faraday-net_http (>= 2.0, < 3.4)
       json
@@ -78,21 +78,7 @@ GEM
       uri
     netrc (0.11.0)
     nio4r (2.7.5)
-    nokogiri (1.19.0-aarch64-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.19.0-aarch64-linux-musl)
-      racc (~> 1.4)
-    nokogiri (1.19.0-arm-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.19.0-arm-linux-musl)
-      racc (~> 1.4)
     nokogiri (1.19.0-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.19.0-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.19.0-x86_64-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.19.0-x86_64-linux-musl)
       racc (~> 1.4)
     paint (2.3.0)
     pdf-reader (2.12.0)
@@ -195,14 +181,7 @@ GEM
     zip-codes (0.3.3)
 
 PLATFORMS
-  aarch64-linux-gnu
-  aarch64-linux-musl
-  arm-linux-gnu
-  arm-linux-musl
   arm64-darwin
-  x86_64-darwin
-  x86_64-linux-gnu
-  x86_64-linux-musl
 
 DEPENDENCIES
   activesupport (= 7.2.1)
