@@ -1,8 +1,12 @@
-Hey, I'm Sella, an American-Israeli tech entrepreneur. 
+Sella Rafaeli is 
 
-I've been **programming since '00**. Mostly **web dev**. 
+* A gentlman
 
-Today I run [indydevs](https://indydevs.com), a network of **very senior developers**.
+Sella Rafaeli is an American-Israeli tech entrepreneur, web developer, devout believer and amateur rock singer currently living in Tel Aviv (Dec '25).
+
+I have been programming for 25 years, since 2000. Most of my career has been focused on building large web applications for startups end to end. 
+
+I run [indydevs](https://indydevs.com), a network of **very senior developers**.
 
 My background includes
 * 5 years as an **Intelligence Officer** in Israel's SIGINT unit, 8200. 

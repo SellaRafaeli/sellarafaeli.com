@@ -42,8 +42,12 @@ get '/load/:x' do
   {hits: $redis.incr('load')}
 end
   
-get '/' do
+get '/old' do
   md(:index)
+end
+
+get '/' do 
+  erb :'home/home'
 end
 
 get '/about' do
@@ -124,6 +128,10 @@ end
 
 get '/yoni2020' do 
   erb :'yoni2020'
+end
+
+get '/ai' do
+  erb :'ai/ai'
 end
 
 def layout(view, title = nil)

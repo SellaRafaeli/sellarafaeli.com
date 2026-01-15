@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Deep Thought</title>
+<style>
+  :root {
+    --bg: #0b0f14;
+    --fg: #e6ebf0;
+    --accent: #7aa2ff;
+    --muted: #7f8c9a;
+  }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: radial-gradient(1200px 800px at 50% -200px, #162033, var(--bg));
+    color: var(--fg);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+  }
+
+  .machine {
+    width: min(640px, 90vw);
+    padding: 40px 36px 32px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #111827, #0b1020);
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.05),
+      0 30px 80px rgba(0,0,0,0.6);
+  }
+
+  h1 {
+    margin: 0 0 6px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 22px;
+  }
+
+  button {
+    appearance: none;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 20px;
+    background: linear-gradient(180deg, #8fb1ff, #5c7cff);
+    color: #05070c;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(122,162,255,0.35);
+  }
+
+  button:disabled {
+    opacity: 0.6;
+    cursor: default;
+    box-shadow: none;
+  }
+
+  /* Progress bar */
+  .progress-shell {
+    margin-top: 18px;
+    height: 10px;
+    border-radius: 999px;
+    background: #050812;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+      90deg,
+      #5c7cff,
+      #8fb1ff,
+      #5c7cff
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+    transition: width 0.6s ease;
+  }
+
+  @keyframes shimmer {
+    from { background-position: 0% 0; }
+    to   { background-position: 200% 0; }
+  }
+
+  .scrollbox {
+    margin-top: 22px;
+    height: 180px;
+    overflow-y: auto;
+    border-radius: 10px;
+    background: #050812;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  .content {
+    padding: 16px 18px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .scrollbox::-webkit-scrollbar {
+    width: 10px;
+  }
+  .scrollbox::-webkit-scrollbar-track {
+    background: #03050c;
+    border-radius: 10px;
+  }
+  .scrollbox::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8fb1ff, #5c7cff);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 2px #03050c;
+  }
+
+  .answer {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 48px;
+    letter-spacing: 0.12em;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+
+  .answer.show {
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+  <div class="machine">
+    <h1>DEEP THOUGHT</h1>
+    <div class="subtitle">Compute The Answer to the Ultimate Question of Life, the Universe, and Everything</div>
+
+    <button id="compute">Begin</button>
+
+    <div class="progress-shell">
+      <div class="progress-fill" id="progress"></div>
+    </div>
+
+    <div class="scrollbox" id="scrollbox">
+      <div class="content" id="content"></div>
+    </div>
+
+    <div class="answer" id="answer">42</div>
+  </div>
+
+<script>
+const button   = document.getElementById('compute');
+const box      = document.getElementById('scrollbox');
+const content  = document.getElementById('content');
+const answer   = document.getElementById('answer');
+const progress = document.getElementById('progress');
+
+const lines = [
+  "Initializing thought matrices…",
+  "Aligning probability vectors…",
+  "Consulting hyperspatial constants…",
+  "Rechecking assumptions about reality…",
+  "Discarding irrelevant dimensions…",
+  "Accounting for towels…",
+  "Almost there…"
+];
+
+button.onclick = async () => {
+  button.disabled = true;
+  content.innerHTML = "";
+  answer.classList.remove("show");
+  progress.style.width = "0%";
+
+  for (let i = 0; i < lines.length; i++) {
+    await sleep(700 + Math.random() * 600);
+    content.innerHTML += lines[i] + "<br/>";
+    box.scrollTo({ top: box.scrollHeight, behavior: "smooth" });
+
+    const pct = Math.round(((i + 1) / lines.length) * 100);
+    progress.style.width = pct + "%";
+  }
+
+  await sleep(1200);
+  progress.style.width = "100%";
+  answer.classList.add("show");
+};
+
+function sleep(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
+</script>
+</body>
+</html>
