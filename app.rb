@@ -135,6 +135,7 @@ get '/ai' do
 end
 
 get '/graph' do 
+  # send_email('sella.rafaeli@gmail.com', '/graph view', '<strong>Hello</strong> dear Postmark user.')
   erb :'graph/graph'
 end 
 
