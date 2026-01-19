@@ -279,16 +279,28 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (showEdges) {
-    ctx.strokeStyle = "#444";
+  for (const [a, b] of edges) {
+    const na = byId[a];
+    const nb = byId[b];
+
+    const isSpecialPC =
+      (na.type === "client" && Number(na.id.replace("pc", "")) % 10 === 0) ||
+      (nb.type === "client" && Number(nb.id.replace("pc", "")) % 10 === 0);
+
+    ctx.strokeStyle = isSpecialPC ? "#00ff6a" : "#444";
+    ctx.lineWidth   = isSpecialPC ? 1.5 : 1;
+
+    const p1 = worldToScreen(na.x, na.y);
+    const p2 = worldToScreen(nb.x, nb.y);
+
     ctx.beginPath();
-    for (const [a, b] of edges) {
-      const p1 = worldToScreen(byId[a].x, byId[a].y);
-      const p2 = worldToScreen(byId[b].x, byId[b].y);
-      ctx.moveTo(p1.x, p1.y);
-      ctx.lineTo(p2.x, p2.y);
-    }
+    ctx.moveTo(p1.x, p1.y);
+    ctx.lineTo(p2.x, p2.y);
     ctx.stroke();
   }
+
+  ctx.lineWidth = 1; // reset
+}
 
   for (const n of nodes) {
     const p = worldToScreen(n.x, n.y);
