@@ -134,6 +134,10 @@ get '/ai' do
   erb :'ai/ai'
 end
 
+get '/graph' do 
+  erb :'graph/graph'
+end 
+
 def layout(view, title = nil)
   html = erb view
   erb :template, locals: {content: html, basename: title || view}

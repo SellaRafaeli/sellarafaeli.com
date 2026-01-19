@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Network Topology</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #0e1117;
+    color: #e6e6e6;
+    font-family: system-ui, sans-serif;
+  }
+
+  #app {
+    display: flex;
+    height: 100%;
+  }
+
+  #sidebar {
+    width: 220px;
+    background: #161b22;
+    border-right: 1px solid #222;
+    padding: 12px;
+  }
+
+  #sidebar h3 {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #9da7b3;
+  }
+
+  #sidebar button {
+    width: 100%;
+    margin-bottom: 6px;
+    padding: 8px;
+    background: #21262d;
+    border: 1px solid #30363d;
+    color: #e6e6e6;
+    cursor: pointer;
+  }
+
+  #sidebar button:hover {
+    background: #2d333b;
+  }
+
+  #stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #frame {
+    width: 80%;
+    height: 80%;
+    border: 1px solid #30363d;
+    background: #0b0e14;
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div id="sidebar">
+    <h3>Layers</h3>
+    <button onclick="toggleEdges()">Toggle Links</button>
+    <button onclick="toggleLabels()">Toggle Labels</button>
+
+    <h3>Status Filters</h3>
+    <button onclick="toggleUp()">Toggle UP Servers</button>
+    <button onclick="toggleDown()">Toggle DOWN Servers</button>
+
+    <h3>Layout</h3>
+    <button onclick="animateToLayout(layoutRadial)">Radial</button>
+    <button onclick="animateToLayout(layoutGrid)">Grid</button>
+    <button onclick="animateToLayout(layoutHierarchical)">Hierarchical</button>
+
+    <h3>Status</h3>
+    <div style="font-size:12px; line-height:1.6">
+      <div><span style="color:#00ff6a">●</span> Server UP</div>
+      <div><span style="color:#ff0033">●</span> Server DOWN</div>
+      <div><span style="color:#4ea1ff">●</span> Client (PC)</div>
+    </div>
+
+
+    <pre id="details"
+       style="
+         background:#0b0e14;
+         border:1px solid #30363d;
+         padding:8px;
+         font-size:12px;
+         line-height:1.4;
+         color:#e6e6e6;
+         overflow:auto;
+         max-height:200px;
+       ">
+  </pre>
+  </div>
+
+  <div id="stage">
+    <div id="frame">
+      <canvas id="c"></canvas>
+
+      <canvas id="minimap"
+        style="
+          position:absolute;
+          right:8px;
+          bottom:8px;
+          width:160px;
+          height:120px;
+          border:1px solid #30363d;
+          background:#0b0e14;
+        ">
+      </canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- CONFIG ---------- */
+
+const NUM_ROUTERS = 1;
+const NUM_SERVERS = 20;
+const NUM_CLIENTS = 100;
+
+let hoverNode = null;
+
+
+/* ---------- CANVAS ---------- */
+
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+/* ---------- VIEW ---------- */
+
+let zoom = 1;
+let offsetX = canvas.width / 2;
+let offsetY = canvas.height / 2;
+
+/* zoom */
+canvas.addEventListener("wheel", e => {
+  e.preventDefault();
+  const r = canvas.getBoundingClientRect();
+  const mx = e.clientX - r.left;
+  const my = e.clientY - r.top;
+  const wx = (mx - offsetX) / zoom;
+  const wy = (my - offsetY) / zoom;
+  zoom *= e.deltaY > 0 ? 0.9 : 1.1;
+  offsetX = mx - wx * zoom;
+  offsetY = my - wy * zoom;
+  draw();
+}, { passive: false });
+
+/* ---------- DATA ---------- */
+
+const nodes = [];
+const edges = [];
+
+// routers
+for (let i = 0; i < NUM_ROUTERS; i++) {
+  nodes.push({ id: `router${i}`, type: "router", x: 0, y: -220 });
+}
+
+// servers
+for (let i = 0; i < NUM_SERVERS; i++) {
+  nodes.push({
+    id: `server${i}`,
+    type: "server",
+    status: i % 5 === 0 ? "down" : "up",
+    x: -300 + i * 30,
+    y: 0
+  });
+  edges.push(["router0", `server${i}`]);
+}
+
+// clients
+for (let i = 0; i < NUM_CLIENTS; i++) {
+  nodes.push({
+    id: `pc${i}`,
+    type: "client",
+    x: -380 + (i % 20) * 40,
+    y: 120 + Math.floor(i / 20) * 40
+  });
+  edges.push([`server${Math.floor(Math.random() * NUM_SERVERS)}`, `pc${i}`]);
+}
+
+const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
+
+/* ---------- STATE ---------- */
+
+let showEdges = true;
+let showLabels = true;
+let showUp = true;
+let showDown = true;
+
+function toggleEdges() { showEdges = !showEdges; draw(); }
+function toggleLabels() { showLabels = !showLabels; draw(); }
+function toggleUp() { showUp = !showUp; draw(); }
+function toggleDown() { showDown = !showDown; draw(); }
+
+/* ---------- ICONS (SVG) ---------- */
+
+function makeIcon(svg) {
+  const img = new Image();
+  img.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+  return img;
+}
+
+const ICONS = {
+  router: makeIcon(`<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+    <circle cx="16" cy="16" r="12" stroke="white" fill="none" stroke-width="2"/>
+    <line x1="4" y1="16" x2="28" y2="16" stroke="white" stroke-width="2"/>
+    <line x1="16" y1="4" x2="16" y2="28" stroke="white" stroke-width="2"/>
+  </svg>`),
+
+  server: makeIcon(`<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+    <rect x="6" y="4" width="20" height="24" rx="2"
+      stroke="white" fill="none" stroke-width="2"/>
+    <line x1="6" y1="12" x2="26" y2="12" stroke="white" stroke-width="2"/>
+    <line x1="6" y1="20" x2="26" y2="20" stroke="white" stroke-width="2"/>
+  </svg>`),
+
+  client: makeIcon(`<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+    <rect x="4" y="6" width="24" height="16"
+      stroke="white" fill="none" stroke-width="2"/>
+    <rect x="12" y="22" width="8" height="4"
+      stroke="white" fill="none" stroke-width="2"/>
+  </svg>`)
+};
+
+/* ---------- DRAWING ---------- */
+
+function worldToScreen(x, y) {
+  return { x: x * zoom + offsetX, y: y * zoom + offsetY };
+}
+
+function drawIcon(node, x, y, size) {
+  if (node.type === "server") {
+    if (node.status === "up" && !showUp) return;
+    if (node.status === "down" && !showDown) return;
+  }
+
+  const img = ICONS[node.type];
+  const s = size * 1.6;
+
+  ctx.save();
+
+  if (node.type === "server") {
+    ctx.filter = node.status === "up"
+      ? "drop-shadow(0 0 10px #00ff6a)"
+      : "drop-shadow(0 0 10px #ff0033)";
+    ctx.globalAlpha = node.status === "down" ? 0.7 : 1;
+  }
+
+  ctx.globalCompositeOperation = "lighter";
+
+  ctx.drawImage(img, x - s / 2, y - s / 2, s, s);
+
+  ctx.restore();
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (showEdges) {
+    ctx.strokeStyle = "#444";
+    ctx.beginPath();
+    for (const [a, b] of edges) {
+      const p1 = worldToScreen(byId[a].x, byId[a].y);
+      const p2 = worldToScreen(byId[b].x, byId[b].y);
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+    }
+    ctx.stroke();
+  }
+
+  for (const n of nodes) {
+    const p = worldToScreen(n.x, n.y);
+    drawIcon(n, p.x, p.y, 18 * zoom);
+
+    if (showLabels) {
+      ctx.fillStyle = "#9da7b3";
+      ctx.font = `${12 * zoom}px sans-serif`;
+      ctx.textAlign = "center";
+      ctx.fillText(n.id, p.x, p.y + 26 * zoom);
+    }
+  }
+
+
+  if (hoverNode) {
+  const p = worldToScreen(hoverNode.x, hoverNode.y);
+
+  const lines = [
+    `ID: ${hoverNode.id}`,
+    `Type: ${hoverNode.type}`,
+    hoverNode.status ? `Status: ${hoverNode.status}` : null
+  ].filter(Boolean);
+
+  ctx.font = "12px system-ui";
+  ctx.textBaseline = "top";
+
+  const padding = 6;
+  const lineHeight = 14;
+  const width = Math.max(
+    ...lines.map(l => ctx.measureText(l).width)
+  ) + padding * 2;
+  const height = lines.length * lineHeight + padding * 2;
+
+  const x = p.x + 12;
+  const y = p.y - height - 12;
+
+  // background
+  ctx.fillStyle = "#0b0e14";
+  ctx.strokeStyle = "#30363d";
+  ctx.lineWidth = 1;
+  ctx.fillRect(x, y, width, height);
+  ctx.strokeRect(x, y, width, height);
+
+  // text
+  ctx.fillStyle = "#e6e6e6";
+  lines.forEach((l, i) => {
+    ctx.fillText(l, x + padding, y + padding + i * lineHeight);
+  });
+}
+
+  drawMinimap();
+}
+
+// ---- PAN WITH DRAG ----
+
+let isPanning = false;
+let lastX = 0;
+let lastY = 0;
+
+canvas.addEventListener("mousedown", e => {
+  isPanning = true;
+  lastX = e.clientX;
+  lastY = e.clientY;
+});
+
+window.addEventListener("mousemove", e => {
+  if (!isPanning) return;
+
+  const dx = e.clientX - lastX;
+  const dy = e.clientY - lastY;
+
+  offsetX += dx;
+  offsetY += dy;
+
+  lastX = e.clientX;
+  lastY = e.clientY;
+
+  draw();
+});
+
+window.addEventListener("mouseup", () => {
+  isPanning = false;
+});
+
+
+
+// ---- NODE DRAGGING ----
+
+let draggedNode = null;
+
+canvas.addEventListener("mousedown", e => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left - offsetX) / zoom;
+  const my = (e.clientY - rect.top - offsetY) / zoom;
+
+  // hit-test nodes (top-down)
+  for (let i = nodes.length - 1; i >= 0; i--) {
+    const n = nodes[i];
+    const dx = n.x - mx;
+    const dy = n.y - my;
+    if (dx * dx + dy * dy < 18 * 18) {
+      draggedNode = n;
+      isPanning = false; // cancel pan
+
+      
+      showDetails(n);
+      
+      return;
+    }
+  }
+});
+
+window.addEventListener("mousemove", e => {
+  if (!draggedNode) return;
+
+  const rect = canvas.getBoundingClientRect();
+  draggedNode.x = (e.clientX - rect.left - offsetX) / zoom;
+  draggedNode.y = (e.clientY - rect.top - offsetY) / zoom;
+
+  draw();
+});
+
+window.addEventListener("mouseup", () => {
+  draggedNode = null;
+});
+
+/* ---------- LAYOUTS ---------- */
+
+function layoutRadial() {
+  const s = nodes.filter(n => n.type === "server");
+  const c = nodes.filter(n => n.type === "client");
+
+  s.forEach((n, i) => {
+    const a = (i / s.length) * Math.PI * 2;
+    n.x = Math.cos(a) * 200;
+    n.y = Math.sin(a) * 200;
+  });
+
+  c.forEach((n, i) => {
+    const a = (i / c.length) * Math.PI * 2;
+    n.x = Math.cos(a) * 320;
+    n.y = Math.sin(a) * 320;
+  });
+}
+
+function layoutGrid() {
+  let i = 0;
+  nodes.forEach(n => {
+    if (n.type === "router") return;
+    n.x = -360 + (i % 16) * 48;
+    n.y = -40 + Math.floor(i / 16) * 48;
+    i++;
+  });
+}
+
+function layoutHierarchical() {
+  const s = nodes.filter(n => n.type === "server");
+  const c = nodes.filter(n => n.type === "client");
+
+  s.forEach((n, i) => {
+    n.x = -300 + i * (600 / s.length);
+    n.y = -40;
+  });
+
+  c.forEach((n, i) => {
+    n.x = -360 + (i % 16) * 48;
+    n.y = 120 + Math.floor(i / 16) * 48;
+  });
+}
+
+/* ---------- ANIMATION ---------- */
+
+function animateToLayout(fn, duration = 500) {
+  const start = nodes.map(n => ({ x: n.x, y: n.y }));
+  fn();
+  const target = nodes.map(n => ({ x: n.x, y: n.y }));
+  nodes.forEach((n, i) => Object.assign(n, start[i]));
+
+  const t0 = performance.now();
+  function step(t) {
+    const p = Math.min((t - t0) / duration, 1);
+    const e = p * (2 - p);
+    nodes.forEach((n, i) => {
+      n.x = start[i].x + (target[i].x - start[i].x) * e;
+      n.y = start[i].y + (target[i].y - start[i].y) * e;
+    });
+    draw();
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+draw();
+
+
+
+
+/*------------ minimap */
+
+setTimeout(()=>{
+  
+},100)
+
+
+function resizeMinimap() {
+  mini.width = mini.clientWidth;
+  mini.height = mini.clientHeight;
+}
+
+function drawMinimap() {
+  mini = document.getElementById("minimap");
+  miniCtx = mini.getContext("2d");  
+  miniCtx.clearRect(0, 0, mini.width, mini.height);
+
+  const scale = 0.15;
+  const cx = mini.width / 2;
+  const cy = mini.height / 2;
+
+  // edges
+  miniCtx.strokeStyle = "#333";
+  miniCtx.beginPath();
+  edges.forEach(([a, b]) => {
+    const na = byId[a];
+    const nb = byId[b];
+    miniCtx.moveTo(cx + na.x * scale, cy + na.y * scale);
+    miniCtx.lineTo(cx + nb.x * scale, cy + nb.y * scale);
+  });
+  miniCtx.stroke();
+
+  // nodes
+  nodes.forEach(n => {
+    miniCtx.fillStyle =
+      n.type === "server"
+        ? (n.status === "down" ? "#ff0033" : "#00ff6a")
+        : n.type === "client"
+        ? "#4ea1ff"
+        : "#ffffff";
+
+    miniCtx.beginPath();
+    miniCtx.arc(
+      cx + n.x * scale,
+      cy + n.y * scale,
+      2,
+      0,
+      Math.PI * 2
+    );
+    miniCtx.fill();
+  });
+}
+
+
+// ---- NODE CLICK (ALERT) ----
+
+function showDetails(item) { details.textContent = JSON.stringify(item, null, 2); }
+
+// hover tooltip
+canvas.addEventListener("mousemove", e => {
+  canvas.style.cursor = hoverNode ? "pointer" : "default";
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left - offsetX) / zoom;
+  const my = (e.clientY - rect.top - offsetY) / zoom;
+
+  hoverNode = null;
+
+  for (let i = nodes.length - 1; i >= 0; i--) {
+    const n = nodes[i];
+    const dx = n.x - mx;
+    const dy = n.y - my;
+
+    if (dx * dx + dy * dy < 18 * 18) {
+      hoverNode = n;
+      break;
+    }
+  }
+
+  draw();
+});
+
+</script>
+</body>
+</html>

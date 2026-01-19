@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Network Topology</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #0e1117;
+    color: #e6e6e6;
+    font-family: system-ui, sans-serif;
+  }
+
+  #app {
+    display: flex;
+    height: 100%;
+  }
+
+  /* ---- SIDEBAR ---- */
+  #sidebar {
+    width: 200px;
+    background: #161b22;
+    border-right: 1px solid #222;
+    padding: 12px;
+  }
+
+  #sidebar h3 {
+    margin-top: 0;
+    font-size: 14px;
+    color: #9da7b3;
+  }
+
+  #sidebar button {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 8px;
+    background: #21262d;
+    border: 1px solid #30363d;
+    color: #e6e6e6;
+    cursor: pointer;
+  }
+
+  #sidebar button:hover {
+    background: #2d333b;
+  }
+
+  /* ---- CANVAS AREA ---- */
+  #stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #frame {
+    width: 80%;
+    height: 80%;
+    border: 1px solid #30363d;
+    background: #0b0e14;
+    position: relative;
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div id="sidebar">
+    <h3>Layers</h3>
+    <button onclick="toggleEdges()">Toggle Links</button>
+    <button onclick="toggleNodes()">Toggle Devices</button>
+    <button onclick="toggleLabels()">Toggle Labels</button>
+
+    <button onclick="animateToLayout(layoutRadial)">Radial</button>
+    <button onclick="animateToLayout(layoutGrid)">Grid</button>
+    <button onclick="animateToLayout(layoutHierarchical)">Hierarchical</button>
+
+  </div>
+
+  <div id="stage">
+    <div id="frame">
+      <canvas id="c"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------------- SETUP ---------------- */
+
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+/* ---------------- VIEW ---------------- */
+
+let zoom = 1;
+let offsetX = canvas.width / 2;
+let offsetY = canvas.height / 2;
+
+// mouse-wheel zoom (centered on cursor)
+canvas.addEventListener("wheel", e => {
+  e.preventDefault();
+
+  const rect = canvas.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+
+  const wx = (mouseX - offsetX) / zoom;
+  const wy = (mouseY - offsetY) / zoom;
+
+  const factor = e.deltaY > 0 ? 0.9 : 1.1;
+  zoom *= factor;
+
+  offsetX = mouseX - wx * zoom;
+  offsetY = mouseY - wy * zoom;
+
+  draw();
+}, { passive: false });
+
+/* ---------------- DATA ---------------- */
+
+// base router
+const nodes = [
+  { id: "router", type: "router", x: 0, y: -200 }
+];
+
+// generate servers
+for (let i = 0; i < 20; i++) {
+  nodes.push({
+    id: `server${i}`,
+    type: "server",
+    status: i % 5 === 0 ? "down" : "up",
+    x: -300 + i * 30,
+    y: 0
+  });
+}
+
+// generate clients
+for (let i = 0; i < 80; i++) {
+  nodes.push({
+    id: `pc${i}`,
+    type: "client",
+    x: -380 + (i % 20) * 40,
+    y: 120 + Math.floor(i / 20) * 40
+  });
+}
+
+const edges = [];
+
+for (const n of nodes) {
+  if (n.type === "server") edges.push(["router", n.id]);
+}
+
+for (const n of nodes) {
+  if (n.type === "client") {
+    const s = `server${Math.floor(Math.random() * 20)}`;
+    edges.push([s, n.id]);
+  }
+}
+
+const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
+
+/* ---------------- TOGGLES ---------------- */
+
+let showEdges = true;
+let showNodes = true;
+let showLabels = true;
+
+function toggleEdges() { showEdges = !showEdges; draw(); }
+function toggleNodes() { showNodes = !showNodes; draw(); }
+function toggleLabels() { showLabels = !showLabels; draw(); }
+
+/* ---------------- ICON DRAWING ---------------- */
+
+function drawIcon(node, x, y, r) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(r / 16, r / 16);
+  ctx.strokeStyle = node.type === "server" && node.status === "down" ? "#ff4d4f" : "#e6e6e6";
+  ctx.lineWidth = 2;
+
+  if (node.type === "router") {
+    ctx.beginPath();
+    ctx.arc(0, 0, 12, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(-12, 0);
+    ctx.lineTo(12, 0);
+    ctx.moveTo(0, -12);
+    ctx.lineTo(0, 12);
+    ctx.stroke();
+  }
+
+  if (node.type === "server") {
+    ctx.strokeRect(-10, -14, 20, 28);
+    ctx.beginPath();
+    ctx.moveTo(-10, -6);
+    ctx.lineTo(10, -6);
+    ctx.moveTo(-10, 2);
+    ctx.lineTo(10, 2);
+    ctx.stroke();
+  }
+
+  if (node.type === "client") {
+    ctx.strokeRect(-12, -10, 24, 16);
+    ctx.strokeRect(-4, 6, 8, 4);
+  }
+
+  ctx.restore();
+}
+
+/* ---------------- COORDS ---------------- */
+
+function worldToScreen(x, y) {
+  return {
+    x: x * zoom + offsetX,
+    y: y * zoom + offsetY
+  };
+}
+
+/* ---------------- RENDER ---------------- */
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (showEdges) {
+    ctx.strokeStyle = "#444";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    for (const [a, b] of edges) {
+      const p1 = worldToScreen(byId[a].x, byId[a].y);
+      const p2 = worldToScreen(byId[b].x, byId[b].y);
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+    }
+    ctx.stroke();
+  }
+
+  if (showNodes) {
+    for (const n of nodes) {
+      const p = worldToScreen(n.x, n.y);
+      drawIcon(n, p.x, p.y, 18 * zoom);
+
+      if (showLabels) {
+        ctx.fillStyle = "#9da7b3";
+        ctx.font = `${12 * zoom}px sans-serif`;
+        ctx.textAlign = "center";
+        ctx.fillText(n.id, p.x, p.y + 28 * zoom);
+      }
+    }
+  }
+}
+
+draw();
+
+// ---- PAN WITH DRAG ----
+
+let isPanning = false;
+let lastX = 0;
+let lastY = 0;
+
+canvas.addEventListener("mousedown", e => {
+  isPanning = true;
+  lastX = e.clientX;
+  lastY = e.clientY;
+});
+
+window.addEventListener("mousemove", e => {
+  if (!isPanning) return;
+
+  const dx = e.clientX - lastX;
+  const dy = e.clientY - lastY;
+
+  offsetX += dx;
+  offsetY += dy;
+
+  lastX = e.clientX;
+  lastY = e.clientY;
+
+  draw();
+});
+
+window.addEventListener("mouseup", () => {
+  isPanning = false;
+});
+
+
+
+// ---- NODE DRAGGING ----
+
+let draggedNode = null;
+
+canvas.addEventListener("mousedown", e => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left - offsetX) / zoom;
+  const my = (e.clientY - rect.top - offsetY) / zoom;
+
+  // hit-test nodes (top-down)
+  for (let i = nodes.length - 1; i >= 0; i--) {
+    const n = nodes[i];
+    const dx = n.x - mx;
+    const dy = n.y - my;
+    if (dx * dx + dy * dy < 18 * 18) {
+      draggedNode = n;
+      isPanning = false; // cancel pan
+      return;
+    }
+  }
+});
+
+window.addEventListener("mousemove", e => {
+  if (!draggedNode) return;
+
+  const rect = canvas.getBoundingClientRect();
+  draggedNode.x = (e.clientX - rect.left - offsetX) / zoom;
+  draggedNode.y = (e.clientY - rect.top - offsetY) / zoom;
+
+  draw();
+});
+
+window.addEventListener("mouseup", () => {
+  draggedNode = null;
+});
+
+// ---- LAYOUT / REBALANCING ----
+
+function layoutRadial() {
+  const cx = 0;
+  const cy = 0;
+
+  const servers = nodes.filter(n => n.type === "server");
+  const clients = nodes.filter(n => n.type === "client");
+
+  servers.forEach((n, i) => {
+    const a = (i / servers.length) * Math.PI * 2;
+    n.x = cx + Math.cos(a) * 200;
+    n.y = cy + Math.sin(a) * 200;
+  });
+
+  clients.forEach((n, i) => {
+    const a = (i / clients.length) * Math.PI * 2;
+    n.x = cx + Math.cos(a) * 320;
+    n.y = cy + Math.sin(a) * 320;
+  });
+
+  draw();
+}
+
+function layoutGrid() {
+  const spacing = 60;
+  let i = 0;
+
+  nodes.forEach(n => {
+    if (n.type === "router") {
+      n.x = 0;
+      n.y = -200;
+      return;
+    }
+
+    const col = i % 12;
+    const row = Math.floor(i / 12);
+    n.x = -330 + col * spacing;
+    n.y = -40 + row * spacing;
+    i++;
+  });
+
+  draw();
+}
+
+function layoutHierarchical() {
+  const servers = nodes.filter(n => n.type === "server");
+  const clients = nodes.filter(n => n.type === "client");
+
+  // router
+  const router = nodes.find(n => n.type === "router");
+  router.x = 0;
+  router.y = -240;
+
+  // servers row
+  servers.forEach((n, i) => {
+    n.x = -300 + i * (600 / servers.length);
+    n.y = -40;
+  });
+
+  // clients rows
+  clients.forEach((n, i) => {
+    const col = i % 16;
+    const row = Math.floor(i / 16);
+    n.x = -360 + col * 48;
+    n.y = 100 + row * 48;
+  });
+
+  draw();
+}
+
+// ---- LAYOUT ANIMATION ----
+
+function animateToLayout(layoutFn, duration = 500) {
+  // capture start positions
+  const start = nodes.map(n => ({ x: n.x, y: n.y }));
+
+  // compute target positions (layoutFn mutates nodes)
+  layoutFn();
+  const target = nodes.map(n => ({ x: n.x, y: n.y }));
+
+  // restore start positions
+  nodes.forEach((n, i) => {
+    n.x = start[i].x;
+    n.y = start[i].y;
+  });
+
+  const t0 = performance.now();
+
+  function step(t) {
+    const p = Math.min((t - t0) / duration, 1);
+    const ease = p * (2 - p); // easeOutQuad
+
+    nodes.forEach((n, i) => {
+      n.x = start[i].x + (target[i].x - start[i].x) * ease;
+      n.y = start[i].y + (target[i].y - start[i].y) * ease;
+    });
+
+    draw();
+    if (p < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
+</script>
+
+</body>
+</html>
