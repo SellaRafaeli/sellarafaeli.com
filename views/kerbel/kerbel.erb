@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sella Rafaeli – Career Story</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #0e0e11;
+      --fg: #f5f5f7;
+      --muted: #9a9aa3;
+      --faint: #6f6f78;
+      --accent: #7c7cff;
+      --panel: #15151d;
+      --line: #2a2a38;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, #1a1a22, var(--bg));
+      color: var(--fg);
+      overflow: hidden;
+    }
+
+    .slide {
+      height: 100vh;
+      padding: 58px 68px;
+      display: grid;
+      grid-template-columns: 2.4fr 1fr;
+      gap: 44px;
+    }
+
+    /* LEFT */
+
+    h1 {
+      font-size: 54px;
+      line-height: 1.05;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .subtitle {
+      font-size: 23px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .points {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 940px;
+    }
+
+    .point {
+      font-size: 23px;
+      line-height: 1.35;
+    }
+
+    .point strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .aside {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 19px;
+      color: var(--muted);
+    }
+
+    .dino {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: #1f1f2a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    /* TIMELINES */
+
+    .timeline-block {
+      margin-top: 14px;
+    }
+
+    .timeline-title {
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .timeline {
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      font-size: 15px;
+      color: var(--faint);
+    }
+
+    .era {
+      text-align: center;
+      padding: 10px 8px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .era strong {
+      display: block;
+      font-size: 16px;
+      color: #cfcfff;
+      margin-bottom: 4px;
+    }
+
+    .era span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .context {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #5f5f68;
+    }
+
+    /* COMPANY TIMELINE */
+
+    .company-timeline {
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .company {
+      text-align: center;
+    }
+
+    .company strong {
+      display: block;
+      font-size: 15px;
+      color: var(--fg);
+    }
+
+    .company span {
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .quote {
+      margin-top: 6px;
+      padding-left: 16px;
+      border-left: 3px solid var(--accent);
+      font-style: italic;
+      font-size: 21px;
+      color: #d6d6ff;
+    }
+
+    .indydevs {
+      font-size: 21px;
+    }
+
+    .indydevs ul {
+      margin: 8px 0 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* RIGHT PANEL */
+
+    .panel {
+      background: linear-gradient(180deg, #171720, var(--panel));
+      border-radius: 18px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .panel h2 {
+      font-size: 21px;
+      margin: 0 0 14px 0;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .companies {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.6;
+    }
+
+    .companies li {
+      padding: 6px 0;
+      border-bottom: 1px solid #262636;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer {
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .footer li {
+      list-style: none;
+      margin-bottom: 6px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <section class="slide">
+    <!-- LEFT -->
+    <div>
+      <h1>
+        <!-- <img src='https://sellarafaeli.com/img/tux1.jpeg' style='height:80px; border-radius: 10px; margin: 20px'>  --><span>Sella Rafaeli</span><br />
+        Engineer, Builder, Founder
+      </h1>
+      <div class="subtitle">
+        ex-8200 · ex-Fiverr · founding engineer · 2 exits (Hysolate, Wib)
+      </div>
+
+      <div class="points">
+        <div class="point">
+          I finished the army in <strong>2008</strong> —
+          before the Cloud, before smartphones...
+        </div>
+
+        <div class="aside">
+          <div class="dino">🦖</div>
+          <div>when the world — and Israel — looked very different.</div>
+        </div>
+
+        <!-- WORLD TIMELINE -->
+        <div class="timeline-block">
+          <div class="timeline-title">The world changed</div>
+          <div class="timeline">
+            <div class="era">
+              <strong>2008</strong>
+              <span>Servers · SVN<br/>Flash · BlackBerry</span>
+              <div class="context">Olmert · no iPhone · pre-cloud Israel</div>
+            </div>
+            <div class="era">
+              <strong>2012</strong>
+              <span>AWS · GitHub<br/>iPhone arrives</span>
+              <div class="context">Startup Nation momentum</div>
+            </div>
+            <div class="era">
+              <strong>2016</strong>
+              <span>Docker · SaaS<br/>DevOps</span>
+              <div class="context">Cloud by default</div>
+            </div>
+            <div class="era">
+              <strong>2020</strong>
+              <span>Remote-first<br/>Cloud-native</span>
+              <div class="context">COVID resets work</div>
+            </div>
+            <div class="era">
+              <strong>Now</strong>
+              <span>AI · Solo leverage<br/>Tiny teams</span>
+              <div class="context">One-person companies</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPANY TIMELINE -->
+        <div class="timeline-block">
+          <div class="timeline-title">I built inside it (founding engineer)</div>
+          <div class="company-timeline">
+            <div class="company">
+              <strong>Fiverr</strong>
+              <span>Marketplace scale</span>
+            </div>
+            <div class="company">
+              <strong>Hysolate</strong>
+              <span>Cybersecurity · Exit</span>
+            </div>
+            <div class="company">
+              <strong>yes.no</strong>
+              <span>Social Network</span>
+            </div>
+            <div class="company">
+              <strong>Wib</strong>
+              <span>Offensive CyberSec · Exit</span>
+            </div>
+            <div class="company">
+              <strong>Crux</strong>
+              <span>Knowledge Quantification</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="point">
+          Working at a startup is <strong>very</strong> good for your career.
+          Being a <strong>founding engineer</strong> is often career-defining.
+        </div>
+
+        <div class="quote">
+          “If you're not the lead dog, the view never changes.”
+        </div>
+
+        <div class="indydevs">
+          Today I run <strong>IndyDevs</strong> — a private network for senior tech talent.
+          <ul>
+            <li>High-signal networking</li>
+            <li>Founders &amp; independent consultants</li>
+            <li>Private events &amp; legendary parties</li>
+            <li>Career &amp; business leverage</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <aside class="panel">
+      <div>
+        <h2>Presenting Today</h2>
+        <ul class="companies">
+          <li>🧠 Hiveware</li>
+          <li>✨ Highlights</li>
+          <li>🤖 DataAgent</li>
+          <li>🎼 Tangos</li>
+          <li>🧩 Dappas</li>
+          <li>🔥 Popai</li>
+          <li>📷 Eikona</li>
+        </ul>
+      </div>
+
+      <ul class="footer">
+        <li><a href="#">indydevs.com</a></li>
+        <li><a href="#">sellarafaeli.com</a></li>
+        <li>052-293-4321</li>
+      </ul>
+    </aside>
+  </section>
+</body>
+</html>

@@ -135,9 +135,14 @@ get '/ai' do
 end
 
 get '/graph' do 
+  return ':)'
   # send_email('sella.rafaeli@gmail.com', '/graph view', '<strong>Hello</strong> dear Postmark user.')
   erb :'graph/graph'
 end 
+
+get '/kerbel' do 
+  erb :'kerbel/kerbel'
+end
 
 def layout(view, title = nil)
   html = erb view
