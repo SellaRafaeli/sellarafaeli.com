@@ -49,7 +49,7 @@ end
 before do
   response.headers['Access-Control-Allow-Origin'] = '*' 
   #require_user unless is_open_route     
-  @time_started_request = Time.now    
+  @time_started_request = Time.now
 end
 
 def request_header(name)

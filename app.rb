@@ -47,6 +47,7 @@ get '/old' do
 end
 
 get '/' do 
+  return erb :'gefengil/gefengil' if host.include?("gefengil")
   erb :'home/home'
 end
 

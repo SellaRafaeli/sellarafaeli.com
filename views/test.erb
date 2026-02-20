@@ -1,4 +1,163 @@
-<h1> Guidde Test Page </h1>
+html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IndyDevs - Freelance Tech, Done Right</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --fg: #f5f5f7;
+      --muted: #a1a1aa;
+      --accent: #7c3aed;
+      --card: #151518;
+      --border: #26262b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    header { padding-bottom: 120px; }
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    p {
+      color: var(--muted);
+      max-width: 640px;
+      font-size: 1.05rem;
+    }
+    .hero-cta { margin-top: 40px; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    section { margin-bottom: 120px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Hire senior freelance tech talent.<br />Without the marketplace chaos.</h1>
+      <p>
+        IndyDevs connects experienced hiring managers with vetted, senior freelance
+        engineers and tech leaders - personally matched, long-term oriented, and
+        built on trust.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn">Start a conversation</a>
+      </div>
+    </header>
 
-<script src='/js/lib/jquery-2.2.1.min.js'></script>
-<script src='/guidde.js'></script>
+    <section>
+      <h2>How it works</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Tell us what you need</h3>
+          <p>Role, scope, seniority, team dynamics. We care more about fit than keywords.</p>
+        </div>
+        <div class="card">
+          <h3>2. We curate the match</h3>
+          <p>No blasting. No bidding wars. We hand-select from our trusted network.</p>
+        </div>
+        <div class="card">
+          <h3>3. Work directly</h3>
+          <p>You collaborate directly with the talent, while IndyDevs stays involved.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Who this is for</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Hiring managers</h3>
+          <p>Senior freelancers without recruiter noise or junior risk.</p>
+        </div>
+        <div class="card">
+          <h3>Senior freelance talent</h3>
+          <p>Meaningful work with serious teams and long-term collaboration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why IndyDevs</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Curated network</h3>
+          <p>Every talent and company is vetted.</p>
+        </div>
+        <div class="card">
+          <h3>Senior-first</h3>
+          <p>People who have shipped, led, and owned systems.</p>
+        </div>
+        <div class="card">
+          <h3>Aligned incentives</h3>
+          <p>We succeed when the collaboration works.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Let’s talk</h2>
+      <p>Start with a short conversation.</p>
+      <div class="hero-cta">
+        <a href="mailto:hello@indydevs.com" class="btn">Contact IndyDevs</a>
+      </div>
+    </section>
+
+    <footer>© IndyDevs</footer>
+  </div>
+</body>
+</html>
+"""
+
+path = "/mnt/data/indydevs_landing.html"
+with open(path, "w") as f:
+    f.write(html)
+
+path

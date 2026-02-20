@@ -1,8 +1,19 @@
 # ruby '2.7.1'
 source "https://rubygems.org"
 
-ruby '3.3.5'
+# ruby '2.6.5'
+# ruby '2.7.1'
+#ruby '3.3.5'
+ruby '4.0.0'
 
+gem 'benchmark'
+gem 'ostruct'
+gem 'mutex_m'
+gem 'bigdecimal'
+gem 'drb'
+gem 'base64'
+gem 'logger'
+gem 'readline'
 
 gem 'rack', '~> 2.2'
 gem 'redis'
@@ -21,7 +32,9 @@ gem 'rufus-scheduler', '3.4.2'
 # gem 'json'
 # gem 'pry-byebug',           '2.0.0' # binding.pry for breakpoints
 gem 'json' #,                 '2.1.0'
-gem 'pry-byebug'           #'2.0.0' # binding.pry for breakpoints
+# gem 'pry-byebug'           #'2.0.0' # incompatible with Ruby 4.0
+gem "pry"
+gem 'debug'
 gem 'tux'
 gem 'rack-parser',          '0.6.0' # rack middleware
 gem 'require_all'
@@ -51,6 +64,7 @@ gem 'ruby-openai'
 #gem 'base62' #allows compression of mongo ids
 gem 'stripe' 
 gem 'pusher'
+<<<<<<< HEAD
 gem 'mini_magick'
 # gem "faye-websocket"
 gem 'puma'
@@ -61,4 +75,14 @@ group :development, :test do
   # gem 'puma'
   gem 'sinatra-reloader'
   gem 'nokogiri'
+=======
+# gem "faye-websocket"
+gem 'puma'
+gem 'pdf-reader', '~> 2.10'
+
+group :development, :test do
+  gem 'puma'
+  gem 'sinatra-reloader'
+  # gem 'nokogiri'
+>>>>>>> cac9b77 (auto-message)
 end
