@@ -46,8 +46,12 @@ get '/old' do
   md(:index)
 end
 
+get '/gefen' do 
+  return erb :'gefengil/gefengil'
+end
+
 get '/' do 
-  return erb :'gefengil/gefengil' if host.include?("gefengil")
+  return erb :'gefengil/gefengil' if request.host.include?("gefengil")
   erb :'home/home'
 end
 
