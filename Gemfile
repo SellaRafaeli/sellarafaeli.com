@@ -64,7 +64,7 @@ gem 'ruby-openai'
 #gem 'base62' #allows compression of mongo ids
 gem 'stripe' 
 gem 'pusher'
-<<<<<<< HEAD
+
 gem 'mini_magick'
 # gem "faye-websocket"
 gem 'puma'
@@ -75,14 +75,4 @@ group :development, :test do
   # gem 'puma'
   gem 'sinatra-reloader'
   gem 'nokogiri'
-=======
-# gem "faye-websocket"
-gem 'puma'
-gem 'pdf-reader', '~> 2.10'
-
-group :development, :test do
-  gem 'puma'
-  gem 'sinatra-reloader'
-  # gem 'nokogiri'
->>>>>>> cac9b77 (auto-message)
 end
