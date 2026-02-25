@@ -72,6 +72,10 @@ GEM
     json (2.18.1)
     jwt (3.1.2)
       base64
+    kramdown (2.5.2)
+      rexml (>= 3.4.4)
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     logger (1.7.0)
     method_source (1.1.0)
     mime-types (3.7.0)
@@ -169,6 +173,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rexml (3.4.4)
     ripl (0.7.1)
       bond (~> 0.5.1)
     ripl-color_result (0.4.1)
@@ -249,6 +254,8 @@ DEPENDENCIES
   faker
   geocoder
   json
+  kramdown
+  kramdown-parser-gfm
   logger
   mini_magick
   mongo (~> 2.20.0)
@@ -322,6 +329,8 @@ CHECKSUMS
   irb (1.17.0) sha256=168c4ddb93d8a361a045c41d92b2952c7a118fa73f23fe14e55609eb7a863aae
   json (2.18.1) sha256=fe112755501b8d0466b5ada6cf50c8c3f41e897fa128ac5d263ec09eedc9f986
   jwt (3.1.2) sha256=af6991f19a6bb4060d618d9add7a66f0eeb005ac0bc017cd01f63b42e122d535
+  kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
+  kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5
   mime-types (3.7.0) sha256=dcebf61c246f08e15a4de34e386ebe8233791e868564a470c3fe77c00eed5e56
@@ -371,6 +380,7 @@ CHECKSUMS
   reline (0.6.3) sha256=1198b04973565b36ec0f11542ab3f5cfeeec34823f4e54cebde90968092b1835
   require_all (3.0.0) sha256=937853faa2833388eab551107bf7bf87c6bba6b4800bac5ce469eda7b6a9fed0
   rest-client (2.0.1) sha256=e838b6ef8d97c995ae51080fc05abbc0af86f630d5ea52dc18f26f7df1268350
+  rexml (3.4.4) sha256=19e0a2c3425dfbf2d4fc1189747bdb2f849b6c5e74180401b15734bc97b5d142
   ripl (0.7.1) sha256=cf781cf15f76c46943e15fa8af843eedc89157849b92d9597f83523ab70f0c5a
   ripl-color_result (0.4.1) sha256=90500c4f82e152d9b074004874f71d127031976620a4b7bdf1ab8a291236a76c
   ripl-multi_line (0.3.1) sha256=41449cd7b686ac21f59894ce51502e799a484a3916e4ed893df60eab852f1bff

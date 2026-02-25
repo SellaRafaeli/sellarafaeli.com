@@ -3,6 +3,7 @@ require 'bundler'
 require 'active_support'
 require 'active_support/core_ext'
 require 'sinatra/reloader' #dev-only
+require "kramdown"
 # require 'sinatra/activerecord'
 puts "requiring gems..."
 
@@ -137,6 +138,10 @@ end
 
 get '/ai' do
   erb :'ai/ai'
+end
+
+get '/linkedin_drafts' do 
+  redirect 'https://github.com/SellaRafaeli/linkedinDrafts'
 end
 
 get '/graph' do 
