@@ -10,6 +10,36 @@
 # Posts in views/blog/ that are not listed here are still reachable by URL,
 # they just don't appear in the index or feed (drafts, etc.).
 
+- title: What Remains
+  date: '2025-12-29'
+  slug: what_remains
+- title: Twenty-Five Years
+  date: '2025-10-22'
+  slug: twenty_five_years
+- title: The Canaries
+  date: '2025-09-17'
+  slug: the_canaries
+- title: Ninety-Five Percent
+  date: '2025-08-27'
+  slug: ninety_five_percent
+- title: The Agent Deleted the Database
+  date: '2025-07-30'
+  slug: the_agent_deleted_the_database
+- title: Feeling Faster
+  date: '2025-07-16'
+  slug: feeling_faster
+- title: What the Machine Cannot Want
+  date: '2025-05-28'
+  slug: what_the_machine_cannot_want
+- title: Reflexive Tools, Reflective People
+  date: '2025-04-10'
+  slug: reflexive_tools_reflective_people
+- title: On Vibe Coding
+  date: '2025-02-26'
+  slug: on_vibe_coding
+- title: DeepSeek and the Humility of Moats
+  date: '2025-01-29'
+  slug: deepseek_and_the_humility_of_moats
 - title: '2024: The K Got Sharper'
   date: '2024-12-26'
   slug: 2024_the_k_got_sharper

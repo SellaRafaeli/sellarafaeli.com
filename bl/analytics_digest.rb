@@ -112,7 +112,8 @@ def digest_html(s)
       #{s[:hosts].size > 1 ? digest_table('Hosts', s[:hosts], s[:pageviews]) : ''}
       #{digest_table('Page views, last 7 days', trend_rows)}
       #{s[:pageviews] == 0 ? "<p style='color:#888'>No human page views recorded this day.</p>" : ''}
-      <p style="margin-top:24px;color:#999;font-size:11px">#{s[:total_all_time]} page views recorded all-time · collection: page_events</p>
+      <p style="margin-top:24px"><a href="#{SITE_URL}/admin?days=7" style="color:#c8461b">Open the full dashboard →</a></p>
+      <p style="color:#999;font-size:11px">#{s[:total_all_time]} page views recorded all-time · collection: page_events</p>
     </div>
   HTML
 end

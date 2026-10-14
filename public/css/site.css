@@ -226,7 +226,8 @@ kbd { font: .7rem var(--mono); color: var(--muted); border: 1px solid var(--rule
 .admin .toolbar .spacer { flex: 1; }
 .admin a.chip { text-decoration: none; }
 
-.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: .75rem; margin-bottom: 1rem; }
+.kpis { display: grid; grid-template-columns: repeat(6, 1fr); gap: .75rem; margin-bottom: 1rem; }
+@media (max-width: 1000px) { .kpis { grid-template-columns: repeat(3, 1fr); } }
 .kpi { padding: 1rem 1.1rem; border: 1px solid var(--rule); border-radius: 14px; }
 .kpi-l, .kpi small { display: block; font: .7rem/1.4 var(--mono); color: var(--muted); }
 .kpi-l { text-transform: uppercase; letter-spacing: .08em; }
@@ -283,6 +284,7 @@ kbd { font: .7rem var(--mono); color: var(--muted); border: 1px solid var(--rule
 .dtable.visits td.path { font-size: .85rem; }
 .dtable td .spark { margin-left: auto; }
 .dtable tr.zero td { color: var(--muted); }
+.dtable small.channel { display: block; font-size: .7rem; }
 .datatable { margin-top: .5rem; }
 .datatable summary { font: .75rem var(--mono); color: var(--muted); cursor: pointer; }
 .datatable .dtable { max-width: 24rem; margin-top: .5rem; }

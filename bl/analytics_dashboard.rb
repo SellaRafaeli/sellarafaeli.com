@@ -167,7 +167,7 @@ def dashboard_stats(range)
     timezones: count_top(sessions.map { |s| s[:tz] }, 12),
     langs:     count_top(sessions.map { |s| s[:lang].to_s.split('-').first.presence }, 8),
     hours:     (0..23).map { |hr| [hr, views.count { |e| e['created_at'].in_time_zone(DIGEST_TZ).hour == hr }] },
-    top_clicks: count_top(clicks.map { |e| [e['text'].presence || e['href'] || e['tag'], e['path']] }, 15),
+    top_clicks: count_top(clicks.map { |e| [e['text'].presence || e['href'] || e['tag'], e['path']] }, 10),
     outbound:  count_top(outbound.map { |e| e['href'] }, 10),
     bots:      bots.size,
     bot_agents: count_top(bots.map { |e| e['ua'].to_s[0, 80].presence || '(no user agent)' }, 5)

@@ -115,7 +115,7 @@
           <tr>
             <td class="nowrap"><%= nice_datetime(v[:start].in_time_zone(DIGEST_TZ)) %></td>
             <td class="path"><%= v[:paths].first(5).map { |p| admin_page_link(p) }.join(' → ') %><%= " <span class='muted'>+#{v[:paths].size - 5}</span>" if v[:paths].size > 5 %></td>
-            <td><%= v[:source] ? ext_link(v[:referrer], v[:source]) : 'Direct' %> <span class="muted"><%= v[:channel] unless v[:channel] == 'Direct' %></span></td>
+            <td><%= v[:source] ? ext_link(v[:referrer], v[:source]) : 'Direct' %> <% unless v[:channel] == 'Direct' %><small class="muted channel"><%= v[:channel] %></small><% end %></td>
             <td class="nowrap"><%= h "#{v[:device]} · #{v[:browser]}" %></td>
             <td><%= h v[:tz] %></td>
             <td class="nowrap"><%= fmt_duration(v[:duration]) %></td>

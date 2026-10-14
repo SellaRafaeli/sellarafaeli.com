@@ -17,7 +17,7 @@
 <section class="panel">
   <h2 class="section-label">Views per day</h2>
   <%= daily_chart(s[:daily], "Views per day for #{s[:path]}") %>
-  <details class="datatable" open>
+  <details class="datatable"<%= " open" if @range[:days] <= 30 %>>
     <summary>Daily numbers</summary>
     <table class="dtable"><thead><tr><th>Day</th><th>Views</th><th>Visitors</th></tr></thead><tbody>
       <% s[:daily].reverse.each do |d| %><tr class="<%= 'zero' if d[:views] == 0 %>"><td><%= d[:date].strftime('%a %b %-d') %></td><td><%= d[:views] %></td><td><%= d[:visitors] %></td></tr><% end %>
