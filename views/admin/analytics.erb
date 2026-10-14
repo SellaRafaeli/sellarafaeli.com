@@ -1,0 +1,136 @@
+<% s = @s %>
+<header class="page-head admin-head">
+  <p class="kicker">Admin</p>
+  <h1>Analytics</h1>
+  <div class="toolbar">
+    <%= range_chips %>
+    <span class="spacer"></span>
+    <a class="chip" href="/admin/digest">Daily email preview</a>
+    <button type="button" class="chip" id="ignore-me" aria-pressed="false">Don't count my visits</button>
+  </div>
+</header>
+
+<section class="kpis">
+  <%= kpi('Page views', fmt_num(s[:views]), delta_html(s[:views], s[:prev_views])) %>
+  <%= kpi('Visitors', fmt_num(s[:visitors]), "#{fmt_num s[:new_visitors]} new · #{fmt_num s[:returning]} returning") %>
+  <%= kpi('Visits', fmt_num(s[:sessions]), "#{s[:pages_per_session]} pages per visit") %>
+  <%= kpi('Bounce rate', "#{s[:bounce_rate]}%", 'one page, no clicks') %>
+  <%= kpi('Median visit', fmt_duration(s[:median_duration]), 'multi-event visits') %>
+  <%= kpi('Clicks', fmt_num(s[:clicks]), "#{fmt_num s[:outbound].sum(&:last)} on outbound links") %>
+</section>
+
+<section class="panel">
+  <h2 class="section-label">Page views per day</h2>
+  <%= daily_chart(s[:daily], 'Page views per day') %>
+  <details class="datatable">
+    <summary>Show as table</summary>
+    <table class="dtable"><thead><tr><th>Day</th><th>Views</th><th>Visitors</th></tr></thead><tbody>
+      <% s[:daily].reverse.each do |d| %><tr><td><%= d[:date].strftime('%a %b %-d') %></td><td><%= d[:views] %></td><td><%= d[:visitors] %></td></tr><% end %>
+    </tbody></table>
+  </details>
+</section>
+
+<div class="grid">
+  <section class="panel">
+    <h2 class="section-label">How visitors arrive</h2>
+    <%= bar_list(s[:channels], total: s[:sessions]) %>
+    <p class="note">Per visit, from the landing page's referrer or <code>utm_source</code>.</p>
+  </section>
+  <section class="panel">
+    <h2 class="section-label">Referring domains</h2>
+    <%= bar_list(s[:sources], total: s[:sessions]) %>
+  </section>
+</div>
+
+<section class="panel">
+  <h2 class="section-label">Pages <span class="muted">· click a page for its own stats</span></h2>
+  <div class="scroll">
+    <table class="dtable pages">
+      <thead><tr><th>Page</th><th>Views</th><th>Visitors</th><th>Entrances</th><th>Bounce</th><th>Views per day</th></tr></thead>
+      <tbody>
+        <% s[:pages].first(60).each do |p| %>
+          <tr>
+            <td class="path"><%= admin_page_link(p[:path]) %></td>
+            <td><%= fmt_num p[:views] %></td>
+            <td><%= fmt_num p[:visitors] %></td>
+            <td><%= fmt_num p[:entrances] %></td>
+            <td><%= p[:entrances] > 0 ? "#{p[:bounce_rate]}%" : '–' %></td>
+            <td><%= spark_chart(p[:daily]) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% if s[:pages].empty? %><p class="empty">No page views in this range yet.</p><% end %>
+  <% if s[:pages].size > 60 %><p class="note"><%= s[:pages].size - 60 %> more pages not shown.</p><% end %>
+</section>
+
+<div class="grid">
+  <section class="panel">
+    <h2 class="section-label">Referring URLs</h2>
+    <%= bar_list(s[:ref_urls], link: ->(u) { ext_link(u, u.to_s.sub(/\Ahttps?:\/\/(www\.)?/, '')) }) %>
+  </section>
+  <section class="panel">
+    <h2 class="section-label">Outbound links clicked</h2>
+    <%= bar_list(s[:outbound], link: ->(u) { ext_link(u, u.to_s.sub(/\Ahttps?:\/\/(www\.)?/, '')) }) %>
+  </section>
+</div>
+
+<div class="grid">
+  <section class="panel">
+    <h2 class="section-label">Top clicks</h2>
+    <%= bar_list(s[:top_clicks], link: ->((text, path)) { "#{h text} <span class='muted'>on #{admin_page_link(path)}</span>" }) %>
+  </section>
+  <section class="panel">
+    <h2 class="section-label">Page views by hour <span class="muted">· Israel time</span></h2>
+    <%= col_chart(s[:hours].map { |hr, n| [n, "#{hr.to_s.rjust(2, '0')}:00–#{hr.to_s.rjust(2, '0')}:59 · #{n} views"] },
+                  xlabels: [[0, '00'], [6, '06'], [12, '12'], [18, '18'], [23, '23']], label: 'Page views by hour of day') %>
+  </section>
+</div>
+
+<div class="grid three">
+  <section class="panel"><h2 class="section-label">Devices</h2><%= bar_list(s[:devices], total: s[:sessions]) %></section>
+  <section class="panel"><h2 class="section-label">Browsers</h2><%= bar_list(s[:browsers], total: s[:sessions]) %></section>
+  <section class="panel"><h2 class="section-label">Operating systems</h2><%= bar_list(s[:os], total: s[:sessions]) %></section>
+</div>
+
+<div class="grid">
+  <section class="panel">
+    <h2 class="section-label">Visitor timezones <span class="muted">· roughly where they are</span></h2>
+    <%= bar_list(s[:timezones], total: s[:sessions]) %>
+  </section>
+  <section class="panel">
+    <h2 class="section-label">Browser languages</h2>
+    <%= bar_list(s[:langs], total: s[:sessions]) %>
+  </section>
+</div>
+
+<section class="panel">
+  <h2 class="section-label">Recent visits</h2>
+  <div class="scroll">
+    <table class="dtable visits">
+      <thead><tr><th>When</th><th>Pages</th><th>From</th><th>Device</th><th>Timezone</th><th>Length</th></tr></thead>
+      <tbody>
+        <% s[:visit_list].first(30).each do |v| %>
+          <tr>
+            <td class="nowrap"><%= nice_datetime(v[:start].in_time_zone(DIGEST_TZ)) %></td>
+            <td class="path"><%= v[:paths].first(5).map { |p| admin_page_link(p) }.join(' → ') %><%= " <span class='muted'>+#{v[:paths].size - 5}</span>" if v[:paths].size > 5 %></td>
+            <td><%= v[:source] ? ext_link(v[:referrer], v[:source]) : 'Direct' %> <span class="muted"><%= v[:channel] unless v[:channel] == 'Direct' %></span></td>
+            <td class="nowrap"><%= h "#{v[:device]} · #{v[:browser]}" %></td>
+            <td><%= h v[:tz] %></td>
+            <td class="nowrap"><%= fmt_duration(v[:duration]) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% if s[:visit_list].empty? %><p class="empty">No visits in this range yet.</p><% end %>
+</section>
+
+<p class="note">
+  <%= fmt_num s[:bots] %> bot hits excluded from everything above.
+  <% if s[:bot_agents].any? %>Top: <%= s[:bot_agents].map { |ua, n| "#{h ua} (#{n})" }.join(' · ') %>.<% end %>
+  Tracking started when the tracker was deployed; earlier visits weren't recorded.
+</p>
+
+<%= erb :'admin/_scripts' %>

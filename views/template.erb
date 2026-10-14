@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= CGI.escapeHTML(full_title) %></title>
   <meta name="description" content="<%= CGI.escapeHTML(description) %>">
+  <% if locals[:noindex] %><meta name="robots" content="noindex, nofollow"><% end %>
   <meta property="og:title" content="<%= CGI.escapeHTML(full_title) %>">
   <meta property="og:description" content="<%= CGI.escapeHTML(description) %>">
   <meta property="og:image" content="<%= SITE_URL %>/img/tux1.jpeg">
@@ -20,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="/css/site.css?v=1">
+  <link rel="stylesheet" href="/css/site.css?v=2">
   <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t } catch (e) {}</script>
 </head>
 
@@ -40,7 +41,7 @@
   <% end %>
 
   <main class="wrap">
-    <% if locals[:page_class].to_s =~ /\A(home|post|index)/ %>
+    <% if locals[:page_class].to_s =~ /\A(home|post|index|admin)/ %>
       <%= content %>
     <% else %>
       <article class="prose markdown-body"><%= content %></article>

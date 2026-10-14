@@ -8,7 +8,7 @@ end
 
 helpers do
   def protected!
-    return if authorized? || !$prod
+    return if authorized? # || !$prod
     headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
     halt 401, "Not authorized\n"
   end

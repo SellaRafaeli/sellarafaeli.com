@@ -1,0 +1,66 @@
+<% s = @s %>
+<header class="page-head admin-head">
+  <p class="kicker"><a href="/admin?days=<%= @range[:days] %>">← Analytics</a></p>
+  <h1 class="page-path"><a href="<%= h s[:path] %>" target="_blank" rel="noopener"><%= h s[:path] %></a></h1>
+  <div class="toolbar"><%= range_chips(path: s[:path]) %></div>
+</header>
+
+<section class="kpis">
+  <%= kpi('Page views', fmt_num(s[:views]), delta_html(s[:views], s[:prev_views])) %>
+  <%= kpi('Visitors', fmt_num(s[:visitors])) %>
+  <%= kpi('Entrances', fmt_num(s[:entrances]), 'visits that started here') %>
+  <%= kpi('Bounce rate', s[:entrances] > 0 ? "#{s[:bounce_rate]}%" : '–', 'of entrances') %>
+  <%= kpi('Exits', fmt_num(s[:exits]), 'visits that ended here') %>
+  <%= kpi('All time', fmt_num(s[:all_time]), s[:first_seen] ? "since #{s[:first_seen].in_time_zone(DIGEST_TZ).strftime('%b %-d, %Y')}" : '') %>
+</section>
+
+<section class="panel">
+  <h2 class="section-label">Views per day</h2>
+  <%= daily_chart(s[:daily], "Views per day for #{s[:path]}") %>
+  <details class="datatable" open>
+    <summary>Daily numbers</summary>
+    <table class="dtable"><thead><tr><th>Day</th><th>Views</th><th>Visitors</th></tr></thead><tbody>
+      <% s[:daily].reverse.each do |d| %><tr class="<%= 'zero' if d[:views] == 0 %>"><td><%= d[:date].strftime('%a %b %-d') %></td><td><%= d[:views] %></td><td><%= d[:visitors] %></td></tr><% end %>
+    </tbody></table>
+  </details>
+</section>
+
+<div class="grid">
+  <section class="panel">
+    <h2 class="section-label">How visitors arrived here</h2>
+    <%= bar_list(s[:channels], total: s[:entrances]) %>
+  </section>
+  <section class="panel">
+    <h2 class="section-label">Referring domains</h2>
+    <%= bar_list(s[:sources], total: s[:entrances]) %>
+  </section>
+</div>
+
+<div class="grid">
+  <section class="panel">
+    <h2 class="section-label">Came from <span class="muted">· previous page on this site</span></h2>
+    <%= bar_list(s[:came_from], link: ->(p) { admin_page_link(p) }) %>
+  </section>
+  <section class="panel">
+    <h2 class="section-label">Went to <span class="muted">· next page on this site</span></h2>
+    <%= bar_list(s[:went_to], link: ->(p) { admin_page_link(p) }) %>
+  </section>
+</div>
+
+<div class="grid">
+  <section class="panel">
+    <h2 class="section-label">Clicks on this page</h2>
+    <%= bar_list(s[:clicks], link: ->((text, href)) { href.present? ? "#{h text} <span class='muted'>→ #{h href.to_s.sub(/\Ahttps?:\/\/(www\.)?/, '')}</span>" : h(text) }) %>
+  </section>
+  <section class="panel">
+    <h2 class="section-label">Referring URLs</h2>
+    <%= bar_list(s[:ref_urls], link: ->(u) { ext_link(u, u.to_s.sub(/\Ahttps?:\/\/(www\.)?/, '')) }) %>
+  </section>
+</div>
+
+<div class="grid">
+  <section class="panel"><h2 class="section-label">Devices</h2><%= bar_list(s[:devices], total: s[:views]) %></section>
+  <section class="panel"><h2 class="section-label">Visitor timezones</h2><%= bar_list(s[:timezones], total: s[:views]) %></section>
+</div>
+
+<%= erb :'admin/_scripts' %>

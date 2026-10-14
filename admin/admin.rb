@@ -21,7 +21,7 @@ rescue
 end
 
 get '/admin' do
-  to_page(:"admin/dashboard")
+  render_admin_dashboard # bl/analytics_dashboard.rb
   #session[:is_admin] = true
   #redirect '/admin/manage/users'
 end
@@ -31,7 +31,7 @@ get "/admin/manage/:coll" do
 end 
 
 before '/admin*' do
-  #protected!
+  protected!
 end
 
 def verify_admin_val(collection, field, val)

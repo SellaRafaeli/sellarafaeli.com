@@ -1,0 +1,32 @@
+<div id="tip" class="tip" role="tooltip" hidden></div>
+<script>
+  // hover tooltips for chart columns
+  (function () {
+    var tip = document.getElementById('tip');
+    function show(e) {
+      var el = e.target.closest && e.target.closest('[data-tip]');
+      if (!el) { tip.hidden = true; return; }
+      tip.textContent = el.getAttribute('data-tip');
+      tip.hidden = false;
+      var r = el.getBoundingClientRect(), w = tip.offsetWidth;
+      tip.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.left + r.width / 2 - w / 2)) + 'px';
+      tip.style.top = (r.top + scrollY - tip.offsetHeight - 8) + 'px';
+    }
+    document.addEventListener('mouseover', show);
+    document.addEventListener('click', show);
+    document.addEventListener('scroll', function () { tip.hidden = true; }, {passive: true});
+  })();
+
+  // "don't count my visits": public/js/track.js skips browsers with this flag
+  (function () {
+    var b = document.getElementById('ignore-me');
+    if (!b) return;
+    function on() { try { return !!localStorage.getItem('sr_ignore'); } catch (e) { return false; } }
+    function sync() { b.setAttribute('aria-pressed', on()); b.textContent = on() ? 'My visits are not counted' : "Don't count my visits"; }
+    b.addEventListener('click', function () {
+      try { on() ? localStorage.removeItem('sr_ignore') : localStorage.setItem('sr_ignore', '1'); } catch (e) {}
+      sync();
+    });
+    sync();
+  })();
+</script>

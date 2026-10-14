@@ -10,6 +10,96 @@
 # Posts in views/blog/ that are not listed here are still reachable by URL,
 # they just don't appear in the index or feed (drafts, etc.).
 
+- title: '2024: The K Got Sharper'
+  date: '2024-12-26'
+  slug: 2024_the_k_got_sharper
+- title: Where Will Senior Developers Come From?
+  date: '2024-11-20'
+  slug: where_will_senior_developers_come_from
+- title: A Quarter of Google's Code Is AI. Who Reviews It?
+  date: '2024-10-31'
+  slug: a_quarter_of_googles_code_is_ai
+- title: Cursor and the End of Typing
+  date: '2024-08-28'
+  slug: cursor_and_the_end_of_typing
+- title: AI's $600 Billion Question
+  date: '2024-07-10'
+  slug: ais_600_billion_question
+- title: The 10x Developer Is Real Now
+  date: '2024-06-26'
+  slug: the_10x_developer_is_real_now
+- title: 'Glue on Pizza: The Gap Between Demo and Product'
+  date: '2024-05-29'
+  slug: glue_on_pizza
+- title: Devin Is Not a Software Engineer. Yet.
+  date: '2024-03-19'
+  slug: devin_is_not_a_software_engineer_yet
+- title: The K-Shaped Developer Market
+  date: '2024-02-21'
+  slug: the_k_shaped_developer_market
+- title: Bet on AI. Bet Against the Hype.
+  date: '2024-01-17'
+  slug: bet_on_ai_bet_against_the_hype
+- title: "2023: Boring Tech's Best Year"
+  date: '2023-12-27'
+  slug: boring_techs_best_year
+- title: Don't Build Your Company on One Model
+  date: '2023-11-23'
+  slug: dont_build_your_company_on_one_model
+- title: Unity and the Platform Tax
+  date: '2023-09-19'
+  slug: unity_and_the_platform_tax
+- title: Open Source Is Not a Business Model
+  date: '2023-08-23'
+  slug: open_source_is_not_a_business_model
+- title: Nobody Asks Stack Overflow Anymore
+  date: '2023-07-18'
+  slug: nobody_asks_stack_overflow_anymore
+- title: Even Amazon Went Back to the Monolith
+  date: '2023-05-09'
+  slug: even_amazon_went_back_to_the_monolith
+- title: AutoGPT and the Myth of the Autonomous Developer
+  date: '2023-04-19'
+  slug: autogpt_and_the_myth_of_the_autonomous_developer
+- title: SVB and Your Single Points of Failure
+  date: '2023-03-15'
+  slug: svb_and_your_single_points_of_failure
+- title: Who Tests the Code Now?
+  date: '2023-02-16'
+  slug: who_tests_the_code_now
+- title: So You've Been Laid Off
+  date: '2023-01-26'
+  slug: so_youve_been_laid_off
+- title: LastPass Got Breached. Passwords Are the Problem.
+  date: '2022-12-28'
+  slug: lastpass_got_breached
+- title: ChatGPT Is a Junior Developer With Infinite Confidence
+  date: '2022-12-08'
+  slug: chatgpt_is_a_junior_developer_with_infinite_confidence
+- title: Twitter Is Still Up
+  date: '2022-11-24'
+  slug: twitter_is_still_up
+- title: 22 Things From 22 Years of Writing Code
+  date: '2022-09-22'
+  slug: 22_things_from_22_years_of_code
+- title: Heroku Killed the Free Tier
+  date: '2022-08-30'
+  slug: heroku_killed_the_free_tier
+- title: Why Senior Developers Need Each Other
+  date: '2022-07-21'
+  slug: why_senior_developers_need_each_other
+- title: The End of Free Money
+  date: '2022-05-31'
+  slug: the_end_of_free_money
+- title: Senior Developers Don't Do Six-Round Interviews
+  date: '2022-03-15'
+  slug: senior_developers_dont_do_six_round_interviews
+- title: Wordle and the Joy of Small Software
+  date: '2022-02-03'
+  slug: wordle_and_the_joy_of_small_software
+- title: Web3 Is a Database With Extra Steps
+  date: '2022-01-19'
+  slug: web3_is_a_database_with_extra_steps
 - title: '2021: The Year Dependencies Bit Back'
   date: '2021-12-14'
   slug: the_year_dependencies_bit_back
