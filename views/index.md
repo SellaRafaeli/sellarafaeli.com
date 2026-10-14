@@ -6,7 +6,7 @@ Sella Rafaeli is an American-Israeli tech entrepreneur, web developer, devout be
 
 I have been programming for 25 years, since 2000. Most of my career has been focused on building large web applications for startups end to end. 
 
-I run [indydevs](https://indydevs.com), a network of **very senior developers**.
+I run [indydevs](https://www.indydevs.com), a network of **very senior developers**.
 
 My background includes
 * 5 years as an **Intelligence Officer** in Israel's SIGINT unit, 8200. 
