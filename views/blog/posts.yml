@@ -10,6 +10,19 @@
 # Posts in views/blog/ that are not listed here are still reachable by URL,
 # they just don't appear in the index or feed (drafts, etc.).
 
+- title: 'Runway Engineering: Build Like the Money Is Running Out'
+  date: '2020-06-10'
+  slug: runway_engineering
+- title: Introduction to .env files
+  date: '2020-05-13'
+  url: https://medium.com/@sellarafaeli/introduction-to-env-files-2fe1cc06d502
+- title: Are You Sure You Need Node?
+  date: '2020-04-26'
+  url: https://medium.com/@sellarafaeli/are-you-sure-you-need-node-ec298dd62e30
+  featured: true
+- title: The 'Shut-In' Economy
+  date: '2020-03-20'
+  url: https://medium.com/@sellarafaeli/the-shut-in-economy-c04586575a21
 - title: Burning Man 2019
   date: '2019-09-04'
   slug: burning_man_2019
