@@ -10,6 +10,36 @@
 # Posts in views/blog/ that are not listed here are still reachable by URL,
 # they just don't appear in the index or feed (drafts, etc.).
 
+- title: '2021: The Year Dependencies Bit Back'
+  date: '2021-12-14'
+  slug: the_year_dependencies_bit_back
+- title: Facebook Was Down for Six Hours
+  date: '2021-10-06'
+  slug: facebook_was_down_for_six_hours
+- title: The Great Resignation, Developer Edition
+  date: '2021-09-30'
+  slug: the_great_resignation_developer_edition
+- title: A Marketplace Is Five Collections
+  date: '2021-08-26'
+  slug: a_marketplace_is_five_collections
+- title: Copilot Writes Code You Have to Read
+  date: '2021-07-08'
+  slug: copilot_writes_code_you_have_to_read
+- title: The Day the Internet Went Down
+  date: '2021-06-10'
+  slug: the_day_the_internet_went_down
+- title: 'HTML Over the Wire: The Pendulum Swings Back'
+  date: '2021-05-20'
+  slug: html_over_the_wire
+- title: First-Party Data Is the Only Data Now
+  date: '2021-04-29'
+  slug: first_party_data_is_the_only_data
+- title: Clubhouse and the Live Internet
+  date: '2021-02-24'
+  slug: clubhouse_and_the_live_internet
+- title: Keep Users Logged In Forever
+  date: '2021-01-18'
+  slug: keep_users_logged_in_forever
 - title: 'Runway Engineering: Build Like the Money Is Running Out'
   date: '2020-06-10'
   slug: runway_engineering
