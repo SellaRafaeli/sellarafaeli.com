@@ -1,14 +1,28 @@
 <%
-  files = Dir[Dir.pwd+"/views/articles/*"]
-  names = files.map {|f| f.split('/views/articles/')[1].split('.md')[0]}.sort
+  external = [
+    {title: '"God" is a Metaphor For Life', href: 'https://medium.com/@sellarafaeli/god-is-a-metaphor-for-life-ee5f74892921', src: 'medium'},
+    {title: 'Yin and Yang - How Good and Bad Can Only Exist Together', href: 'https://docs.google.com/document/d/1y9PyFArkNy9Yz4lfZaC-faauWxfLLmfb_j86sfm41bA/edit', src: 'google docs', note: 'Oct 2020'}
+  ]
 %>
+<header class="page-head">
+  <p class="kicker">Writing</p>
+  <h1>Essays</h1>
+  <p class="lede">Shorter pieces on philosophy, belief, happiness and letting go. Less code, more questions.</p>
+</header>
 
-<h2> Articles </h2>
-
-<ul>
-<% names.each do |name| %>
-  <li><a href='/articles/<%=name%>'><%= name.titleize %></a></li>
+<ul class="postlist essays">
+<% essay_slugs.each do |slug| %>
+  <li><a href="/articles/<%= slug %>"><span class="t"><%= essay_title(slug) %></span></a></li>
 <% end %>
-  <li><a target=_blank href='https://medium.com/@sellarafaeli/god-is-a-metaphor-for-life-ee5f74892921'>"God" is a Metaphor For Life</a></li>
-  <li><a target=_blank href='https://docs.google.com/document/d/1y9PyFArkNy9Yz4lfZaC-faauWxfLLmfb_j86sfm41bA/edit'>Yin and Yang - How Good and Bad Can Only Exist Together</a> Oct 2020 </li>
+<% external.each do |e| %>
+  <li><a href="<%= e[:href] %>" target="_blank" rel="noopener"><span class="t"><%= e[:title] %></span><span class="src"><%= [e[:note], e[:src]].compact.join(' · ') %> &#8599;</span></a></li>
+<% end %>
 </ul>
+
+<aside class="elsewhere">
+  <h2>More</h2>
+  <ul>
+    <li><a href="/books">Books</a>: a practical spiritual guide, a paper on the limits of understanding, and a linear algebra textbook</li>
+    <li><a href="/blog">The tech blog</a></li>
+  </ul>
+</aside>

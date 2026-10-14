@@ -1,0 +1,25 @@
+<article class="entry">
+  <header class="entry-head">
+    <a class="kicker" href="<%= back[0] %>">&larr; <%= back[1] %></a>
+    <h1><%= title %></h1>
+    <p class="meta">
+      <% if date %><time datetime="<%= date.iso8601 %>"><%= nice_date(date) %></time><span class="dot">&middot;</span><% end %>
+      <span><%= minutes %> min read</span>
+    </p>
+  </header>
+
+  <div class="prose">
+    <%= body %>
+  </div>
+
+  <% if newer || older %>
+  <nav class="pager">
+    <% if older %>
+      <a class="older" href="<%= older[:href] %>"><small>&larr; Older</small><span><%= older[:title] %></span></a>
+    <% else %><span></span><% end %>
+    <% if newer %>
+      <a class="newer" href="<%= newer[:href] %>"><small>Newer &rarr;</small><span><%= newer[:title] %></span></a>
+    <% end %>
+  </nav>
+  <% end %>
+</article>

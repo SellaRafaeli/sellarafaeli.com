@@ -57,7 +57,7 @@ links = [alan_watts + sam_harris + terrence_mckenna + robert_frost + nvc + philo
 
 start = Date.new(Time.now.year,1,1)
 
-def show_link(link)
+show_link = ->(link) do # a lambda, not a def: methods defined inside a template don't reach the app on newer Tilt.
 	url  = link[:url]
 	if url.to_s.include?('youtube.com')
 		embed_url = url.gsub('watch?v=','embed/')
@@ -82,7 +82,7 @@ end
 	%>
 	<% if true || pr[:day] == idx || pr[:day] == 'all' %>
 	<div> <%= date %>: </div> 
-	<%= show_link(link) %>
+	<%= show_link.(link) %>
 	<br/>
 	<br/>
 	<% end %>

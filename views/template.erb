@@ -1,60 +1,80 @@
-<html>
-<head> 
-    <meta charset='utf-8'>
-    <title><%= basename %></title>
-    <meta name="viewport" content="width=device-width">
-    <!-- <link rel="shortcut icon" href="/favicon_thumb.ico"/> -->
-    <link rel="shortcut icon" href="/img/whatsapp_profile.jpeg"/>
-    <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
-    <link href="/css/main.css" rel="stylesheet"></link>
-
-    <!--     <link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
-    <link href="/css/github_markdown.css" rel="stylesheet"></link>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Aua5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
-    <!-- <link href="/css/mobile.css" rel="stylesheet" media="handheld">
-    <link href="/css/swiss.css" rel="stylesheet"></link>
-    <link href="/css/markdown.css" rel="stylesheet"></link> -->
+<%
+  page_title = locals[:title] || basename.to_s.split('/').last.to_s.tr('_', ' ').capitalize
+  full_title = page_title.to_s.empty? || locals[:page_class] == 'home' ? SITE_NAME : "#{page_title} — #{SITE_NAME}"
+  description = locals[:description] || 'Sella Rafaeli: web developer since 2000, founder of indydevs, writer.'
+  section = request.path_info.split('/')[1].to_s
+%><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= CGI.escapeHTML(full_title) %></title>
+  <meta name="description" content="<%= CGI.escapeHTML(description) %>">
+  <meta property="og:title" content="<%= CGI.escapeHTML(full_title) %>">
+  <meta property="og:description" content="<%= CGI.escapeHTML(description) %>">
+  <meta property="og:image" content="<%= SITE_URL %>/img/tux1.jpeg">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/img/whatsapp_profile.jpeg">
+  <link rel="alternate" type="application/atom+xml" title="<%= SITE_NAME %>" href="/blog/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/css/site.css?v=1">
+  <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t } catch (e) {}</script>
 </head>
 
-<body>
-    <% unless locals[:no_top] %>
-    <div class=top>
-        <a href=/>sellarafaeli.com</a>
-    </div>  
+<body class="<%= locals[:page_class] || 'page' %>">
+  <% unless locals[:no_top] %>
+  <header class="site-header">
+    <a class="brand" href="/"><img src="/img/tux1.jpeg" alt=""><span>Sella Rafaeli</span></a>
+    <nav>
+      <a href="/blog"<%= ' aria-current="page"' if section == 'blog' %>>Blog</a>
+      <a href="/articles"<%= ' aria-current="page"' if section == 'articles' %>>Essays</a>
+      <a href="/about"<%= ' aria-current="page"' if section == 'about' %>>About</a>
+      <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+      </button>
+    </nav>
+  </header>
+  <% end %>
+
+  <main class="wrap">
+    <% if locals[:page_class].to_s =~ /\A(home|post|index)/ %>
+      <%= content %>
+    <% else %>
+      <article class="prose markdown-body"><%= content %></article>
     <% end %>
+  </main>
 
-    <article class=markdown-body>                      
-        <%= content %>
-    </article>
-    
-    <!-- <footer style='font-size:80%'>
-        <div style='border-top:2px solid lightgrey; margin: 15px'></div>
-        Feel free to <a href='/contact'>drop me a line</a>. I <a href='/blog'>write extensively</a> about advanced web development and am available for <a href='/consulting.html'>consulting</a> anywhere in the world. 
-        <div>© <a href='/'>sellarafaeli.com</a>, <%=Time.now.year%></div>
-    </footer> -->
+  <footer class="site-footer">
+    <span>&copy; <%= Time.now.year %> Sella Rafaeli</span>
+    <span class="links">
+      <a href="mailto:sella.rafaeli@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/sella-rafaeli" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/SellaRafaeli" target="_blank" rel="noopener">GitHub</a>
+      <a href="/blog/feed.xml">RSS</a>
+    </span>
+  </footer>
 
+  <script>
+    document.querySelectorAll('.theme-toggle').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var root = document.documentElement;
+        var dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        root.dataset.theme = dark ? 'light' : 'dark';
+        try { localStorage.setItem('theme', root.dataset.theme) } catch (e) {}
+      });
+    });
+  </script>
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-100769576-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-    
-    <script type="text/javascript">
+  <script>
     var clicky_site_ids = clicky_site_ids || [];
     clicky_site_ids.push(100778787);
-    (function() {
-      var s = document.createElement('script');
-      s.type = 'text/javascript';
-      s.async = true;
-      s.src = '//static.getclicky.com/js';
-      ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+    (function () {
+      var s = document.createElement('script'); s.async = true; s.src = '//static.getclicky.com/js';
+      (document.head || document.body).appendChild(s);
     })();
-    </script>
+  </script>
 </body>
 </html>

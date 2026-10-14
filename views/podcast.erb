@@ -60,17 +60,12 @@ episodes = [
   {title: 'Mindfulness Can Help You Not Be Angry At Yourself', date: '2019/10/19', url: 'https://drive.google.com/open?id=1C2VH6b43fxXT9WjUIGRgzNdtQ6lpH0eE'}
 ].reverse
 
-def to_path(str)
-	CGI.escape str.to_s.downcase.gsub(' ','-')
-end
+# lambdas, not defs: methods defined inside a template don't reach the app on newer Tilt.
+to_path = ->(str) { CGI.escape str.to_s.downcase.gsub(' ','-') }
 
-def from_path(episodes, url)
-	episodes.find {|ep| to_path(ep[:title]) == to_path(url) }
-end
+from_path = ->(episodes, url) { episodes.find {|ep| to_path.(ep[:title]) == to_path.(url) } }
 
-def lang_sign(ep)
-	"<span title='Hebrew episode' style='margin-left:10px'>🇮🇱</span>" if ep[:lang].to_s == 'he'
-end
+lang_sign = ->(ep) { "<span title='Hebrew episode' style='margin-left:10px'>🇮🇱</span>" if ep[:lang].to_s == 'he' }
 
 %>
 <style>
@@ -93,10 +88,10 @@ ol {
 
 <img class='background' src='/img/mic.png' />
 	
-<% if pr[:path] && (ep = from_path(episodes, pr[:path])) %>	
+<% if pr[:path] && (ep = from_path.(episodes, pr[:path])) %>	
 	<% url = ep[:url].to_s.sub('/open?id=','/uc?export=download&id=')+'&confirm=ENbG' %>
   <% url2 = ep[:url2].to_s.sub('/open?id=','/uc?export=download&id=')+'&confirm=ENbG' if ep[:url2] %>
-	<h3><i><%= ep[:title] %><small> (<%=ep[:date]%><%= lang_sign(ep) %>)</small></i> </h3>	
+	<h3><i><%= ep[:title] %><small> (<%=ep[:date]%><%= lang_sign.(ep) %>)</small></i> </h3>	
 	<% if ep[:external_link] %>
 		<%= ep[:text] %>
 		<br/>
@@ -119,8 +114,8 @@ ol {
 <ol reversed>
 <% episodes.each_with_index do |ep, num| %>
 	<li> 				 
-		<i><a href='/podcast/<%=to_path(ep[:title])%>'><%=ep[:title]%></a> </i>
-		<%= lang_sign(ep) %>
+		<i><a href='/podcast/<%=to_path.(ep[:title])%>'><%=ep[:title]%></a> </i>
+		<%= lang_sign.(ep) %>
 	</li>
 <% end %>
 </ol>

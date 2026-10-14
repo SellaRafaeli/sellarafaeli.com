@@ -1,0 +1,156 @@
+# The blog index. Newest first.
+#
+# To publish a post: drop `views/blog/<slug>.md` and add an entry here.
+#   title:    shown in the index, feed and page <title>
+#   date:     YYYY-MM-DD
+#   slug:     a local post at /blog/<slug>   (or)
+#   url:      an external post (Medium, WordPress, ...)
+#   featured: true to highlight it (and list it on the homepage)
+#
+# Posts in views/blog/ that are not listed here are still reachable by URL,
+# they just don't appear in the index or feed (drafts, etc.).
+
+- title: Burning Man 2019
+  date: '2019-09-04'
+  slug: burning_man_2019
+- title: Remember Facebook Is Addictive
+  date: '2018-09-30'
+  slug: remember_facebook_is_addictive
+- title: JS const/let/var - misleading && bikeshedding
+  date: '2018-09-28'
+  slug: const_let_var_misleading
+- title: Dependency Madness
+  date: '2018-07-27'
+  slug: dependency_madness
+  featured: true
+- title: VanillaJS and jQuery - Minimal HTML Directives
+  date: '2017-07-22'
+  slug: vanillajs_and_jquery_kiss
+- title: MongoDB is a Great General-Purpose DB
+  date: '2017-07-20'
+  slug: mongodb_is_a_great_general_purpose_db
+- title: Give First-Class, Personalized Treatment to Anonymous Users
+  date: '2017-07-06'
+  slug: give_first_class_personalized_treatment_to_anonymous_users
+  featured: true
+- title: Secure simple sign-in links
+  date: '2017-06-04'
+  slug: simple_secure_sign_in_links
+  featured: true
+- title: 'No more username/passwords: Just use a 3rd party for authentication.'
+  date: '2017-05-09'
+  url: https://medium.com/@sellarafaeli/no-more-username-passwords-just-use-a-3rd-party-for-authentication-59b12db092a4
+  featured: true
+- title: MongoDB Joins with simple Ruby
+  date: '2017-04-15'
+  url: https://medium.com/@sellarafaeli/mongo-joins-across-collections-with-ruby-504e3351d278
+- title: Spreadsheet As An Admin DB Interface
+  date: '2017-03-21'
+  url: https://medium.com/@sellarafaeli/just-use-a-spreadsheet-spreadsheet-as-an-admin-interface-2ed789a93118
+- title: Ruby + MongoDB MapReduce - Dynamically Find All Keys in Collection
+  date: '2017-03-02'
+  slug: ruby_mongodb_mapreduce_all_keys_in_collection
+- title: SNM - Social Network / Marketplace as a service/product
+  date: '2017-03-02'
+  slug: snm_as_a_service_product
+- title: BaaS - Backend-as-a-Service
+  date: '2016-08-20'
+  slug: baas
+- title: Programming is the New Literacy
+  date: '2016-02-29'
+  url: https://medium.com/@sellarafaeli/programming-is-the-new-literacy-4a0319abe726
+  featured: true
+- title: yes.no — the architecture of a social network startup in 2016
+  date: '2016-02-23'
+  url: https://medium.com/@sellarafaeli/yes-no-architecture-of-a-social-network-startup-in-2016-d6d2989ca1b3
+  featured: true
+- title: Simple Sessions
+  date: '2015-02-05'
+  slug: simple_sessions
+- title: Whitehat Postmortem Example
+  date: '2014-12-25'
+  slug: whitehat_postmortem_example
+  featured: true
+- title: How To Recruit Software Engineers
+  date: '2014-12-15'
+  slug: how_to_recruit_software_engineers
+  featured: true
+- title: Responsible Software
+  date: '2014-12-14'
+  slug: responsible_software
+- title: Monads
+  date: '2014-11-29'
+  slug: monads
+- title: Ruby Monkeypatching Friendly Hashes
+  date: '2014-11-24'
+  slug: ruby_monkeypatching_friendly_hashes
+- title: JabJS - Introduction
+  date: '2014-11-19'
+  slug: jabjs-introduction
+- title: Native JavaScript Data Binding
+  date: '2014-11-10'
+  slug: native_javascript_data_binding
+  featured: true
+- title: Idempotency
+  date: '2014-09-07'
+  slug: idempotency
+  featured: true
+- title: Daat - A Good Hebrew Content Site
+  date: '2014-09-02'
+  url: https://medium.com/@sellarafaeli/reading-4bb50bc5168b
+- title: Cofounder
+  date: '2014-08-08'
+  slug: cofounder
+- title: Git Book
+  date: '2014-07-01'
+  slug: git-book
+  featured: true
+- title: Git Rebase -i Belong To Us
+  date: '2014-02-17'
+  url: https://medium.com/@sellarafaeli/git-rebase-i-belong-to-us-4d7010387683
+  featured: true
+- title: Git 'Rebase' For Startups
+  date: '2014-01-30'
+  url: https://medium.com/@sellarafaeli/we-use-git-rebase-and-so-should-you-be89d1932a14
+- title: Mongo Native TTL
+  date: '2014-07-22'
+  url: https://sellarafaeli.wordpress.com/2014/07/22/mongo-native-ttl/
+- title: Mongo Console BI Syntax Essentials
+  date: '2014-05-15'
+  url: https://sellarafaeli.wordpress.com/2014/05/15/mongo-console-bi-syntax-essentials/
+- title: Node Background Processing Awesomeness
+  date: '2014-04-01'
+  url: https://sellarafaeli.wordpress.com/2014/04/01/node_background_processing_awesomeness/
+- title: Copying Files over SSH hops
+  date: '2014-03-24'
+  url: https://sellarafaeli.wordpress.com/2014/03/24/copy-local-files-into-remote-server-through-n1-ssh-hops/
+- title: Ruby Source Location
+  date: '2014-03-19'
+  url: https://sellarafaeli.wordpress.com/2014/03/19/ruby-source_location/
+- title: On the Perils of Failing Silently
+  date: '2014-02-28'
+  url: https://sellarafaeli.wordpress.com/2014/02/28/on-the-perils-of-failing-silently/
+- title: Optimal Notes Strategy For Productivity Freaks
+  date: '2014-02-01'
+  url: https://sellarafaeli.wordpress.com/2014/02/01/optimal-notes-strategy-for-productivity-freaks/
+  featured: true
+- title: 'Vim Basics: VimRC Ruby Coloring and Syntax'
+  date: '2014-01-09'
+  url: https://sellarafaeli.wordpress.com/2014/01/09/vim-basics-vimrc-ruby-coloring-and-syntax/
+- title: There Are No Small Delays
+  date: '2014-01-08'
+  url: https://sellarafaeli.wordpress.com/2014/01/08/the-are-no-small-delays/
+  featured: true
+- title: Pimp Your RubyMine
+  date: '2014-01-03'
+  url: https://sellarafaeli.wordpress.com/2014/01/03/pimp-your-rubymine-6/
+- title: Nothing is Free
+  date: '2013-12-20'
+  url: https://sellarafaeli.wordpress.com/2013/12/20/a-programmer-with-a-mac-contentious-opinions-nothing-is-free/
+- title: How I Came About Studying Computer Science
+  date: '2013-01-14'
+  url: https://sellarafaeli.wordpress.com/2013/01/14/how-i-came-about-studying-computer-science/
+  featured: true
+- title: Interviewers That Read a Candidate's Blog
+  date: '2013-01-02'
+  url: https://sellarafaeli.wordpress.com/2013/01/02/interviewers-that-read-a-candidates-blog/

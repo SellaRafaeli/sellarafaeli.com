@@ -1,0 +1,71 @@
+<% years = blog_posts_by_year %>
+<header class="page-head">
+  <p class="kicker">Writing &middot; <%= years.last[0] %>&ndash;<%= years.first[0] %></p>
+  <h1>The Blog</h1>
+  <p class="lede">Notes on building web software: backends, vanilla JS, MongoDB, Git, hiring engineers, and the occasional detour into everything else.</p>
+</header>
+
+<div class="toolbar">
+  <label class="search">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="Filter posts" autocomplete="off" aria-label="Filter posts">
+    <kbd>/</kbd>
+  </label>
+  <button type="button" class="chip" id="only-featured" aria-pressed="false">&#9733; Featured</button>
+</div>
+
+<div id="posts">
+<% years.each do |year, posts| %>
+  <section class="year" data-year="<%= year %>">
+    <h2 class="year-label"><%= year %></h2>
+    <ul class="postlist">
+    <% posts.each do |p| %>
+      <li class="<%= 'featured' if p[:featured] %>" data-title="<%= p[:title].downcase %>">
+        <a href="<%= p[:href] %>"<%= " target=_blank rel=noopener" if p[:external] %>>
+          <time datetime="<%= p[:date].iso8601 %>"><%= p[:date].strftime('%b %d') %></time>
+          <span class="t"><%= p[:title] %><% if p[:featured] %> <span class="star" title="Featured">&#9733;</span><% end %></span>
+          <% if p[:external] %><span class="src"><%= p[:source] %> &#8599;</span><% end %>
+        </a>
+      </li>
+    <% end %>
+    </ul>
+  </section>
+<% end %>
+  <p id="empty" class="muted" hidden>Nothing matches that. Try fewer letters.</p>
+</div>
+
+<aside class="elsewhere">
+  <h2>Even older</h2>
+  <ul>
+    <li><a href="https://sellarafaeli.wordpress.com" target="_blank" rel="noopener">The WordPress blog, 2009&ndash;2014 &#8599;</a></li>
+    <li><a href="https://sites.google.com/site/linearit1hujibook/" target="_blank" rel="noopener">Linear Algebra book (Hebrew) &#8599;</a></li>
+    <li><a href="https://sites.google.com/site/linearit1hujibook/see-also" target="_blank" rel="noopener">Computer Science Algorithms book (Hebrew) &#8599;</a></li>
+    <li><a href="/articles">Essays on philosophy &amp; spirituality</a></li>
+    <li><a href="/blog/feed.xml">Subscribe via RSS / Atom</a></li>
+  </ul>
+</aside>
+
+<script>
+(function () {
+  var q = document.getElementById('q'), fav = document.getElementById('only-featured');
+  var items = [].slice.call(document.querySelectorAll('.postlist li'));
+  var years = [].slice.call(document.querySelectorAll('.year'));
+  function apply() {
+    var term = q.value.trim().toLowerCase(), onlyFav = fav.getAttribute('aria-pressed') === 'true', shown = 0;
+    items.forEach(function (li) {
+      var ok = li.dataset.title.indexOf(term) !== -1 && (!onlyFav || li.classList.contains('featured'));
+      li.hidden = !ok; if (ok) shown++;
+    });
+    years.forEach(function (y) { y.hidden = !y.querySelector('li:not([hidden])'); });
+    document.getElementById('empty').hidden = shown > 0;
+  }
+  q.addEventListener('input', apply);
+  fav.addEventListener('click', function () {
+    fav.setAttribute('aria-pressed', fav.getAttribute('aria-pressed') !== 'true'); apply();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === '/' && document.activeElement !== q) { e.preventDefault(); q.focus(); }
+    if (e.key === 'Escape' && document.activeElement === q) { q.value = ''; apply(); q.blur(); }
+  });
+})();
+</script>

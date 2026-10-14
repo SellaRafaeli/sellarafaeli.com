@@ -53,7 +53,7 @@ end
 
 get '/' do 
   return erb :'gefengil/gefengil' if request.host.include?("gefengil")
-  erb :'home/home'
+  layout(:'home/home', SITE_NAME, page_class: 'home')
 end
 
 get '/about' do
@@ -101,23 +101,28 @@ get '/west_coast_judaism' do
 end
 
 get '/believe_in_now' do
-  md(:'writings/believe_in_now')
+  blog_post_page('believe_in_now')
 end
 
 get '/blog' do
-  md(:'blog/index')
+  layout(:'blog/index', 'Blog', page_class: 'index', description: "Sella Rafaeli's blog on building web software.")
+end
+
+get '/blog/feed.xml' do
+  content_type 'application/atom+xml'
+  blog_feed_xml
 end
 
 get '/blog/:id' do
-  md(:"blog/#{pr[:id]}")
+  blog_post_page(pr[:id])
 end
 
 get '/articles' do
-  layout(:articles)
+  layout(:articles, 'Essays', page_class: 'index')
 end
 
 get '/articles/:id' do
-  md(:"articles/#{pr[:id]}")
+  essay_page(pr[:id])
 end
 
 get '/mindy_app_freelancer' do
@@ -154,21 +159,21 @@ get '/kerbel' do
   erb :'kerbel/kerbel'
 end
 
-def layout(view, title = nil)
+def layout(view, title = nil, opts = {})
   html = erb view
-  erb :template, locals: {content: html, basename: title || view}
+  erb :template, locals: {content: html, basename: title || view, title: title}.merge(opts)
 end
 
 def md(file, opts = {})  
-  text = File.read 'views/'+file.to_s+'.md'
-  html = Kramdown::Document.new(text, input: 'GFM', coderay_line_numbers: nil).to_html
+  path = 'views/'+file.to_s+'.md'
+  raise Sinatra::NotFound unless File.file?(path)
+  html = render_markdown(read_utf8(path))
   
   erb :template, locals: {content: html, basename: file}.merge(opts)
 end
 
 def md_book(file, opts = {})
-  text = File.read 'views/'+file.to_s+'.md'
-  html = Kramdown::Document.new(text, input: 'GFM', coderay_line_numbers: nil).to_html
+  html = render_markdown(read_utf8('views/'+file.to_s+'.md'))
   
   erb :book_template, locals: {content: html, basename: file}.merge(opts)
 end

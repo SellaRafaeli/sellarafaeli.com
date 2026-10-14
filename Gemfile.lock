@@ -185,6 +185,8 @@ GEM
       rack (>= 1.0)
       rack-test (~> 0.6.2)
       ripl (>= 0.7.0)
+    rouge (5.1.0)
+      strscan (~> 3.1)
     ruby-openai (8.3.0)
       event_stream_parser (>= 0.3.0, < 2.0.0)
       faraday (>= 1)
@@ -210,6 +212,7 @@ GEM
       sinatra-contrib
     stringio (3.2.0)
     stripe (18.3.1)
+    strscan (3.1.8)
     tilt (2.7.0)
     tsort (0.2.0)
     ttfunk (1.7.0)
@@ -277,6 +280,7 @@ DEPENDENCIES
   require_all
   rest-client (= 2.0.1)
   ripl-color_result
+  rouge
   ruby-openai
   rufus-scheduler (= 3.4.2)
   sinatra
@@ -385,6 +389,7 @@ CHECKSUMS
   ripl-color_result (0.4.1) sha256=90500c4f82e152d9b074004874f71d127031976620a4b7bdf1ab8a291236a76c
   ripl-multi_line (0.3.1) sha256=41449cd7b686ac21f59894ce51502e799a484a3916e4ed893df60eab852f1bff
   ripl-rack (0.2.1) sha256=c8450abdb3f811798fea3c7472f975b5112408f73210fa7a9968b4969f4e0218
+  rouge (5.1.0) sha256=b77c632842ab7f5147940212f0345808cccfbce864fd5b631d7d12a35ac85452
   ruby-openai (8.3.0) sha256=566dc279c42f4afed68a7a363dce2e594078abfc36b4e043102020b9a387ca69
   ruby-rc4 (0.1.5) sha256=00cc40a39d20b53f5459e7ea006a92cf584e9bc275e2a6f7aa1515510e896c03
   ruby2_keywords (0.0.5) sha256=ffd13740c573b7301cf7a2e61fc857b2a8e3d3aff32545d6f8300d8bae10e3ef
@@ -396,6 +401,7 @@ CHECKSUMS
   sinatra-reloader (1.0) sha256=d8d2ec43679b8ef48fd88c9e26ca0cc6c27fed6b988117d6be5047b651aad625
   stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1
   stripe (18.3.1) sha256=0ff81b277c87640fc5107815dd489f4cccc973a34940cf5adfefb880f456c1ad
+  strscan (3.1.8) sha256=aae2db611a225559f21ffbb71765c9a4e60fd262534a9ea84f4f11c7f32f679e
   tilt (2.7.0) sha256=0d5b9ba69f6a36490c64b0eee9f6e9aad517e20dcc848800a06eb116f08c6ab3
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   ttfunk (1.7.0) sha256=2370ba484b1891c70bdcafd3448cfd82a32dd794802d81d720a64c15d3ef2a96

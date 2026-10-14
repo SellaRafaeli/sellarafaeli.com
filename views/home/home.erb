@@ -1,76 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Sella Rafaeli</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: #111;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-
-    .wrap {
-      min-height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-    }
-
-    .card {
-      max-width: 420px;
-      text-align: center;
-    }
-
-    .avatar {
-      width: 200px;
-      height: 200px;
-      border-radius: 20px;
-      object-fit: cover;
-      margin-bottom: 20px;
-    }
-
-    .line {
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-    }
-
-    .line a {
-      color: #111;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
-
-    .line a:hover {
-      border-bottom: 1px solid #111;
-    }
-
-    .spacer {
-      height: 14px;
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card">
-
-      <img src="/img/tux1.jpeg" class="avatar" alt="Portrait of Sella Rafaeli" />
-
-      <div class="line">
-        <a href="mailto:sella.rafaeli@gmail.com">sella.rafaeli@gmail.com</a>
-      </div>
-
-      <div class="line">
-        <a href="https://linkedin.com/in/sella-rafaeli" target="_blank" rel="noopener">
-          linkedin.com/in/sella-rafaeli
-        </a>
-      </div>
-
-    </div>
+<%
+  posts    = blog_posts
+  featured = posts.select { |p| p[:featured] }.first(7)
+  years_coding = Date.today.year - 2000
+%>
+<section class="hero">
+  <img class="avatar" src="/img/tux1.jpeg" alt="Portrait of Sella Rafaeli" width="160" height="160">
+  <div>
+    <p class="kicker">Tel Aviv &middot; building for the web since 2000</p>
+    <h1>Sella Rafaeli</h1>
+    <p class="lede">
+      I build web applications end to end, and help other people build theirs.
+      I run <a href="https://indydevs.com" target="_blank" rel="noopener">indydevs</a>, a network of very senior developers.
+      American-Israeli tech entrepreneur, devout believer, amateur rock singer.
+    </p>
+    <p class="actions">
+      <a class="btn primary" href="mailto:sella.rafaeli@gmail.com">Say hello</a>
+      <a class="btn" href="https://linkedin.com/in/sella-rafaeli" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/SellaRafaeli" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://docs.google.com/document/d/1BjCh9nQDAibvDXBWxOYrAsRDsT6JfKbpW_nW2Ezl4Hc/export?format=pdf" target="_blank" rel="noopener">Résumé</a>
+    </p>
   </div>
-</body>
-</html>
+</section>
+
+<ul class="stats">
+  <li><b><%= years_coding %></b><span>years writing code</span></li>
+  <li><b>~70</b><span>orgs I built software for</span></li>
+  <li><b>5</b><span>years in Unit 8200</span></li>
+  <li><b>30+</b><span>countries visited</span></li>
+</ul>
+
+<section class="block">
+  <h2 class="section-label">Background</h2>
+  <ul class="timeline">
+    <li><span class="when">2022&ndash;</span><div><b>Founder, <a href="https://indydevs.com" target="_blank" rel="noopener">indydevs</a></b>. A network of very senior, independent developers.</div></li>
+    <li><span class="when">2016</span><div><b>Dev shop founder</b>. Built complex web apps for about 70 organizations.</div></li>
+    <li><span class="when">Startup</span><div><b>CTO &amp; co-founder</b> of <a href="https://medium.com/@sellarafaeli/yes-no-architecture-of-a-social-network-startup-in-2016-d6d2989ca1b3" target="_blank" rel="noopener">yes.no</a>, a Q&amp;A social network.</div></li>
+    <li><span class="when">Industry</span><div><b>Many dev roles</b> at orgs of every size, in San Francisco and Tel Aviv, Fiverr among them.</div></li>
+    <li><span class="when">Degree</span><div><b>BSc Computer Science &amp; Psychology</b>, Hebrew University, <i>magna cum laude</i>.</div></li>
+    <li><span class="when">Army</span><div><b>Intelligence Officer</b>, five years in Israel's SIGINT unit, 8200.</div></li>
+    <li><span class="when">Travel</span><div><b>A year backpacking</b> South America, and <a href="/about">a lot of other adventures</a>.</div></li>
+  </ul>
+  <p class="aside">Fond of vanilla JS, Ruby (Sinatra) and MongoDB. Building complex web apps single-handedly has been the thread through all of it.</p>
+</section>
+
+<section class="block">
+  <div class="section-head">
+    <h2 class="section-label">Selected writing</h2>
+    <a href="/blog">All <%= posts.size %> posts &rarr;</a>
+  </div>
+  <ul class="postlist">
+  <% featured.each do |p| %>
+    <li>
+      <a href="<%= p[:href] %>"<%= " target=_blank rel=noopener" if p[:external] %>>
+        <time datetime="<%= p[:date].iso8601 %>"><%= p[:date].year %></time>
+        <span class="t"><%= p[:title] %></span>
+        <% if p[:external] %><span class="src"><%= p[:source] %> &#8599;</span><% end %>
+      </a>
+    </li>
+  <% end %>
+  </ul>
+</section>
+
+<section class="block">
+  <h2 class="section-label">Also here</h2>
+  <div class="cards">
+    <a class="card" href="/articles"><b>Essays</b><span>Philosophy, belief, happiness, and letting go.</span></a>
+    <a class="card" href="/books"><b>Books</b><span>A spiritual guide, a paper on the limits of understanding, and a linear algebra textbook.</span></a>
+    <a class="card" href="/about"><b>About</b><span>Hitchhiking Tierra del Fuego, ice-climbing in Bolivia, and the Egyptian Ratscrew title.</span></a>
+    <a class="card" href="/contact"><b>Contact</b><span>Email, LinkedIn, GitHub. Don't be shy.</span></a>
+  </div>
+</section>

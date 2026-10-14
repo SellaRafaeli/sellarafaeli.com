@@ -72,6 +72,7 @@ gem 'premailer'
 gem 'pdf-reader', '~> 2.10'
 gem 'kramdown' 
 gem "kramdown-parser-gfm"
+gem "rouge" # syntax highlighting for kramdown code blocks
 
 group :development, :test do
   # gem 'puma'
