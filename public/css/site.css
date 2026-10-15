@@ -159,6 +159,34 @@ kbd { font: .7rem var(--mono); color: var(--muted); border: 1px solid var(--rule
 .card:hover b { color: var(--accent); }
 .card span { display: block; font-size: .95rem; line-height: 1.45; color: var(--ink-2); }
 
+/* ask me anything (homepage chat) */
+.ask-intro { margin: 0 0 1rem; color: var(--ink-2); }
+.ask-log { display: flex; flex-direction: column; gap: .6rem; }
+.ask-log:not(:empty) { margin-bottom: 1rem; }
+.ask-msg { max-width: 88%; padding: .6rem .9rem; border-radius: 14px; font-size: 1.02rem; line-height: 1.5; overflow-wrap: anywhere; }
+.ask-msg.user { align-self: flex-end; background: var(--ink); color: var(--bg); border-bottom-right-radius: 4px; }
+.ask-msg.assistant { align-self: flex-start; background: var(--bg-2); border: 1px solid var(--rule); border-bottom-left-radius: 4px; }
+.ask-msg.error { color: var(--muted); font-style: italic; }
+.ask-msg p, .ask-msg ul { margin: 0; }
+.ask-msg p + p, .ask-msg p + ul, .ask-msg ul + p { margin-top: .55rem; }
+.ask-msg ul { padding-left: 1.2rem; }
+.ask-typing { display: inline-flex; gap: 4px; padding: .35rem 0; }
+.ask-typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); animation: ask-dot 1.2s infinite ease-in-out; }
+.ask-typing i:nth-child(2) { animation-delay: .15s; }
+.ask-typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes ask-dot { 0%, 60%, 100% { opacity: .25; transform: none; } 30% { opacity: 1; transform: translateY(-3px); } }
+.ask-suggestions { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: .9rem; }
+.ask-suggestions[hidden] { display: none; }
+.ask-suggestions button { font: .75rem/1.3 var(--mono); padding: .45rem .75rem; border: 1px dashed var(--rule); border-radius: 999px; background: transparent; color: var(--ink-2); cursor: pointer; text-align: left; }
+.ask-suggestions button:hover { border-color: var(--accent); color: var(--accent); }
+.ask-form { display: flex; gap: .5rem; }
+.ask-form input { flex: 1; min-width: 0; padding: .65rem .9rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--bg-2); color: var(--ink); font: 1rem var(--serif); outline: none; }
+.ask-form input:focus { border-color: var(--accent); }
+.ask-form button { cursor: pointer; }
+.ask-form button:disabled, .ask-form input:disabled { opacity: .55; cursor: default; }
+.ask-note { margin: .6rem 0 0; font: .7rem/1.4 var(--mono); color: var(--muted); }
+.ask-note a { color: inherit; }
+
 /* ---------- posts ---------- */
 
 .entry-head { padding: 2.5rem 0 1.75rem; margin-bottom: 2rem; border-bottom: 1px solid var(--rule); }
@@ -301,6 +329,7 @@ kbd { font: .7rem var(--mono); color: var(--muted); border: 1px solid var(--rule
   .stats li:nth-child(3) { padding-left: 0; border-left: 0; }
   .stats li:nth-child(n+3) { border-top: 1px solid var(--rule); }
   .cards, .pager { grid-template-columns: 1fr; }
+  .ask-msg { max-width: 94%; }
   .pager .newer { grid-column: 1; }
   .year { grid-template-columns: 1fr; }
   .year-label { position: static; margin: 0 0 .6rem; }

@@ -13,7 +13,7 @@
       <br/>
       I build complex software applications for a living.
       <br/>
-      I founded and run <a href="https://www.indydevs.com" target="_blank" rel="noopener">indydevs</a>.
+      I founded and run <a href="https://www.indydevs.com" target="_blank" rel="noopener"><b>indydevs</b></a>.
       
       
     </p>
@@ -32,6 +32,91 @@
   <li><b>5</b><span>years in Unit 8200</span></li>
   <li><b>30+</b><span>countries visited</span></li>
 </ul>
+
+<% if ASK_ENABLED %>
+<section class="block ask" id="ask">
+  <h2 class="section-label">Ask me anything</h2>
+  <p class="ask-intro">An AI agent that has read everything I've written here. Ask it what I think, what I've built, or what I'd say.</p>
+  <div class="ask-log" aria-live="polite"></div>
+  <div class="ask-suggestions">
+    <button type="button">What does Sella think about AI and developers?</button>
+    <button type="button">What is indydevs?</button>
+    <button type="button">Why Ruby and vanilla JS?</button>
+    <button type="button">What's his take on happiness?</button>
+  </div>
+  <form class="ask-form">
+    <input name="q" type="text" maxlength="2000" autocomplete="off" placeholder="Ask about my work, writing, or beliefs…" aria-label="Your question" required>
+    <button type="submit" class="btn primary">Ask</button>
+  </form>
+  <p class="ask-note">Answers are AI-generated from my writing and may be imperfect. For the real me, <a href="mailto:sella.rafaeli@gmail.com">email</a>.</p>
+</section>
+
+<script>
+(function () {
+  var box = document.getElementById('ask'), log = box.querySelector('.ask-log'), form = box.querySelector('.ask-form'),
+      input = form.q, send = form.querySelector('button'), chips = box.querySelector('.ask-suggestions'), history = [];
+
+  function esc(s) { return s.replace(/[&<>"']/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c] }) }
+
+  // Just enough markdown for chat: links, bold, italics, bullets, paragraphs.
+  function md(text) {
+    return esc(text).split(/\n{2,}/).map(function (para) {
+      var lines = para.split('\n'), list = lines.every(function (l) { return /^\s*[-*] /.test(l) });
+      para = list ? '<ul>' + lines.map(function (l) { return '<li>' + l.replace(/^\s*[-*] /, '') + '</li>' }).join('') + '</ul>' : lines.join('<br>');
+      para = para
+        .replace(/\[([^\]]+)\]\(((?:https?:\/\/|\/)[^\s)]*)\)/g, function (_, t, u) { return '<a href="' + u + '"' + (u[0] === '/' ? '' : ' target="_blank" rel="noopener"') + '>' + t + '</a>' })
+        .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+        .replace(/(^|[\s(])\*([^*\s][^*]*)\*/g, '$1<i>$2</i>');
+      return list ? para : '<p>' + para + '</p>';
+    }).join('');
+  }
+
+  function bubble(role, html) {
+    var el = document.createElement('div');
+    el.className = 'ask-msg ' + role;
+    el.innerHTML = html;
+    log.appendChild(el);
+    return el;
+  }
+
+  function ask(q) {
+    q = q.trim();
+    if (!q || send.disabled) return;
+    chips.hidden = true;
+    history.push({role: 'user', content: q});
+    bubble('user', esc(q));
+    var el = bubble('assistant', '<span class="ask-typing"><i></i><i></i><i></i></span>'), text = '';
+    input.value = '';
+    send.disabled = input.disabled = true;
+    el.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+
+    fetch('/ask', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({messages: history})})
+      .then(function (res) {
+        if (!res.ok) return res.json().then(function (j) { throw new Error(j.msg) }, function () { throw new Error() });
+        var reader = res.body.getReader(), dec = new TextDecoder();
+        return (function pump() {
+          return reader.read().then(function (r) {
+            if (r.done) return;
+            text += dec.decode(r.value, {stream: true});
+            el.innerHTML = md(text);
+            return pump();
+          });
+        })();
+      })
+      .then(function () { history.push({role: 'assistant', content: text}) })
+      .catch(function (e) {
+        history.pop(); // drop the unanswered question so the next one stays well-formed
+        el.classList.add('error');
+        el.innerHTML = esc((e && e.message) || 'Something went wrong. Try again?');
+      })
+      .then(function () { send.disabled = input.disabled = false; input.focus() });
+  }
+
+  form.addEventListener('submit', function (e) { e.preventDefault(); ask(input.value) });
+  chips.addEventListener('click', function (e) { if (e.target.tagName === 'BUTTON') ask(e.target.textContent) });
+})();
+</script>
+<% end %>
 
 <section class="block">
   <h2 class="section-label">Background</h2>

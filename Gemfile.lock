@@ -16,6 +16,11 @@ GEM
     addressable (2.8.8)
       public_suffix (>= 2.0.2, < 8.0)
     afm (1.0.0)
+    anthropic (1.79.0)
+      base64 (~> 0.1)
+      connection_pool (>= 2, < 4)
+      opentelemetry-api (>= 1.2.4, < 2)
+      standardwebhooks (~> 1.0)
     babosa (1.0.2)
     base64 (0.3.0)
     bcrypt (3.1.21)
@@ -113,6 +118,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.1-x86_64-linux-musl)
       racc (~> 1.4)
+    opentelemetry-api (1.11.1)
+      logger
     ostruct (0.6.3)
     paint (2.3.0)
     pdf-reader (2.15.1)
@@ -210,6 +217,7 @@ GEM
     sinatra-cross_origin (0.3.2)
     sinatra-reloader (1.0)
       sinatra-contrib
+    standardwebhooks (1.1.0)
     stringio (3.2.0)
     stripe (18.3.1)
     strscan (3.1.8)
@@ -244,6 +252,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (= 7.2.1)
+  anthropic
   babosa (= 1.0.2)
   base64
   bcrypt
@@ -297,6 +306,7 @@ CHECKSUMS
   activesupport (7.2.1) sha256=7557fa077a592a4f36f7ddacf4d9d71c34aff69ed20236b8a61c22d567da8c24
   addressable (2.8.8) sha256=7c13b8f9536cf6364c03b9d417c19986019e28f7c00ac8132da4eb0fe393b057
   afm (1.0.0) sha256=5bd4d6f6241e7014ef090985ec6f4c3e9745f6de0828ddd58bc1efdd138f4545
+  anthropic (1.79.0) sha256=e272df01460ebad2dec4366a47fb170242b39f007cbc9e2e3583ef8df906a2df
   babosa (1.0.2) sha256=4edc28885e0cbf3e1c258887531c274986ebc1ceaf703266276c917fc9eb2f17
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   bcrypt (3.1.21) sha256=5964613d750a42c7ee5dc61f7b9336fb6caca429ba4ac9f2011609946e4a2dcf
@@ -357,6 +367,7 @@ CHECKSUMS
   nokogiri (1.19.1-x86_64-darwin) sha256=7093896778cc03efb74b85f915a775862730e887f2e58d6921e3fa3d981e68bf
   nokogiri (1.19.1-x86_64-linux-gnu) sha256=1a4902842a186b4f901078e692d12257678e6133858d0566152fe29cdb98456a
   nokogiri (1.19.1-x86_64-linux-musl) sha256=4267f38ad4fc7e52a2e7ee28ed494e8f9d8eb4f4b3320901d55981c7b995fc23
+  opentelemetry-api (1.11.1) sha256=d07f9987ea6240b3fd5ed5dd7450f93c58e403e0553e804069c23ae18ba61ff7
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   paint (2.3.0) sha256=327d623e4038619d5bd99ae5db07973859cd78400c7f0329eea283cef8e83be5
   pdf-reader (2.15.1) sha256=18c6a986a84a3117fa49f4279fc2de51f5d2399b71833df5d2bccd595c7068ce
@@ -399,6 +410,7 @@ CHECKSUMS
   sinatra-contrib (3.2.0) sha256=0c32a9e1eb2c22e9b597c044fedde0803f6779aaa7090d074455ad83aaf1efc1
   sinatra-cross_origin (0.3.2) sha256=3eb1a9429ca9a58351d47bfd90236745f98203ee1572696d41de214a33a3c3bf
   sinatra-reloader (1.0) sha256=d8d2ec43679b8ef48fd88c9e26ca0cc6c27fed6b988117d6be5047b651aad625
+  standardwebhooks (1.1.0) sha256=356ba711c14def4fb27310e4163b26bd5cccf325212c3440cabadd825e4be11f
   stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1
   stripe (18.3.1) sha256=0ff81b277c87640fc5107815dd489f4cccc973a34940cf5adfefb880f456c1ad
   strscan (3.1.8) sha256=aae2db611a225559f21ffbb71765c9a4e60fd262534a9ea84f4f11c7f32f679e

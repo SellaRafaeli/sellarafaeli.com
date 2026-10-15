@@ -58,6 +58,7 @@ gem 'geocoder'
 gem 'docsplit', '~> 0.7.6'
 # gem 'detect_language'
 gem 'ruby-openai'
+gem 'anthropic' # /ask chat box (bl/ask.rb)
 # gem 'redcarpet'
 # gem 'erubis' # enables set :erb, { escape_html: true }, which escape xss 
 # gem 'mysql2'
