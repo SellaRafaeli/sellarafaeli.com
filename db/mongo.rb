@@ -4,7 +4,15 @@ mongodb_db_name = $app_name.to_s.gsub('.','_')
 #mongodb_db_name = 'yesno_prod_backup'
 DB_URI = ENV["MONGODB_URI"] || "mongodb://localhost:27017/#{mongodb_db_name}"
 
-$mongo = Mongo::Client.new(DB_URI).database
+# One client per process; it's thread-safe and pools connections itself.
+# ||= keeps the dev reloader from opening a new client on every reload.
+$mongo ||= Mongo::Client.new(DB_URI, max_pool_size: 20)
+
+def _mongo
+  $mongo
+end
+
+class Mongo::Client; def collection(name) database.collection(name); end; end # this lets us still call $users = $mongo.collection('users')
 
 $mongo_data = {}
 
@@ -35,21 +43,14 @@ def page_mongo(collection, crit = {}, opts = {})
   return items, done
 end
 
+# Field names seen in a random sample of 50 docs, most common first (as in ex8200).
 def mongo_coll_keys(coll)
-  coll_name = coll.name
-  key = "#{coll_name}_collection_fields"  
-  if !$mongo_data[key]  
-    opts = {
-      mapreduce: coll_name,
-      map: "function() { for (var key in this) { emit(key, null); }}",    
-      reduce: "function(key, stuff) { return null; }", 
-      out: {inline: 1}
-    }
-    mongo_results    = $mongo.command(opts)
-    $mongo_data[key] = mongo_results.to_a[0]['results'].map { |doc| doc['_id'] }
-  end
-  $mongo_data[key]
-rescue => e 
+  items      = coll.aggregate([{'$sample' => {size: 50}}]).to_a
+  keys_count = Hash.new(0)
+  items.each { |item| item.keys.each { |k| keys_count[k] += 1 } }
+  $mongo_data["#{coll.name}_collection_fields"] = keys_count.sort_by { |_k, n| -n }.map(&:first)
+rescue => e
+  puts "Error in mongo_coll_keys: #{e}".red
   []
 end
 

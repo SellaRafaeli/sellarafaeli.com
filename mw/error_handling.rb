@@ -15,7 +15,9 @@ module Helpers
 end
 
 error do 
-  e = env['sinatra.error']    
+  e = env['sinatra.error']
+  # self-heal a stale Mongo topology (e.g. dead monitor threads) instead of failing until restart
+  ($mongo.reconnect rescue nil) if e.is_a?(Mongo::Error::NoServerAvailable)
   log_e(e)
   data = {msg: "an error occurred", e: e.to_s}
   data[:backtrace] = e.backtrace.to_a.slice(0,4).to_s unless $prod
