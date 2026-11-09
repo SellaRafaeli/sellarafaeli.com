@@ -63,17 +63,51 @@ Once you have the full security context together with each route, it is trivial 
 
 A scanner is only as good as its results, so we need a way to measure it: a set of test repos where we already know where the BOLAs are, so we can check whether the scanner finds them (and doesn't flood us with false positives).
 
-We started with three repos, one per language - Python, Node.js and Ruby. These are well-known repos in the security community, commonly used for vulnerability checking and for testing security tools, so their weaknesses are documented and serve as our ground truth:
+We started with three repos, one per language - Python, Node.js and Ruby. Two of them (dvws-node and RailsGoat) are well-known deliberately vulnerable apps, used in the security community for training and for testing security tools - the bugs are planted on purpose and documented as exercises. The third, aegra, is a real-world open-source project, pinned to a version (v0.9.6) with real, publicly disclosed BOLAs that were fixed later. Either way, the weaknesses are documented and serve as our ground truth:
 
-| Repo | Stack | Known BOLAs |
-|------|-------|-------------|
-| aegra-v0.9.6 | Python / FastAPI | |
-| dvws-node | Node.js / Express | CHALLENGES.md #15, #19, #33, #39, #53 |
-| railsgoat | Ruby / Rails | |
+| Repo | Stack | What it is | Known BOLAs |
+|------|-------|------------|-------------|
+| [aegra](https://github.com/aegra/aegra) v0.9.6 | Python / FastAPI | Open-source, self-hosted agent backend (real project) | CVE-2026-44504, GHSA-q494-8v3j-cp9j, fixes in PRs #424 and #431 |
+| [dvws-node](https://github.com/snoopysecurity/dvws-node) | Node.js / Express | Deliberately vulnerable web services app | CHALLENGES.md #15, #19, #33, #39, #53 |
+| [RailsGoat](https://github.com/OWASP/railsgoat) | Ruby / Rails | OWASP's deliberately vulnerable Rails app | Wiki: A4 IDOR (work info), IDOR in account settings update |
+
+#### aegra v0.9.6 (Python / FastAPI)
+
+aegra is an open-source alternative to LangGraph Platform: a FastAPI + Postgres backend for running AI agents. Users are kept apart by filtering every query on the caller's `user_id`, so a BOLA here is any route that forgets that filter (or lets the request override it). The known ones in v0.9.6:
+
+- **Runs on another user's thread** - `POST /threads/{thread_id}/runs` (and `/stream`, `/wait`). The run endpoints never checked who owns the thread, so anyone with a victim's `thread_id` could run on it, read its full state and write into its history. [CVE-2026-44504 / GHSA-m98r-6667-4wq7](https://github.com/aegra/aegra/security/advisories/GHSA-m98r-6667-4wq7), fixed in 0.9.7.
+- **Store search leaks across users** - `POST /store/items/search` and `POST /store/namespaces`. The user's namespace was matched with an unescaped `LIKE` prefix, so `alice` could read `alice2`'s items, and a user named `%` could read everyone's. [GHSA-q494-8v3j-cp9j](https://github.com/aegra/aegra/security/advisories/GHSA-q494-8v3j-cp9j), fixed in 0.10.8.
+- **Running another user's assistant** - `POST /threads/{thread_id}/runs`. The `assistant_id` from the request was looked up without a `user_id` filter, leaking the assistant's private config (API keys, system prompts) into the run. [PR #424](https://github.com/aegra/aegra/pull/424), fixed in 0.9.22.
+- **Thread ID override in the body** - the run routes and `POST /threads/{thread_id}/state`. A `thread_id` sent inside the request body overrode the one in the URL, giving read/write access to another user's thread state. [PR #431](https://github.com/aegra/aegra/pull/431), fixed in 0.9.22.
+
+The last two were fixed in PRs without a formal advisory, but the vulnerable code is present in v0.9.6.
+
+#### dvws-node (Node.js / Express)
+
+dvws-node ("Damn Vulnerable Web Services") is a deliberately vulnerable app for practicing API security testing, with REST, GraphQL, SOAP and XML-RPC interfaces. Each vulnerability is a numbered challenge in its [CHALLENGES.md](https://github.com/snoopysecurity/dvws-node/blob/master/CHALLENGES.md). The BOLA ones:
+
+- **#15 IDOR** - `GET/PUT/DELETE /api/v2/notes/:noteId`. Notes have sequential IDs and no ownership check, so any logged-in user can read, edit or delete anyone's private notes.
+- **#19 Horizontal access control** - `GET /api/v2/passphrase/:username` (no auth at all) and the notes endpoint above: users can read other users' data.
+- **#33 GraphQL access control** - `POST /graphql`, resolvers `readNote`, `userFindbyId` and `userSearchByUsername`. Any valid token can read any user's notes and user record, including the password hash.
+- **#39 Account recovery IDOR chain** - `POST /api/v2/account-recovery/lookup` then `/reset`. The lookup turns an email into a `userId`, and the reset accepts any `userId` with no proof of ownership - full account takeover.
+- **#53 Support ticket IDOR** - `GET /api/v2/support/tickets/:id`. It checks that the ticket exists, not who owns it. The IDs are UUIDs, but one leaks in another user's notifications - a nice reminder that an unguessable ID is not authorization.
+
+The file has more access-control challenges (admin functions open to regular users, mass assignment of the `admin` flag), but those are function-level rather than object-level, so we don't count them as BOLAs.
+
+#### RailsGoat (Ruby / Rails)
+
+[RailsGoat](https://github.com/OWASP/railsgoat) is OWASP's deliberately vulnerable Rails app - an HR/payroll portal for a fictional company - with a [wiki](https://github.com/OWASP/railsgoat/wiki) tutorial for each bug. The documented object-level bugs:
+
+- **Work info IDOR** ([wiki: A4 Insecure Direct Object Reference](https://github.com/OWASP/railsgoat/wiki/A4-Insecure-Direct-Object-Reference)) - `GET /users/:user_id/work_info`. The `user_id` from the URL is never compared to the logged-in user, so you can read any employee's work info, including their SSN.
+- **Account settings IDOR** - `PATCH /users/:id`. The user to update is taken from the request body (in a SQL-injectable query, which is what the wiki tutorial focuses on), so you can overwrite another user's email or password - including the admin's.
+
+Again, RailsGoat's admin filter bypass and mass-assignment bugs are filed under broken access control, but they aren't object-level, so we don't count them. Reading the source also turns up a few BOLA-like bugs the wiki doesn't mention (e.g. reading or deleting other users' messages via `/users/:user_id/messages/:id`). They're not part of the official ground truth, but they're a good reminder that a finding missing from a repo's docs isn't automatically a false positive.
 
 Adding a test repo to the benchmark is simple: we pin a specific version of the repo (so results are reproducible), write down the list of known BOLAs as the expected findings, run the scanner on it, and compare what it found against the expected list.
 
 And then we run our scanner on all three and see we are almost perfect on them. Amazing.
+
+<img src='/img/test_results_bola.png' />
 
 ### Source code and results
 
