@@ -1,4 +1,5 @@
 $errors = $mongo.collection('errors')
+mongo_expire_after($errors, 7.days.to_i) # keep one week
 
 module Helpers
   def log_e(err, data = {})  
@@ -19,7 +20,8 @@ error do
   # self-heal a stale Mongo topology (e.g. dead monitor threads) instead of failing until restart
   ($mongo.reconnect rescue nil) if e.is_a?(Mongo::Error::NoServerAvailable)
   log_e(e)
-  data = {msg: "an error occurred", e: e.to_s}
+  send_error_alert(e)
+  data ={msg: "an error occurred", e: e.to_s}
   data[:backtrace] = e.backtrace.to_a.slice(0,4).to_s unless $prod
   return data if request_expects_json?
   error_page(500, 'Something broke', "That one's on me. The error has been logged.")

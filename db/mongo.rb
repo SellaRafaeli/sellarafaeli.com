@@ -16,6 +16,18 @@ class Mongo::Client; def collection(name) database.collection(name); end; end # 
 
 $mongo_data = {}
 
+# Mongo deletes docs from `coll` once their created_at is older than `seconds` (TTL index; its cleanup runs about once a minute).
+# A plain created_at index (or one with a different TTL) is replaced, since Mongo won't create a second index on the same key.
+def mongo_expire_after(coll, seconds)
+  existing = (coll.indexes.find { |i| i['key'] == {'created_at' => 1} } rescue nil) # listing fails if the collection doesn't exist yet
+  return if existing && existing['expireAfterSeconds'] == seconds
+  coll.indexes.drop_one(existing['name']) if existing
+  coll.indexes.create_one({created_at: 1}, expire_after: seconds)
+rescue => e
+  puts "TTL index error on #{coll.name}: #{e}"
+end
+
+
 def get_regex(v)
   Regexp.new(v, Regexp::IGNORECASE)
 end
