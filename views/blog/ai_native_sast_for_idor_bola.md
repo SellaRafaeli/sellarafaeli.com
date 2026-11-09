@@ -1,5 +1,9 @@
 <!-- {"created_at": "2026-11-09"} -->
-## Hunting BOLAs with AI SAST
+## AI-native SAST for IDOR/BOLA
+
+> <small><em>AI summary</em></small>
+>
+> **TL;DR:** We're AI-native cybersecurity researchers, working with Variablee (an Israeli frontier AI security research lab), building the world standard in SAST for IDOR/BOLA: bugs where user A can read or change user B's private data. Our scanner maps every route in a codebase, traces each route's call graph to collect just the code that handles its auth and data access, and has an LLM judge each route for broken object-level authorization. Each route's context is small, so it scales to large codebases. On our benchmark of known-vulnerable apps in Python, Node.js and Ruby it catches 17 of 18 known BOLAs; the one miss is a GraphQL resolver, which we don't trace yet. The code and up-to-date results are on [GitHub](https://github.com/SellaRafaeli/ai_sast).
 
 ### What we're building
 
@@ -74,7 +78,7 @@ We started with three repos, one per language - Python, Node.js and Ruby. Two of
 #### each framework test details 
 
 <details markdown="1">
-<summary>aegra v0.9.6 (Python / FastAPI)</summary>
+<summary>aegra v0.9.6 (Python / FastAPI) <small><em>· AI-generated</em></small></summary>
 
 aegra is an open-source alternative to LangGraph Platform: a FastAPI + Postgres backend for running AI agents. Users are kept apart by filtering every query on the caller's `user_id`, so a BOLA here is any route that forgets that filter (or lets the request override it). The known ones in v0.9.6:
 
@@ -88,7 +92,7 @@ The last two were fixed in PRs without a formal advisory, but the vulnerable cod
 </details>
 
 <details markdown="1">
-<summary>dvws-node (Node.js / Express)</summary>
+<summary>dvws-node (Node.js / Express) <small><em>· AI-generated</em></small></summary>
 
 dvws-node ("Damn Vulnerable Web Services") is a deliberately vulnerable app for practicing API security testing, with REST, GraphQL, SOAP and XML-RPC interfaces. Each vulnerability is a numbered challenge in its [CHALLENGES.md](https://github.com/snoopysecurity/dvws-node/blob/master/CHALLENGES.md). The BOLA ones:
 
@@ -103,7 +107,7 @@ The file has more access-control challenges (admin functions open to regular use
 </details>
 
 <details markdown="1">
-<summary>RailsGoat (Ruby / Rails)</summary>
+<summary>RailsGoat (Ruby / Rails) <small><em>· AI-generated</em></small></summary>
 
 [RailsGoat](https://github.com/OWASP/railsgoat) is OWASP's deliberately vulnerable Rails app - an HR/payroll portal for a fictional company - with a [wiki](https://github.com/OWASP/railsgoat/wiki) tutorial for each bug. The documented object-level bugs:
 
@@ -123,4 +127,4 @@ And then we run our scanner on all three and see we are almost perfect on them. 
 
 ### Source code and results
 
-You can see the full source code and up-to-date test results in our [GitHub](https://github.com/SellaRafaeli/ai_sast)
+See the full source code and up-to-date test results in our [GitHub](https://github.com/SellaRafaeli/ai_sast).

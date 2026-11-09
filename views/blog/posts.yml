@@ -10,9 +10,9 @@
 # Posts in views/blog/ that are not listed here are still reachable by URL,
 # they just don't appear in the index or feed (drafts, etc.).
 
-- title: Hunting BOLAs with AI SAST
+- title: AI-native SAST for IDOR/BOLA
   date: '2026-11-09'
-  slug: ai_sast_for_bolas
+  slug: ai_native_sast_for_idor_bola
 - title: Back to the Blog
   date: '2026-10-14'
   slug: back_to_the_blog

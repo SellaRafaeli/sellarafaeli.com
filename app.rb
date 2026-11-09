@@ -113,6 +113,11 @@ get '/blog/feed.xml' do
   blog_feed_xml
 end
 
+# Renamed posts: old URL -> new slug
+get '/blog/ai_sast_for_bolas' do
+  redirect '/blog/ai_native_sast_for_idor_bola', 301
+end
+
 get '/blog/:id' do
   blog_post_page(pr[:id])
 end
