@@ -3,11 +3,11 @@
 
 > <small><em>AI summary</em></small>
 >
-> **TL;DR:** We're AI-native cybersecurity researchers, working with Variablee (an Israeli frontier AI security research lab), building the world standard in SAST for IDOR/BOLA: bugs where user A can read or change user B's private data. Our scanner maps every route in a codebase, traces each route's call graph to collect just the code that handles its auth and data access, and has an LLM judge each route for broken object-level authorization. Each route's context is small, so it scales to large codebases. On our benchmark of known-vulnerable apps in Python, Node.js and Ruby it catches 17 of 18 known BOLAs; the one miss is a GraphQL resolver, which we don't trace yet. The code and up-to-date results are on [GitHub](https://github.com/SellaRafaeli/ai_sast).
+> **TL;DR:** We're AI-native cybersecurity researchers, working with [Variablee](https://variablee.com/) (an Israeli frontier AI security research lab), building the world standard in SAST for IDOR/BOLA: bugs where user A can read or change user B's private data. Our scanner maps every route in a codebase, traces each route's call graph to collect just the code that handles its auth and data access, and has an LLM judge each route for broken object-level authorization. Each route's context is small, so it scales to large codebases. On our benchmark of known-vulnerable apps in Python, Node.js and Ruby it catches 17 of 18 known BOLAs; the one miss is a GraphQL resolver, which we don't trace yet. The code and up-to-date results are on [GitHub](https://github.com/SellaRafaeli/ai_sast).
 
 ### What we're building
 
-Over the last few months I've been working together with the team at Variablee (an Israeli frontier AI Security research lab) on an AI SAST program specifically targeting IDOR/BOLA weaknesses in large web apps.
+Over the last few months I've been working together with the team at [Variablee](https://variablee.com/) (an Israeli frontier AI Security research lab) on an AI SAST program specifically targeting IDOR/BOLA weaknesses in large web apps.
 
 ### What is a BOLA?
 
