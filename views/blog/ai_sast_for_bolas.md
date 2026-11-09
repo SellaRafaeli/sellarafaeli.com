@@ -1,7 +1,7 @@
 <!-- {"created_at": "2026-11-09"} -->
 ## Hunting BOLAs with AI SAST
 
-Over the last few months I've been working together with the team at Variablee (a frontier research lab) on an AI SAST program specifically targeting IDOR/BOLA weaknesses in large web apps.
+Over the last few months I've been working together with the team at Variablee (an Israeli frontier Cyber AI research lab) on an AI SAST program specifically targeting IDOR/BOLA weaknesses in large web apps.
 
 IDOR (Insecure Direct Object Reference) and BOLA (Broken Object Level Authorization, same name but specifically for web APIs) is one of the main web weaknesses and one that is very easy to explain to muggles: it's when there is a bug in the code (broken authorization) that allows user A to fetch a private object/private data that belongs to user B. It's basically one of the most classic bugs, that obviously worries data owners (and CISOs) very much (imagine if another user could fetch your bank details, emails, social media messages, etc).
 
