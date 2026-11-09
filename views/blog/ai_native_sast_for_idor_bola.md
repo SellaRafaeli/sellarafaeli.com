@@ -1,9 +1,14 @@
+<style>
+	.prose blockquote { font-weight: bold; font-style: inherit; }
+</style>
 <!-- {"created_at": "2026-11-09"} -->
-## AI-native SAST for IDOR/BOLA
+### Abstract
+> Broken object-level authorization (BOLA), including insecure direct object references (IDOR), allows users to read or modify objects they are unauthorized to access. We present an AI-based static application security testing (SAST) method for detecting these vulnerabilities in large web application codebases as well as benchmark test apps. 
 
-> <small><em>AI summary</em></small>
->
-> **TL;DR:** We're AI-native cybersecurity researchers, working with [Variablee](https://variablee.com/) (an Israeli frontier AI security research lab), building the world standard in SAST for IDOR/BOLA: bugs where user A can read or change user B's private data. Our scanner maps every route in a codebase, traces each route's call graph to collect just the code that handles its auth and data access, and has an LLM judge each route for broken object-level authorization. Each route's context is small, so it scales to large codebases. On our benchmark of known-vulnerable apps in Python, Node.js and Ruby it catches 17 of 18 known BOLAs; the one miss is a GraphQL resolver, which we don't trace yet. The code and up-to-date results are on [GitHub](https://github.com/SellaRafaeli/ai_sast).
+> The method uses a polyglot parser and scanner to construct a compact, route-specific context that captures relevant code paths and authorization logic. A large language model then evaluates each route independently for missing or ineffective object-level authorization. This design bounds the amount of source code presented to the model for each route.
+
+> We also maintain a benchmark of applications written in Python, Ruby, and Node.js to support comparison of AI-based BOLA detection tools. In our current evaluation, the scanner detected 17 of 18 known vulnerabilities (94.4% recall). The missed vulnerability occurred in a GraphQL resolver, which the current implementation does not trace. This paper describes the context construction and route analysis methods, the benchmark, and the current limitations. Code, tests and results are available on [GitHub](https://github.com/SellaRafaeli/ai_sast).
+
 
 ### What we're building
 
@@ -54,7 +59,10 @@ To build this context, we traverse the list of files and make a map of which met
 
 Phrased differently, then, we recursively parse the codebase (along with a map of the symbols defined in each file, which we build ahead of time) and ask at each iteration what the next batch of methods+files can be invoked, and so we build the tree.
 
-(example of a trace, a JSON containing the data):
+
+Each route 'trace' includes all the children callees as well as the relevant (auth-related) source code itself, which we will later pass to the LLM.
+
+<a href='https://raw.githubusercontent.com/SellaRafaeli/ai_sast/refs/heads/master/trace.json' target=_blank><b>Example trace file </b></a>
 <img src='/img/example_from_trace.png' />
 
 ### Judging each route with the LLM
