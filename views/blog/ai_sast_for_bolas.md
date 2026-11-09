@@ -71,7 +71,10 @@ We started with three repos, one per language - Python, Node.js and Ruby. Two of
 | [dvws-node](https://github.com/snoopysecurity/dvws-node) | Node.js / Express | Deliberately vulnerable web services app | CHALLENGES.md #15, #19, #33, #39, #53 |
 | [RailsGoat](https://github.com/OWASP/railsgoat) | Ruby / Rails | OWASP's deliberately vulnerable Rails app | Wiki: A4 IDOR (work info), IDOR in account settings update |
 
-#### aegra v0.9.6 (Python / FastAPI)
+#### each framework test details 
+
+<details markdown="1">
+<summary>aegra v0.9.6 (Python / FastAPI)</summary>
 
 aegra is an open-source alternative to LangGraph Platform: a FastAPI + Postgres backend for running AI agents. Users are kept apart by filtering every query on the caller's `user_id`, so a BOLA here is any route that forgets that filter (or lets the request override it). The known ones in v0.9.6:
 
@@ -82,7 +85,10 @@ aegra is an open-source alternative to LangGraph Platform: a FastAPI + Postgres 
 
 The last two were fixed in PRs without a formal advisory, but the vulnerable code is present in v0.9.6.
 
-#### dvws-node (Node.js / Express)
+</details>
+
+<details markdown="1">
+<summary>dvws-node (Node.js / Express)</summary>
 
 dvws-node ("Damn Vulnerable Web Services") is a deliberately vulnerable app for practicing API security testing, with REST, GraphQL, SOAP and XML-RPC interfaces. Each vulnerability is a numbered challenge in its [CHALLENGES.md](https://github.com/snoopysecurity/dvws-node/blob/master/CHALLENGES.md). The BOLA ones:
 
@@ -94,7 +100,10 @@ dvws-node ("Damn Vulnerable Web Services") is a deliberately vulnerable app for 
 
 The file has more access-control challenges (admin functions open to regular users, mass assignment of the `admin` flag), but those are function-level rather than object-level, so we don't count them as BOLAs.
 
-#### RailsGoat (Ruby / Rails)
+</details>
+
+<details markdown="1">
+<summary>RailsGoat (Ruby / Rails)</summary>
 
 [RailsGoat](https://github.com/OWASP/railsgoat) is OWASP's deliberately vulnerable Rails app - an HR/payroll portal for a fictional company - with a [wiki](https://github.com/OWASP/railsgoat/wiki) tutorial for each bug. The documented object-level bugs:
 
@@ -103,6 +112,9 @@ The file has more access-control challenges (admin functions open to regular use
 
 Again, RailsGoat's admin filter bypass and mass-assignment bugs are filed under broken access control, but they aren't object-level, so we don't count them. Reading the source also turns up a few BOLA-like bugs the wiki doesn't mention (e.g. reading or deleting other users' messages via `/users/:user_id/messages/:id`). They're not part of the official ground truth, but they're a good reminder that a finding missing from a repo's docs isn't automatically a false positive.
 
+</details>
+
+<br/>
 Adding a test repo to the benchmark is simple: we pin a specific version of the repo (so results are reproducible), write down the list of known BOLAs as the expected findings, run the scanner on it, and compare what it found against the expected list.
 
 And then we run our scanner on all three and see we are almost perfect on them. Amazing.
